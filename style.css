@@ -16,7 +16,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 html {
   scroll-behavior: smooth;
 }
@@ -70,6 +69,96 @@ nav {
 
 .nav-links a:hover {
   color: var(--accent2);
+}
+
+/* ── HAMBURGER ── */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text);
+  transition: all 0.3s;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── HAMBURGER MENU ── */
+.hamburger-menu {
+  position: fixed;
+  top: 65px;
+  right: 0;
+  width: 280px;
+  background: rgba(10, 10, 15, 0.97);
+  border-left: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem;
+  z-index: 99;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+.hamburger-menu.open {
+  transform: translateX(0);
+}
+
+.hamburger-menu ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.menu-link {
+  display: block;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.6rem 0.75rem;
+  border-radius: 4px;
+  transition:
+    color 0.2s,
+    background 0.2s;
+}
+
+.menu-link:hover {
+  color: var(--accent2);
+  background: var(--bg-hover);
+}
+
+.menu-comp {
+  color: var(--accent);
+  font-size: 0.8rem;
+}
+
+.menu-comp:hover {
+  color: var(--accent2);
+}
+
+.menu-separator {
+  height: 1px;
+  background: var(--border);
+  margin: 0.75rem 0;
 }
 
 /* ── HERO ── */
@@ -145,6 +234,7 @@ nav {
   flex-wrap: wrap;
 }
 
+/* ── BUTTONS ── */
 .btn {
   padding: 0.85rem 2rem;
   border-radius: 4px;
@@ -162,7 +252,6 @@ nav {
   background: var(--accent);
   color: #fff;
 }
-
 .btn-primary:hover {
   background: #5a52e0;
   transform: translateY(-2px);
@@ -272,12 +361,10 @@ section {
   border-color: var(--accent);
   transform: translateY(-4px);
 }
-
 .skill-icon {
   font-size: 1.5rem;
   margin-bottom: 0.75rem;
 }
-
 .skill-name {
   font-weight: 600;
   margin-bottom: 0.5rem;
@@ -289,11 +376,22 @@ section {
   border-radius: 2px;
   overflow: hidden;
 }
-
 .skill-level-bar {
   height: 100%;
   background: var(--accent2);
   border-radius: 2px;
+}
+
+/* ── COMPETENCES ── */
+.competences {
+  border-top: 1px solid var(--border);
+}
+
+.competence-desc {
+  color: var(--text-muted);
+  max-width: 700px;
+  line-height: 1.9;
+  font-size: 1rem;
 }
 
 /* ── PROJECTS ── */
@@ -385,37 +483,4 @@ footer {
   color: var(--text-muted);
   font-size: 0.85rem;
   font-family: "Space Mono", monospace;
-}
-
-/* ── RESPONSIVE ── */
-@media (max-width: 768px) {
-  nav {
-    padding: 1rem 1.5rem;
-  }
-
-  .nav-links {
-    display: none;
-  }
-
-  .hero,
-  section {
-    padding: 2rem 1.5rem;
-  }
-
-  .hero {
-    padding-top: 6rem;
-    min-height: auto;
-  }
-
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  footer {
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 1.5rem;
-    text-align: center;
-  }
 }

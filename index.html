@@ -10,13 +10,54 @@
     <!-- NAV -->
     <nav>
       <a href="#" class="nav-logo">ES_</a>
-      <ul class="nav-links">
+      <ul class="nav-links" id="nav-links">
         <li><a href="#about">À propos</a></li>
         <li><a href="#skills">Compétences</a></li>
         <li><a href="#projects">Projets</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </nav>
+
+    <!-- MENU HAMBURGER -->
+    <div class="hamburger-menu" id="hamburger-menu">
+      <ul>
+        <li>
+          <a href="competence-1.html" class="menu-link menu-comp"
+            >Compétence 1</a
+          >
+        </li>
+        <li>
+          <a href="competence-2.html" class="menu-link menu-comp"
+            >Compétence 2</a
+          >
+        </li>
+        <li>
+          <a href="competence-3.html" class="menu-link menu-comp"
+            >Compétence 3</a
+          >
+        </li>
+        <li>
+          <a href="competence-4.html" class="menu-link menu-comp"
+            >Compétence 4</a
+          >
+        </li>
+        <li>
+          <a href="competence-5.html" class="menu-link menu-comp"
+            >Compétence 5</a
+          >
+        </li>
+        <li>
+          <a href="competence-6.html" class="menu-link menu-comp"
+            >Compétence 6</a
+          >
+        </li>
+      </ul>
+    </div>
 
     <!-- HERO -->
     <section class="hero">
@@ -141,7 +182,6 @@
             <span class="tag">GitHub Actions</span>
           </div>
         </div>
-
         <div class="project-card">
           <p class="project-tag">Application</p>
           <h3 class="project-title">Projet BUT — À compléter</h3>
@@ -154,7 +194,6 @@
             <span class="tag">SQL</span>
           </div>
         </div>
-
         <div class="project-card">
           <p class="project-tag">Script</p>
           <h3 class="project-title">Projet Personnel — À compléter</h3>
@@ -187,5 +226,22 @@
       <span>© 2026 Ethan Stasse</span>
       <span>BUT Informatique</span>
     </footer>
+
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const menu = document.getElementById("hamburger-menu");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("open");
+        menu.classList.toggle("open");
+      });
+
+      menu.querySelectorAll(".menu-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("open");
+          menu.classList.remove("open");
+        });
+      });
+    </script>
   </body>
 </html>
