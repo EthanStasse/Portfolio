@@ -3,14 +3,252 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Compétence 3 — Portfolio</title>
+    <title>Compétence 3 — Ethan Stasse</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <a href="index.html" class="nav-logo">ACCUEIL</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">À propos</a></li>
+        <li><a href="index.html#skills">Compétences</a></li>
+        <li><a href="index.html#projects">Projets</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+
+    <!-- MENU HAMBURGER -->
+    <div class="hamburger-menu" id="hamburger-menu">
+      <ul>
+        <li>
+          <a href="competence-1.html" class="menu-link menu-comp"
+            >Compétence 1</a
+          >
+        </li>
+        <li>
+          <a href="competence-2.html" class="menu-link menu-comp"
+            >Compétence 2</a
+          >
+        </li>
+        <li>
+          <a href="competence-3.html" class="menu-link menu-comp active-comp"
+            >Compétence 3</a
+          >
+        </li>
+        <li>
+          <a href="competence-4.html" class="menu-link menu-comp"
+            >Compétence 4</a
+          >
+        </li>
+        <li>
+          <a href="competence-5.html" class="menu-link menu-comp"
+            >Compétence 5</a
+          >
+        </li>
+        <li>
+          <a href="competence-6.html" class="menu-link menu-comp"
+            >Compétence 6</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-grid"></div>
+      <div class="hero-content">
+        <p class="hero-tag">BUT Informatique — SAÉ Systèmes</p>
+        <h1>Compétence<br /><span>3</span></h1>
+        <p class="hero-desc">
+          Administrer des systèmes informatiques communicants complexes. Mise en
+          œuvre à travers la conception d'un mini-shell en C.
+        </p>
+        <div class="hero-cta">
+          <a href="#sae" class="btn btn-primary">Voir la SAÉ</a>
+          <a href="#analyse" class="btn btn-outline">Mon analyse</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAE -->
+    <section class="comp-section" id="sae">
+      <p class="section-label">SAÉ — Systèmes</p>
+      <h2 class="section-title">Mini-Shell en C</h2>
+      <p class="comp-text">
+        Cette SAÉ consistait à développer un interpréteur de commandes (shell)
+        en langage C, capable de gérer des commandes simples, des redirections
+        d'entrée/sortie et des pipes. Le projet s'appuie sur un parseur lexical
+        fourni et une architecture de processus UNIX.
+      </p>
+
+      <div class="comp-cards">
+        <div class="comp-card">
+          <div class="comp-card-icon">⚙️</div>
+          <h3>Fonctionnalités</h3>
+          <ul class="comp-list">
+            <li>Prompt dynamique <code>hostname:cwd$</code></li>
+            <li>Commandes simples avec arguments</li>
+            <li>Builtins <code>cd</code> et <code>set</code></li>
+            <li>
+              Redirections <code>&lt;</code> <code>&gt;</code>
+              <code>&gt;&gt;</code>
+            </li>
+            <li>Pipe <code>|</code> entre deux commandes</li>
+            <li>Gestion des guillemets</li>
+          </ul>
+        </div>
+        <div class="comp-card">
+          <div class="comp-card-icon">🛠️</div>
+          <h3>Technologies</h3>
+          <ul class="comp-list">
+            <li>Langage C (C99)</li>
+            <li>
+              Appels système : <code>fork</code>, <code>execvp</code>,
+              <code>waitpid</code>
+            </li>
+            <li>
+              Redirections : <code>dup2</code>, <code>open</code>,
+              <code>pipe</code>
+            </li>
+            <li>Compilation : <code>gcc -Wall -Wextra -O2</code></li>
+            <li>Environnement Linux / UNIX</li>
+          </ul>
+        </div>
+        <div class="comp-card">
+          <div class="comp-card-icon">🧪</div>
+          <h3>Tests réalisés</h3>
+          <ul class="comp-list">
+            <li>
+              Commandes simples : <code>echo</code>, <code>pwd</code>,
+              <code>ls</code>
+            </li>
+            <li>Builtin <code>cd</code> avec chemin invalide</li>
+            <li>Builtin <code>set</code> pour variables d'env</li>
+            <li>
+              Redirections <code>&gt;</code>, <code>&gt;&gt;</code>,
+              <code>&lt;</code>
+            </li>
+            <li>Pipe : <code>ls | wc -l</code></li>
+            <li>Gestion d'erreurs (fichier absent, etc.)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRACE -->
+    <section class="comp-section comp-dark" id="trace">
+      <p class="section-label">Trace</p>
+      <h2 class="section-title">Extrait du code</h2>
+      <p class="comp-text">
+        Voici la fonction principale de gestion du pipe, qui illustre
+        l'utilisation de <code>fork</code>, <code>pipe</code> et
+        <code>dup2</code> pour connecter deux processus.
+      </p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">C</span>
+          <span>exec_pipe — minishell.c</span>
+        </div>
+        <pre><code>static int exec_pipe(char *argvL[], char *argvR[]){
+  int pfd[2];
+  pid_t left, right;
+
+  if (pipe(pfd) &lt; 0){ perror("pipe"); return -1; }
+
+  left = fork();
+  if (left == 0){
+    dup2(pfd[1], STDOUT_FILENO);
+    close(pfd[0]); close(pfd[1]);
+    execvp(argvL[0], argvL);
+    _exit(127);
+  }
+
+  right = fork();
+  if (right == 0){
+    dup2(pfd[0], STDIN_FILENO);
+    close(pfd[0]); close(pfd[1]);
+    execvp(argvR[0], argvR);
+    _exit(127);
+  }
+
+  close(pfd[0]); close(pfd[1]);
+  waitpid(left, NULL, 0);
+  waitpid(right, NULL, 0);
+  return 0;
+}</code></pre>
+      </div>
+    </section>
+
+    <!-- ANALYSE -->
+    <section class="comp-section" id="analyse">
+      <p class="section-label">Analyse personnelle</p>
+      <h2 class="section-title">Retour sur la SAÉ</h2>
+
+      <div class="analyse-grid">
+        <div class="analyse-card">
+          <h3>📚 Ressources mobilisées</h3>
+          <p>
+            J'ai utilisé les cours de systèmes d'exploitation (appels système
+            UNIX), ainsi que la documentation man de <code>fork</code>,
+            <code>execvp</code> et <code>dup2</code>. J'ai également consulté
+            des ressources en ligne sur la gestion des processus en C.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>💪 Points forts</h3>
+          <p>
+            La gestion des redirections et du pipe m'a permis de bien comprendre
+            le mécanisme de descripteurs de fichiers sous UNIX. J'ai réussi à
+            implémenter l'ensemble des fonctionnalités demandées avec une
+            gestion propre des erreurs.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>⚠️ Points à améliorer</h3>
+          <p>
+            La gestion des pipes multiples (chaînes de plus de 2 commandes)
+            n'est pas supportée. Si c'était à refaire, je structurerais le code
+            de façon récursive pour permettre des pipes en cascade.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>🎯 Objectifs à venir</h3>
+          <p>
+            Approfondir la gestion des signaux (<code>SIGINT</code>,
+            <code>SIGCHLD</code>), implémenter les pipes multiples et explorer
+            la gestion des variables d'environnement de manière plus complète.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <span>© 2026 Ethan Stasse</span>
+      <span>BUT Informatique — Compétence 3</span>
+    </footer>
+
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const menu = document.getElementById("hamburger-menu");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("open");
+        menu.classList.toggle("open");
+      });
+
+      menu.querySelectorAll(".menu-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("open");
+          menu.classList.remove("open");
+        });
+      });
+    </script>
+  </body>
 </html>
-<section class="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-content">
-    <h1>Compétence3<br /><span>A faire</span></h1>
-  </div>
-</section>
