@@ -3,14 +3,228 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Compétence 1 — Portfolio</title>
+    <title>Compétence 1 — Ethan Stasse</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <a href="index.html" class="nav-logo">ACCUEIL</a>
+      <ul class="nav-links"></ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+
+    <!-- MENU HAMBURGER -->
+    <div class="hamburger-menu" id="hamburger-menu">
+      <ul>
+        <li>
+          <a href="competence-1.html" class="menu-link menu-comp active-comp"
+            >Compétence 1</a
+          >
+        </li>
+        <li>
+          <a href="competence-2.html" class="menu-link menu-comp"
+            >Compétence 2</a
+          >
+        </li>
+        <li>
+          <a href="competence-3.html" class="menu-link menu-comp"
+            >Compétence 3</a
+          >
+        </li>
+        <li>
+          <a href="competence-4.html" class="menu-link menu-comp"
+            >Compétence 4</a
+          >
+        </li>
+        <li>
+          <a href="competence-5.html" class="menu-link menu-comp"
+            >Compétence 5</a
+          >
+        </li>
+        <li>
+          <a href="competence-6.html" class="menu-link menu-comp"
+            >Compétence 6</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-grid"></div>
+      <div class="hero-content">
+        <p class="hero-tag">BUT Informatique — SAÉ Développement Web</p>
+        <h1>Compétence<br /><span>1</span></h1>
+        <p class="hero-desc">
+          Réaliser un développement d'application. Mise en œuvre à travers la
+          conception d'une application web de gestion électorale — Coup de
+          Sifflet.
+        </p>
+        <div class="hero-cta">
+          <a href="#sae" class="btn btn-primary">Voir la SAÉ</a>
+          <a href="#analyse" class="btn btn-outline">Mon analyse</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAE -->
+    <section class="comp-section" id="sae">
+      <p class="section-label">SAÉ 2025/2026 — Développement Web</p>
+      <h2 class="section-title">Coup de Sifflet</h2>
+      <p class="comp-text">
+        Cette SAÉ consistait à développer une application web de gestion
+        électorale permettant d'organiser et de superviser un processus de vote
+        en ligne dans un contexte sportif — l'élection d'une équipe européenne.
+        Le projet intègre des exigences de fiabilité, de sécurité et de
+        conformité juridique (RGPD, propriété intellectuelle).
+      </p>
+
+      <div class="comp-cards">
+        <div class="comp-card">
+          <div class="comp-card-icon">⚙️</div>
+          <h3>Fonctionnalités</h3>
+          <ul class="comp-list">
+            <li>Inscription et authentification des électeurs</li>
+            <li>Gestion des rôles (électeur / administrateur)</li>
+            <li>Système de vote en ligne sécurisé</li>
+            <li>Anonymat du vote (séparation identité / bulletin)</li>
+            <li>Unicité et impossibilité de modification du vote</li>
+            <li>Publication des résultats à la clôture du scrutin</li>
+          </ul>
+        </div>
+        <div class="comp-card">
+          <div class="comp-card-icon">🛠️</div>
+          <h3>Technologies</h3>
+          <ul class="comp-list">
+            <li>Application web (HTML, CSS, JavaScript)</li>
+            <li>Backend avec base de données relationnelle</li>
+            <li>Requêtes SQL sécurisées</li>
+            <li>Hachage des mots de passe</li>
+            <li>Gestion des accès par rôles</li>
+            <li>Conformité RGPD et loi Informatique et Libertés</li>
+          </ul>
+        </div>
+        <div class="comp-card">
+          <div class="comp-card-icon">⚖️</div>
+          <h3>Cadre juridique</h3>
+          <ul class="comp-list">
+            <li>RGPD — Règlement (UE) 2016/679</li>
+            <li>Loi Informatique et Libertés n°78-17</li>
+            <li>Code de la propriété intellectuelle (CPI)</li>
+            <li>Recommandations ANSSI</li>
+            <li>Mentions légales et CGU intégrées</li>
+            <li>Minimisation des données collectées</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRACE -->
+    <section class="comp-section comp-dark" id="trace">
+      <p class="section-label">Trace</p>
+      <h2 class="section-title">Extrait du rapport juridique</h2>
+      <p class="comp-text">
+        Dans le cadre de cette SAÉ, nous avons produit un rapport juridique
+        analysant les obligations légales liées au développement d'un système de
+        vote en ligne. Voici un extrait des risques identifiés et des solutions
+        mises en place.
+      </p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JURIDIQUE</span>
+          <span>Tableau des risques — Coup de Sifflet</span>
+        </div>
+        <pre><code>Risque : Atteinte au secret du vote
+→ Séparation stricte identité / bulletin de vote
+→ Utilisation de jetons anonymes
+
+Risque : Manipulation des résultats
+→ Accès restreint aux fonctionnalités admin
+→ Requêtes SQL sécurisées
+→ Vote immuable une fois soumis
+
+Risque : Non-conformité au RGPD
+→ Collecte limitée aux données nécessaires
+→ Hachage des mots de passe
+→ Minimisation et confidentialité des données
+
+Risque : Panne du service
+→ Hébergement sur serveur stable
+→ Sauvegardes régulières de la base de données</code></pre>
+      </div>
+    </section>
+
+    <!-- ANALYSE -->
+    <section class="comp-section" id="analyse">
+      <p class="section-label">Analyse personnelle</p>
+      <h2 class="section-title">Retour sur la SAÉ</h2>
+
+      <div class="analyse-grid">
+        <div class="analyse-card">
+          <h3>📚 Ressources mobilisées</h3>
+          <p>
+            J'ai mobilisé les cours de développement web, de bases de données et
+            de droit du numérique. J'ai également consulté la documentation
+            officielle du RGPD, les recommandations de la CNIL et les guides de
+            l'ANSSI pour la sécurisation des applications web.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>💪 Points forts</h3>
+          <p>
+            La réflexion juridique menée en parallèle du développement m'a
+            permis de mieux comprendre les enjeux réels d'une application
+            traitant des données personnelles. La séparation identité / bulletin
+            de vote est une solution technique et juridique solide.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>⚠️ Points à améliorer</h3>
+          <p>
+            La mise en œuvre technique de certaines mesures de sécurité
+            (chiffrement bout en bout, tokens anonymes) pourrait être
+            approfondie. Si c'était à refaire, j'intégrerais ces contraintes dès
+            la phase de conception.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>🎯 Objectifs à venir</h3>
+          <p>
+            Approfondir mes connaissances en sécurité applicative web
+            (injections SQL, XSS, CSRF), mieux maîtriser les bonnes pratiques
+            RGPD dans le développement et explorer des frameworks sécurisés pour
+            les applications critiques.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <span>© 2026 Ethan Stasse</span>
+      <span>BUT Informatique — Compétence 1</span>
+    </footer>
+
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const menu = document.getElementById("hamburger-menu");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("open");
+        menu.classList.toggle("open");
+      });
+
+      menu.querySelectorAll(".menu-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("open");
+          menu.classList.remove("open");
+        });
+      });
+    </script>
+  </body>
 </html>
-<section class="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-content">
-    <h1>Compétence1<br /><span>A faire</span></h1>
-  </div>
-</section>
