@@ -3,14 +3,369 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Compétence 2 — Portfolio</title>
+    <title>Compétence 2 — Ethan Stasse</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <a href="index.html" class="nav-logo">ACCUEIL</a>
+      <ul class="nav-links"></ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+
+    <!-- MENU HAMBURGER -->
+    <div class="hamburger-menu" id="hamburger-menu">
+      <ul>
+        <li>
+          <a href="competence-1.html" class="menu-link menu-comp"
+            >Compétence 1</a
+          >
+        </li>
+        <li>
+          <a href="competence-2.html" class="menu-link menu-comp active-comp"
+            >Compétence 2</a
+          >
+        </li>
+        <li>
+          <a href="competence-3.html" class="menu-link menu-comp"
+            >Compétence 3</a
+          >
+        </li>
+        <li>
+          <a href="competence-4.html" class="menu-link menu-comp"
+            >Compétence 4</a
+          >
+        </li>
+        <li>
+          <a href="competence-5.html" class="menu-link menu-comp"
+            >Compétence 5</a
+          >
+        </li>
+        <li>
+          <a href="competence-6.html" class="menu-link menu-comp"
+            >Compétence 6</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-grid"></div>
+      <div class="hero-content">
+        <p class="hero-tag">BUT Informatique — SAÉ Cryptographie</p>
+        <h1>
+          Compétence<br />
+          <span>2</span>
+        </h1>
+        <p class="hero-desc">
+          Développer et évaluer une démarche de sécurité. Mise en œuvre à
+          travers une étude d’attaque cryptographique sur RSA (méthode de
+          Wiener) et analyse des conséquences d’un mauvais choix de paramètres.
+        </p>
+        <div class="hero-cta">
+          <a href="#sae" class="btn btn-primary">Voir la SAÉ</a>
+          <a href="#analyse" class="btn btn-outline">Mon analyse</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAE -->
+    <section class="comp-section" id="sae">
+      <p class="section-label">SAÉ — Cryptographie</p>
+      <h2 class="section-title">Cryptanalyse RSA — Méthode de Wiener</h2>
+      <p class="comp-text">
+        Cette SAÉ (R3.09) étudie une attaque théorique contre RSA lorsque
+        l’exposant privé <code>d</code> est trop petit. L’objectif est de
+        retrouver la clé privée à partir de la clé publique en utilisant des
+        fractions continues, puis de valider le résultat par déchiffrement.
+      </p>
+
+      <div class="comp-cards">
+        <div class="comp-card">
+          <div class="comp-card-icon">🧠</div>
+          <h3>Principe de l’attaque</h3>
+          <ul class="comp-list">
+            <li>
+              Conditions de vulnérabilité : <code>d < 1/3 · n^(1/4)</code>
+            </li>
+            <li>Exploitation de la relation <code>c·d − k·φ(n) = 1</code></li>
+            <li>
+              Calcul de <code>c/n</code> en fraction continue pour obtenir des
+              convergents <code>k/d</code>
+            </li>
+            <li>
+              Test des convergents : <code>φ = (c·d − 1)/k</code> entier et
+              discriminant <code>Δ = s² − 4n</code> carré parfait
+            </li>
+            <li>
+              Déduction de <code>p</code> et <code>q</code> puis reconstruction
+              de la clé privée
+            </li>
+          </ul>
+        </div>
+
+        <div class="comp-card">
+          <div class="comp-card-icon">📐</div>
+          <h3>Étapes réalisées</h3>
+          <ul class="comp-list">
+            <li>Deux jeux de données complets (clés + message chiffré)</li>
+            <li>Fraction continue et convergents successifs</li>
+            <li>Validation du premier convergent « candidat »</li>
+            <li>Calcul de <code>s = n − φ(n) + 1</code> et <code>√Δ</code></li>
+            <li>Vérification <code>p·q = n</code> et déchiffrement RSA</li>
+          </ul>
+        </div>
+
+        <div class="comp-card">
+          <div class="comp-card-icon">🔐</div>
+          <h3>Pourquoi c’est important</h3>
+          <ul class="comp-list">
+            <li>
+              La sécurité RSA ne dépend pas uniquement de la taille de
+              <code>n</code>
+              mais aussi du choix des paramètres
+            </li>
+            <li>
+              Un <code>d</code> mal choisi peut permettre de retrouver la clé
+              privée sans factorisation exhaustive
+            </li>
+            <li>
+              Illustration concrète : même une clé « valide » peut être
+              attaquable si les contraintes sont ignorées
+            </li>
+            <li>Base solide pour des pratiques de configuration défensive</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRACE -->
+    <section class="comp-section comp-dark" id="trace">
+      <p class="section-label">Trace</p>
+      <h2 class="section-title">Extrait : test de Wiener</h2>
+      <p class="comp-text">
+        Exemple de la logique utilisée : on cherche un convergent
+        <code>k/d</code> tel que <code>φ(n) = (c·d − 1)/k</code> soit entier,
+        puis on vérifie que le discriminant <code>Δ = s² − 4n</code> est un
+        carré parfait (avec <code>s = n − φ(n) + 1</code>).
+      </p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">MATH</span>
+          <span>Critère de validation</span>
+        </div>
+        <pre>
+<code>1) Tester chaque convergent k/d
+2) Calculer : φ = (c·d − 1) / k
+3) Condition : φ entier
+4) Calculer s = n − φ + 1
+5) Discriminant : Δ = s² − 4n
+6) Condition : Δ carré parfait
+7) En déduire p et q, puis d</code>
+        </pre>
+      </div>
+    </section>
+    <section class="comp-section" id="analyse">
+      <p class="section-label">Analyse personnelle</p>
+      <h2 class="section-title">Retour sur la SAÉ</h2>
+
+      <div class="analyse-grid">
+        <!-- SAÉ CRYPTOGRAPHIE -->
+        <div class="analyse-card">
+          <h3>🔐 SAÉ Cryptographie (RSA / Wiener)</h3>
+          <p>
+            J’ai travaillé la méthode de Wiener pour retrouver la clé privée
+            lorsque l’exposant privé <code>d</code> est trop petit. La force de
+            la démarche est la validation systématique via
+            <code>φ(n) = (c·d − 1)/k</code> (entier) puis via le discriminant
+            <code>Δ = s² − 4n</code> (carré parfait) avant de déduire
+            <code>p</code> et <code>q</code>.
+          </p>
+        </div>
+
+        <div class="analyse-card">
+          <h3>📌 Points forts (Wiener)</h3>
+          <p>
+            Le sujet m’a obligé à être rigoureux dans l’enchaînement des calculs
+            (fractions continues → convergents → test). J’ai aussi apprécié que
+            l’attaque soit « vérifiable » : une fois <code>p</code> et
+            <code>q</code> trouvés, le déchiffrement valide le résultat.
+          </p>
+        </div>
+
+        <div class="analyse-card">
+          <h3>⚠️ À améliorer (Wiener)</h3>
+          <p>
+            Le risque d’erreur est élevé sur la manipulation des convergents et
+            des conditions de validation. Si c’était à refaire, je mettrais en
+            place un tableau plus complet (convergents, valeur de
+            <code>k</code>, <code>d</code>, calcul de <code>φ</code> et raison
+            de rejet/acceptation).
+          </p>
+        </div>
+
+        <div class="analyse-card">
+          <h3>🎯 Objectifs (Wiener)</h3>
+          <p>
+            Je veux aller plus loin sur les autres faiblesses de paramètres RSA
+            (exposant public trop faible, structure de clé, problèmes de
+            génération) et mieux structurer une approche défensive pour éviter
+            ces cas vulnérables dès la conception.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAE PROBABILITÉS (R3.08) -->
+    <section class="comp-section" id="sae-probabilites">
+      <p class="section-label">SAÉ — Probabilités</p>
+      <h2 class="section-title">Étude du surbooking (probabilités)</h2>
+      <p class="comp-text">
+        En parallèle, la SAÉ R3.08 (probabilités) modélise le surbooking d’un
+        club de voile. L’idée est d’anticiper les absences grâce à une variable
+        aléatoire binomiale, puis d’évaluer le compromis entre recettes
+        (accepter plus de réservations) et coûts (dédommager en cas de client en
+        trop).
+      </p>
+
+      <div class="comp-cards">
+        <div class="comp-card">
+          <div class="comp-card-icon">🎲</div>
+          <h3>Modélisation</h3>
+          <ul class="comp-list">
+            <li>
+              Une variable aléatoire <code>X</code> représente le nombre de
+              clients qui se présentent.
+            </li>
+            <li>
+              <code>X</code> suit une loi binomiale avec <code>p</code> =
+              probabilité de présence et <code>n</code> = nombre de
+              réservations.
+            </li>
+            <li><code>m</code> correspond au nombre de bateaux disponibles.</li>
+            <li>Le risque de sous-utilisation : <code>P(X \le m-1)</code></li>
+            <li>Le risque de surbooking : <code>P(X \ge m+1)</code></li>
+          </ul>
+        </div>
+
+        <div class="comp-card">
+          <div class="comp-card-icon">💰</div>
+          <h3>Recette attendue</h3>
+          <ul class="comp-list">
+            <li>
+              Sans surbooking : la recette dépend du nombre de bateaux loués,
+              avec <code>E(X)</code> et <code>R</code> estimés.
+            </li>
+            <li>
+              Avec surbooking : la recette moyenne intègre les remboursements
+              (si des bateaux restent vides) et les dédommagements (si
+              <code>X > m</code>).
+            </li>
+            <li>
+              Objectif : trouver <code>n₀</code> (nombre de réservations
+              optimal) qui maximise l’espérance de la recette <code>E(R)</code>.
+            </li>
+            <li>
+              Les résultats sont obtenus par loi binomiale puis comparés à
+              l’approximation normale.
+            </li>
+          </ul>
+        </div>
+
+        <div class="comp-card">
+          <div class="comp-card-icon">📈</div>
+          <h3>Résultats / intérêt</h3>
+          <ul class="comp-list">
+            <li>Montrer que surbooker un peu peut augmenter les bénéfices.</li>
+            <li>
+              Mettre en évidence qu’un surbooking excessif devient
+              contre-productif à cause des coûts de dédommagement.
+            </li>
+            <li>
+              Vérifier la cohérence des approximations (binomiale vs normale).
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ANALYSE -->
+    <section class="comp-section" id="analyse">
+      <p class="section-label">Analyse personnelle</p>
+      <h2 class="section-title">Retour sur la SAÉ</h2>
+
+      <div class="analyse-grid">
+        <!-- SAÉ PROBABILITÉS -->
+        <div class="analyse-card">
+          <h3>🎲 SAÉ Probabilités (surbooking)</h3>
+          <p>
+            J’ai modélisé le nombre de clients qui se présentent avec une loi
+            binomiale, puis j’ai évalué le compromis entre sous-utilisation et
+            surbooking. L’objectif final est de trouver un nombre de
+            réservations optimal <code>n₀</code> qui maximise la recette
+            moyenne, en intégrant le coût des dédommagements quand
+            <code>X > m</code>.
+          </p>
+        </div>
+
+        <div class="analyse-card">
+          <h3>📌 Points forts (surbooking)</h3>
+          <p>
+            J’ai apprécié la comparaison entre la loi binomiale et son
+            approximation par la loi normale : cela permet de valider la
+            cohérence des résultats et d’expliquer pourquoi, pour des valeurs
+            suffisamment grandes, la normale devient une bonne estimation.
+          </p>
+        </div>
+
+        <div class="analyse-card">
+          <h3>⚠️ À améliorer (surbooking)</h3>
+          <p>
+            La difficulté principale est d’interpréter correctement les
+            événements (sous-utilisation vs surbooking) et de bien intégrer la
+            formule de recette moyenne avec les termes de remboursements et de
+            dédommagements.
+          </p>
+        </div>
+
+        <div class="analyse-card">
+          <h3>🎯 Objectifs (surbooking)</h3>
+          <p>
+            Prochaines étapes : rendre l’analyse plus « décisionnelle » (choix
+            du seuil optimal selon le coût réel du dédommagement) et automatiser
+            les calculs/graphes pour tester rapidement plusieurs scénarios.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <span>© 2026 Ethan Stasse</span>
+      <span>BUT Informatique — Compétence 2</span>
+    </footer>
+
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const menu = document.getElementById("hamburger-menu");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("open");
+        menu.classList.toggle("open");
+      });
+
+      menu.querySelectorAll(".menu-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("open");
+          menu.classList.remove("open");
+        });
+      });
+    </script>
+  </body>
 </html>
-<section class="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-content">
-    <h1>Compétence2<br /><span>A faire</span></h1>
-  </div>
-</section>
