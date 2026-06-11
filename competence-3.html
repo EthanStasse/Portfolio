@@ -10,12 +10,7 @@
     <!-- NAV -->
     <nav>
       <a href="index.html" class="nav-logo">ACCUEIL</a>
-      <ul class="nav-links">
-        <!-- <li><a href="index.html#about">À propos</a></li>
-        <li><a href="index.html#skills">Compétences</a></li>
-        <li><a href="index.html#projects">Projets</a></li>
-         <li><a href="index.html#contact">Contact</a></li> -->
-      </ul>
+      <ul class="nav-links"></ul>
       <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span>
         <span></span>
@@ -63,20 +58,17 @@
     <section class="hero">
       <div class="hero-grid"></div>
       <div class="hero-content">
-        <p class="hero-tag">BUT Informatique — SAÉ Systèmes</p>
+        <p class="hero-tag">BUT Informatique</p>
         <h1>Compétence<br /><span>3</span></h1>
-        <p class="hero-desc">
-          Administrer des systèmes informatiques communicants complexes. Mise en
-          œuvre à travers la conception d'un mini-shell en C.
-        </p>
+        <p class="hero-desc">Administrer.</p>
         <div class="hero-cta">
-          <a href="#sae" class="btn btn-primary">Voir la SAÉ</a>
+          <a href="#sae" class="btn btn-primary">Voir les SAÉ</a>
           <a href="#analyse" class="btn btn-outline">Mon analyse</a>
         </div>
       </div>
     </section>
 
-    <!-- SAE -->
+    <!-- SAE MINI-SHELL -->
     <section class="comp-section" id="sae">
       <p class="section-label">SAÉ — Systèmes</p>
       <h2 class="section-title">Mini-Shell en C</h2>
@@ -141,10 +133,10 @@
       </div>
     </section>
 
-    <!-- TRACE -->
+    <!-- TRACE MINI-SHELL -->
     <section class="comp-section comp-dark" id="trace">
       <p class="section-label">Trace</p>
-      <h2 class="section-title">Extrait du code</h2>
+      <h2 class="section-title">Extrait du code — Mini-Shell</h2>
       <p class="comp-text">
         Voici la fonction principale de gestion du pipe, qui illustre
         l'utilisation de <code>fork</code>, <code>pipe</code> et
@@ -185,19 +177,30 @@
       </div>
     </section>
 
-    <!-- ANALYSE -->
+    <!-- ANALYSE MINI-SHELL -->
     <section class="comp-section" id="analyse">
       <p class="section-label">Analyse personnelle</p>
-      <h2 class="section-title">Retour sur la SAÉ</h2>
+      <h2 class="section-title">Retour sur la SAÉ Mini-Shell</h2>
 
       <div class="analyse-grid">
+        <div class="analyse-card">
+          <h3>🖥️ SAÉ Mini-Shell (C / UNIX)</h3>
+          <p>
+            J'ai développé un interpréteur de commandes en C capable de gérer
+            des commandes simples, des redirections et des pipes. La partie la
+            plus formatrice a été l'implémentation de <code>exec_pipe</code>,
+            qui m'a obligé à maîtriser la gestion des descripteurs de fichiers
+            et la synchronisation de processus avec <code>waitpid</code>.
+          </p>
+        </div>
         <div class="analyse-card">
           <h3>📚 Ressources mobilisées</h3>
           <p>
             J'ai utilisé les cours de systèmes d'exploitation (appels système
-            UNIX), ainsi que la documentation man de <code>fork</code>,
-            <code>execvp</code> et <code>dup2</code>. J'ai également consulté
-            des ressources en ligne sur la gestion des processus en C.
+            UNIX), ainsi que la documentation <code>man</code> de
+            <code>fork</code>, <code>execvp</code> et <code>dup2</code>. J'ai
+            également consulté des ressources en ligne sur la gestion des
+            processus en C.
           </p>
         </div>
         <div class="analyse-card">
@@ -223,6 +226,150 @@
             Approfondir la gestion des signaux (<code>SIGINT</code>,
             <code>SIGCHLD</code>), implémenter les pipes multiples et explorer
             la gestion des variables d'environnement de manière plus complète.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAE SÉCURISATION -->
+    <section class="comp-section" id="sae-securisation">
+      <p class="section-label">SAÉ — Sécurisation</p>
+      <h2 class="section-title">Déploiement et sécurisation d'un site web</h2>
+      <p class="comp-text">
+        Cette SAÉ consistait à déployer un site web sur un environnement Linux
+        avec un serveur Apache 2, initialement accessible en HTTP, puis à
+        sécuriser les communications en configurant HTTPS via SSL/TLS avec des
+        certificats générés manuellement à l'aide d'OpenSSL.
+      </p>
+
+      <div class="comp-cards">
+        <div class="comp-card">
+          <div class="comp-card-icon">🌐</div>
+          <h3>Environnement technique</h3>
+          <ul class="comp-list">
+            <li>Ubuntu 25.10 + navigateur Firefox</li>
+            <li>Serveur web Apache 2</li>
+            <li>Stack LAMP (Linux, Apache, MySQL, PHP)</li>
+            <li>Génération de certificats avec OpenSSL</li>
+            <li>Déploiement via hôte virtuel (VirtualHost)</li>
+          </ul>
+        </div>
+        <div class="comp-card">
+          <div class="comp-card-icon">🔒</div>
+          <h3>Sécurisation HTTPS</h3>
+          <ul class="comp-list">
+            <li>Activation du module SSL Apache (<code>a2enmod ssl</code>)</li>
+            <li>Génération clé privée RSA + certificat auto-signé</li>
+            <li>Configuration VirtualHost port 443</li>
+            <li>Redirection permanente HTTP → HTTPS</li>
+            <li>Chiffrement SSL/TLS des échanges client-serveur</li>
+          </ul>
+        </div>
+        <div class="comp-card">
+          <div class="comp-card-icon">📋</div>
+          <h3>Résultats obtenus</h3>
+          <ul class="comp-list">
+            <li>Site accessible via <code>https://sae3.local</code></li>
+            <li>Connexion chiffrée active (SSL/TLS)</li>
+            <li>Redirection automatique depuis HTTP</li>
+            <li>Avertissement navigateur (certificat auto-signé attendu)</li>
+            <li>
+              Compréhension du rôle des fichiers <code>.key</code> et
+              <code>.crt</code>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRACE SÉCURISATION -->
+    <section class="comp-section comp-dark" id="trace-securisation">
+      <p class="section-label">Trace</p>
+      <h2 class="section-title">Extrait — Configuration HTTPS</h2>
+      <p class="comp-text">
+        Voici la configuration du VirtualHost HTTPS sur le port 443, associant
+        le certificat SSL et la clé privée générés avec OpenSSL, ainsi que la
+        redirection permanente depuis le port 80.
+      </p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">APACHE</span>
+          <span>sae3-ssl.conf</span>
+        </div>
+        <pre><code>&lt;VirtualHost *:443&gt;
+  ServerName sae3.local
+  DocumentRoot /var/www/sae3/public
+  &lt;Directory /var/www/sae3/public&gt;
+    Require all granted
+    AllowOverride All
+    DirectoryIndex index.php index.html
+    Options -Indexes
+  &lt;/Directory&gt;
+  SSLEngine on
+  SSLCertificateFile     /etc/ssl/sae3/sae3.crt
+  SSLCertificateKeyFile  /etc/ssl/sae3/sae3.key
+  ErrorLog  ${APACHE_LOG_DIR}/sae3_ssl_error.log
+  CustomLog ${APACHE_LOG_DIR}/sae3_ssl_access.log combined
+&lt;/VirtualHost&gt;
+
+&lt;VirtualHost *:80&gt;
+  ServerName sae3.local
+  Redirect permanent / https://sae3.local/
+&lt;/VirtualHost&gt;</code></pre>
+      </div>
+    </section>
+
+    <!-- ANALYSE SÉCURISATION -->
+    <section class="comp-section" id="analyse-securisation">
+      <p class="section-label">Analyse personnelle</p>
+      <h2 class="section-title">Retour sur la SAÉ Sécurisation</h2>
+
+      <div class="analyse-grid">
+        <div class="analyse-card">
+          <h3>🔐 SAÉ Sécurisation (Apache / HTTPS)</h3>
+          <p>
+            J'ai déployé un site web sur Apache sous Linux et mis en place une
+            connexion HTTPS en générant manuellement des certificats SSL avec
+            OpenSSL. Cette SAÉ m'a permis de comprendre concrètement pourquoi
+            HTTP seul est insuffisant et comment SSL/TLS garantit la
+            confidentialité et l'intégrité des échanges.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>📚 Ressources mobilisées</h3>
+          <p>
+            J'ai mobilisé les cours de réseaux et de systèmes (protocoles
+            HTTP/HTTPS, fonctionnement de SSL/TLS), la documentation Apache et
+            les pages de manuel d'OpenSSL pour la génération des certificats et
+            la configuration du VirtualHost.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>💪 Points forts</h3>
+          <p>
+            La génération manuelle des certificats avec OpenSSL m'a donné une
+            compréhension réelle du rôle de la clé privée et du certificat
+            public. La mise en place de la redirection HTTP vers HTTPS et la
+            configuration du VirtualHost ont été réalisées proprement et
+            fonctionnent correctement.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>⚠️ Points à améliorer</h3>
+          <p>
+            Le certificat auto-signé provoque un avertissement dans le
+            navigateur, ce qui limite la crédibilité en production. Si c'était à
+            refaire, j'explorerais l'utilisation de Let's Encrypt pour obtenir
+            un certificat reconnu par les autorités de certification.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>🎯 Objectifs à venir</h3>
+          <p>
+            Approfondir la configuration de sécurité Apache (en-têtes HTTP de
+            sécurité, désactivation des protocoles obsolètes TLS 1.0/1.1),
+            explorer Let's Encrypt pour des certificats signés, et étudier la
+            mise en place d'un pare-feu applicatif (WAF).
           </p>
         </div>
       </div>
