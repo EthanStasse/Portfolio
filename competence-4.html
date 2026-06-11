@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Compétence 4 — Portfolio</title>
+    <title>Compétence 4 — Ethan Stasse</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -59,26 +59,167 @@
       <div class="hero-grid"></div>
       <div class="hero-content">
         <p class="hero-tag">BUT Informatique</p>
-        <h1>
-          Compétence<br />
-          <span>4</span>
-        </h1>
+        <h1>Compétence<br /><span>4</span></h1>
         <p class="hero-desc">Gérer.</p>
         <div class="hero-cta">
-          <a href="#sae-probabilites" class="btn btn-primary">Voir la SAÉ</a>
-          <a href="#analyse" class="btn btn-outline">Mon analyse</a>
+          <a href="#sae-web" class="btn btn-primary">Voir les SAÉ</a>
+          <a href="#analyse-web" class="btn btn-outline">Mon analyse</a>
         </div>
       </div>
     </section>
 
-    <!-- COPIE — PROBABILITÉS -->
+    <!-- SAE WEB — COUP DE SIFFLET -->
+    <section class="comp-section" id="sae-web">
+      <p class="section-label">SAÉ — Application Web</p>
+      <h2 class="section-title">
+        Coup de Sifflet — Plateforme de vote européenne
+      </h2>
+      <p class="comp-text">
+        Cette SAÉ consistait à concevoir et développer une application web de
+        vote en ligne autour d'équipes de football européennes. L'application
+        gère des scrutins avec périodes de validité, un mécanisme de vote unique
+        par jeton, et des accès différenciés selon les rôles (visiteur,
+        électeur, administrateur).
+      </p>
+
+      <div class="comp-cards">
+        <div class="comp-card">
+          <div class="comp-card-icon">🗳️</div>
+          <h3>Fonctionnalités</h3>
+          <ul class="comp-list">
+            <li>Création et gestion de scrutins par l'administrateur</li>
+            <li>Vote unique via jeton de participation</li>
+            <li>Carte interactive de sélection des pays/équipes</li>
+            <li>Résultats (classement + graphique) après clôture</li>
+            <li>Commentaires publics après clôture du scrutin</li>
+            <li>
+              Redirection automatique selon statut (planifié/ouvert/fermé)
+            </li>
+          </ul>
+        </div>
+        <div class="comp-card">
+          <div class="comp-card-icon">🛠️</div>
+          <h3>Technologies</h3>
+          <ul class="comp-list">
+            <li>Stack LAMP (Linux, Apache, MySQL, PHP)</li>
+            <li>Architecture MVC (contrôleurs, DAO, vues)</li>
+            <li>PDO avec requêtes préparées (anti-injection SQL)</li>
+            <li>Carte interactive Leaflet / OpenStreetMap</li>
+            <li>Gestion de sessions PHP pour les rôles</li>
+          </ul>
+        </div>
+        <div class="comp-card">
+          <div class="comp-card-icon">🔐</div>
+          <h3>Sécurité & conception</h3>
+          <ul class="comp-list">
+            <li>Jeton unique par électeur et par scrutin</li>
+            <li>Anonymat : identité dissociée du vote</li>
+            <li>Contrôle de session pour l'accès administrateur</li>
+            <li>Principes SOLID appliqués (SRP, OCP, DIP)</li>
+            <li>Diagrammes UML : cas d'utilisation, classes, séquences</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRACE WEB -->
+    <section class="comp-section comp-dark" id="trace-web">
+      <p class="section-label">Trace</p>
+      <h2 class="section-title">
+        Extrait — Architecture DAO & sécurité du vote
+      </h2>
+      <p class="comp-text">
+        L'application repose sur une séparation stricte entre contrôleurs et
+        accès aux données. Voici les méthodes clés de <code>JetonDAO</code>, qui
+        garantissent l'unicité du vote et l'anonymat de l'électeur.
+      </p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">PHP</span>
+          <span>JetonDAO — méthodes principales</span>
+        </div>
+        <pre><code>// Vérifie si l'électeur a déjà voté pour ce scrutin
+hasVotedByElecteurAndScrutin(idElecteur, idScrutin): bool
+
+// Retrouve le jeton d'un électeur pour un scrutin donné
+findTokenByElecteurAndScrutin(idElecteur, idScrutin): ?string
+
+// Enregistre la participation (jeton + scrutin)
+insertParticipation(idElecteur, idScrutin, token): void
+
+// Marque le jeton comme utilisé après le vote
+markParticipationVote(token): void
+
+// Récupère les infos de participation via le jeton
+getParticipationByToken(token): ?array</code></pre>
+      </div>
+    </section>
+
+    <!-- ANALYSE WEB -->
+    <section class="comp-section" id="analyse-web">
+      <p class="section-label">Analyse personnelle</p>
+      <h2 class="section-title">Retour sur la SAÉ Coup de Sifflet</h2>
+
+      <div class="analyse-grid">
+        <div class="analyse-card">
+          <h3>🗳️ SAÉ Web (Coup de Sifflet)</h3>
+          <p>
+            J'ai participé à la conception et au développement d'une application
+            web de vote complète en PHP/MySQL, avec une architecture MVC, une
+            gestion des rôles et un mécanisme de vote sécurisé par jetons. La
+            phase d'analyse UML (cas d'utilisation, diagramme de classes,
+            séquences) a été déterminante pour structurer le projet.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>📚 Ressources mobilisées</h3>
+          <p>
+            J'ai mobilisé les cours de développement web (PHP, SQL, architecture
+            MVC), les cours de conception logicielle (UML, principes SOLID)
+            ainsi que la documentation PDO et la bibliothèque Leaflet pour la
+            carte interactive.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>💪 Points forts</h3>
+          <p>
+            La mise en place du mécanisme de jeton pour garantir l'unicité et
+            l'anonymat du vote est la partie dont je suis le plus satisfait.
+            L'architecture DAO centralisée a rendu le code lisible et facilement
+            maintenable, et les requêtes préparées ont sécurisé l'ensemble des
+            accès à la base de données.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>⚠️ Points à améliorer</h3>
+          <p>
+            La gestion du vote unique et la synchronisation automatique des
+            statuts de scrutin ont été les parties les plus complexes. Si
+            c'était à refaire, j'introduirais des interfaces PHP pour respecter
+            plus strictement le principe d'inversion des dépendances et
+            faciliter les tests unitaires.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>🎯 Objectifs à venir</h3>
+          <p>
+            Approfondir l'injection de dépendances en PHP, ajouter des
+            statistiques plus avancées sur les résultats (évolution des votes
+            dans le temps, répartition géographique) et améliorer l'interface
+            utilisateur avec un framework CSS moderne.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAE PROBABILITÉS -->
     <section class="comp-section" id="sae-probabilites">
       <p class="section-label">SAÉ — Probabilités</p>
       <h2 class="section-title">Étude du surbooking (probabilités)</h2>
       <p class="comp-text">
-        Cette SAÉ R3.08 modélise le surbooking d’un club de voile. L’idée est
-        d’anticiper les absences grâce à une variable aléatoire binomiale, puis
-        d’évaluer le compromis entre recettes (accepter plus de réservations) et
+        Cette SAÉ R3.08 modélise le surbooking d'un club de voile. L'idée est
+        d'anticiper les absences grâce à une variable aléatoire binomiale, puis
+        d'évaluer le compromis entre recettes (accepter plus de réservations) et
         coûts (dédommager en cas de client en trop).
       </p>
 
@@ -97,11 +238,10 @@
               réservations.
             </li>
             <li><code>m</code> correspond au nombre de bateaux disponibles.</li>
-            <li>Le risque de sous-utilisation : <code>P(X \\le m-1)</code></li>
-            <li>Le risque de surbooking : <code>P(X \\ge m+1)</code></li>
+            <li>Le risque de sous-utilisation : <code>P(X ≤ m-1)</code></li>
+            <li>Le risque de surbooking : <code>P(X ≥ m+1)</code></li>
           </ul>
         </div>
-
         <div class="comp-card">
           <div class="comp-card-icon">💰</div>
           <h3>Recette attendue</h3>
@@ -117,22 +257,21 @@
             </li>
             <li>
               Objectif : trouver <code>n₀</code> (nombre de réservations
-              optimal) qui maximise l’espérance de la recette <code>E(R)</code>.
+              optimal) qui maximise l'espérance de la recette <code>E(R)</code>.
             </li>
             <li>
               Les résultats sont obtenus par loi binomiale puis comparés à
-              l’approximation normale.
+              l'approximation normale.
             </li>
           </ul>
         </div>
-
         <div class="comp-card">
           <div class="comp-card-icon">📈</div>
           <h3>Résultats / intérêt</h3>
           <ul class="comp-list">
             <li>Montrer que surbooker un peu peut augmenter les bénéfices.</li>
             <li>
-              Mettre en évidence qu’un surbooking excessif devient
+              Mettre en évidence qu'un surbooking excessif devient
               contre-productif à cause des coûts de dédommagement.
             </li>
             <li>
@@ -143,49 +282,47 @@
       </div>
     </section>
 
-    <section class="comp-section" id="analyse">
+    <!-- ANALYSE PROBABILITÉS -->
+    <section class="comp-section comp-dark" id="analyse-probabilites">
       <p class="section-label">Analyse personnelle</p>
-      <h2 class="section-title">Retour sur la SAÉ</h2>
+      <h2 class="section-title">Retour sur la SAÉ Probabilités</h2>
 
       <div class="analyse-grid">
         <div class="analyse-card">
           <h3>🎲 SAÉ Probabilités (surbooking)</h3>
           <p>
-            J’ai modélisé le nombre de clients qui se présentent avec une loi
-            binomiale, puis j’ai évalué le compromis entre sous-utilisation et
-            surbooking. L’objectif final est de trouver un nombre de
+            J'ai modélisé le nombre de clients qui se présentent avec une loi
+            binomiale, puis j'ai évalué le compromis entre sous-utilisation et
+            surbooking. L'objectif final est de trouver un nombre de
             réservations optimal <code>n₀</code> qui maximise la recette
             moyenne, en intégrant le coût des dédommagements quand
             <code>X > m</code>.
           </p>
         </div>
-
         <div class="analyse-card">
           <h3>📌 Points forts (surbooking)</h3>
           <p>
-            J’ai apprécié la comparaison entre la loi binomiale et son
+            J'ai apprécié la comparaison entre la loi binomiale et son
             approximation par la loi normale : cela permet de valider la
-            cohérence des résultats et d’expliquer pourquoi, pour des valeurs
+            cohérence des résultats et d'expliquer pourquoi, pour des valeurs
             suffisamment grandes, la normale devient une bonne estimation.
           </p>
         </div>
-
         <div class="analyse-card">
           <h3>⚠️ À améliorer (surbooking)</h3>
           <p>
-            La difficulté principale est d’interpréter correctement les
+            La difficulté principale est d'interpréter correctement les
             événements (sous-utilisation vs surbooking) et de bien intégrer la
             formule de recette moyenne avec les termes de remboursements et de
             dédommagements.
           </p>
         </div>
-
         <div class="analyse-card">
           <h3>🎯 Objectifs (surbooking)</h3>
           <p>
-            Prochaines étapes : rendre l’analyse plus « décisionnelle » (choix
-            du seuil optimal selon le coût réel du dédommagement) et automatiser
-            les calculs/graphes pour tester rapidement plusieurs scénarios.
+            Prochaines étapes : rendre l'analyse plus décisionnelle (choix du
+            seuil optimal selon le coût réel du dédommagement) et automatiser
+            les calculs et graphes pour tester rapidement plusieurs scénarios.
           </p>
         </div>
       </div>
