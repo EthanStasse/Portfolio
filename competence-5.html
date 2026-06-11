@@ -3,14 +3,267 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Compétence 5 — Portfolio</title>
+    <title>Compétence 5 — Ethan Stasse</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <a href="index.html" class="nav-logo">ACCUEIL</a>
+      <ul class="nav-links"></ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+
+    <!-- MENU HAMBURGER -->
+    <div class="hamburger-menu" id="hamburger-menu">
+      <ul>
+        <li>
+          <a href="competence-1.html" class="menu-link menu-comp"
+            >Compétence 1</a
+          >
+        </li>
+        <li>
+          <a href="competence-2.html" class="menu-link menu-comp"
+            >Compétence 2</a
+          >
+        </li>
+        <li>
+          <a href="competence-3.html" class="menu-link menu-comp"
+            >Compétence 3</a
+          >
+        </li>
+        <li>
+          <a href="competence-4.html" class="menu-link menu-comp"
+            >Compétence 4</a
+          >
+        </li>
+        <li>
+          <a href="competence-5.html" class="menu-link menu-comp active-comp"
+            >Compétence 5</a
+          >
+        </li>
+        <li>
+          <a href="competence-6.html" class="menu-link menu-comp"
+            >Compétence 6</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-grid"></div>
+      <div class="hero-content">
+        <p class="hero-tag">BUT Informatique — SAÉ Conception Web</p>
+        <h1>Compétence<br /><span>5</span></h1>
+        <p class="hero-desc">Conduire.</p>
+        <div class="hero-cta">
+          <a href="#sae" class="btn btn-primary">Voir la SAÉ</a>
+          <a href="#analyse" class="btn btn-outline">Mon analyse</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAE -->
+    <section class="comp-section" id="sae">
+      <p class="section-label">SAÉ — Conception & Gestion de projet</p>
+      <h2 class="section-title">
+        Coup de Sifflet — Cahier des charges & Qualité
+      </h2>
+      <p class="comp-text">
+        Au-delà du développement de l'application Coup de Sifflet (plateforme de
+        vote européenne sur les équipes de football), cette SAÉ a impliqué une
+        phase complète de conception : rédaction du cahier des charges
+        fonctionnel, modélisation UML, analyse qualité selon ISO/IEC 25010 et
+        mise en place d'une démarche de documentation et de gestion du
+        changement.
+      </p>
+
+      <div class="comp-cards">
+        <div class="comp-card">
+          <div class="comp-card-icon">📋</div>
+          <h3>Cahier des charges</h3>
+          <ul class="comp-list">
+            <li>
+              Contexte client fictif (UEF) et analyse de l'existant (benchmark)
+            </li>
+            <li>
+              Fonctions de service : authentification, vote, gestion scrutin,
+              résultats, commentaires
+            </li>
+            <li>
+              Fonctions contraintes : anonymat, unicité du vote, sécurité,
+              accessibilité
+            </li>
+            <li>Diagramme pieuvre (AFC) avec acteurs et contraintes</li>
+            <li>
+              Périmètre, livrables et organisation en binôme (méthode Agile /
+              Trello)
+            </li>
+          </ul>
+        </div>
+        <div class="comp-card">
+          <div class="comp-card-icon">📐</div>
+          <h3>Modélisation UML</h3>
+          <ul class="comp-list">
+            <li>
+              Diagramme de cas d'utilisation (Visiteur, Électeur,
+              Administrateur, Commission)
+            </li>
+            <li>Diagramme de classes (contrôleurs, DAO, modèles)</li>
+            <li>
+              Diagrammes de séquence : création, modification, consultation,
+              suppression
+            </li>
+            <li>
+              Architecture MVC illustrée par les flux Admin → Affichage →
+              Contrôleur → DAO → Model
+            </li>
+          </ul>
+        </div>
+        <div class="comp-card">
+          <div class="comp-card-icon">✅</div>
+          <h3>Qualité & Documentation</h3>
+          <ul class="comp-list">
+            <li>
+              Analyse ISO/IEC 25010 : adéquation fonctionnelle, performance,
+              sécurité, maintenabilité, portabilité
+            </li>
+            <li>
+              Mesures de sécurité : anti-injection SQL, XSS, CSRF, sessions,
+              HTTPS/HSTS
+            </li>
+            <li>Principes SOLID appliqués au PHP (SRP, OCP, LSP, ISP, DIP)</li>
+            <li>Documentation organisationnelle, technique et utilisateur</li>
+            <li>
+              Gestion du changement : versionnement GitHub, déploiement
+              progressif, support
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRACE -->
+    <section class="comp-section comp-dark" id="trace">
+      <p class="section-label">Trace</p>
+      <h2 class="section-title">
+        Extrait — Fonctions de service et contraintes
+      </h2>
+      <p class="comp-text">
+        Le cahier des charges structure les besoins en fonctions de service (ce
+        que le système doit faire) et en fonctions contraintes (comment il doit
+        le faire). Voici la synthèse des exigences principales formalisées pour
+        Coup de Sifflet.
+      </p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">CDC</span>
+          <span>Fonctions de service & contraintes — Coup de Sifflet</span>
+        </div>
+        <pre><code>Fonctions de service
+FS1 — Authentifier l'électeur      : inscription et connexion sécurisée
+FS2 — Permettre le vote            : vote unique et irréversible
+FS3 — Gérer le scrutin             : ajout, modification, suppression d'équipes
+FS4 — Afficher les résultats       : graphiques automatiques après clôture
+FS5 — Favoriser l'interaction      : forum et commentaires entre électeurs
+
+Fonctions contraintes
+FC1 — Garantir l'anonymat          : séparation stricte identité / vote
+FC2 — Assurer l'unicité du vote    : un seul vote par électeur
+FC3 — Gérer les phases du scrutin  : vote actif uniquement pendant la période
+FC4 — Sécuriser les données        : chiffrement et stockage sécurisé
+FC5 — Assurer l'accessibilité      : interface responsive et ergonomique
+FC6 — Garantir la fiabilité        : sauvegardes, disponibilité, tolérance erreurs
+FC7 — Respecter la charte graphique: thème football, couleurs sobres</code></pre>
+      </div>
+    </section>
+
+    <!-- ANALYSE -->
+    <section class="comp-section" id="analyse">
+      <p class="section-label">Analyse personnelle</p>
+      <h2 class="section-title">Retour sur la SAÉ</h2>
+
+      <div class="analyse-grid">
+        <div class="analyse-card">
+          <h3>📋 SAÉ Conception (Coup de Sifflet)</h3>
+          <p>
+            Cette SAÉ m'a confronté à la dimension amont du développement :
+            formaliser un besoin client, structurer les exigences dans un cahier
+            des charges, modéliser l'architecture en UML et justifier les choix
+            techniques par une démarche qualité. C'est la première fois que j'ai
+            produit un document aussi complet avant d'écrire une seule ligne de
+            code.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>📚 Ressources mobilisées</h3>
+          <p>
+            J'ai mobilisé les cours de génie logiciel (UML, MVC, SOLID), de
+            qualité logicielle (ISO/IEC 25010), de sécurité web (injections SQL,
+            XSS, CSRF) et de gestion de projet (méthode Agile, Trello). La
+            rédaction du cahier des charges m'a également amené à consulter des
+            exemples de benchmarks et de diagrammes pieuvre.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>💪 Points forts</h3>
+          <p>
+            La cohérence entre le cahier des charges, les diagrammes UML et
+            l'implémentation finale est ce qui me satisfait le plus. Chaque
+            choix technique (PDO, jetons, séparation DAO/contrôleur) trouve sa
+            justification dans le CDC ou l'analyse qualité. Le benchmark a
+            également été utile pour positionner clairement la valeur ajoutée de
+            l'application.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>⚠️ Points à améliorer</h3>
+          <p>
+            La rédaction du cahier des charges a été complexe, notamment la
+            formalisation des fonctions contraintes et la construction du
+            diagramme pieuvre. Si c'était à refaire, je rédigerais le CDC en
+            parallèle des premiers sprints de développement plutôt qu'en amont,
+            pour mieux ancrer les exigences dans la réalité du code.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>🎯 Objectifs à venir</h3>
+          <p>
+            Approfondir la rédaction de spécifications techniques (user stories,
+            critères d'acceptation), explorer des outils de modélisation plus
+            avancés (PlantUML, Mermaid), et mettre en place des tests
+            automatisés pour formaliser la démarche qualité au niveau du code.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <span>© 2026 Ethan Stasse</span>
+      <span>BUT Informatique — Compétence 5</span>
+    </footer>
+
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const menu = document.getElementById("hamburger-menu");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("open");
+        menu.classList.toggle("open");
+      });
+
+      menu.querySelectorAll(".menu-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("open");
+          menu.classList.remove("open");
+        });
+      });
+    </script>
+  </body>
 </html>
-<section class="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-content">
-    <h1>Compétence5<br /><span>A faire</span></h1>
-  </div>
-</section>
