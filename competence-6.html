@@ -3,14 +3,232 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Compétence 6 — Portfolio</title>
+    <title>Compétence 6 — Ethan Stasse</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <a href="index.html" class="nav-logo">ACCUEIL</a>
+      <ul class="nav-links"></ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+
+    <!-- MENU HAMBURGER -->
+    <div class="hamburger-menu" id="hamburger-menu">
+      <ul>
+        <li>
+          <a href="competence-1.html" class="menu-link menu-comp"
+            >Compétence 1</a
+          >
+        </li>
+        <li>
+          <a href="competence-2.html" class="menu-link menu-comp"
+            >Compétence 2</a
+          >
+        </li>
+        <li>
+          <a href="competence-3.html" class="menu-link menu-comp"
+            >Compétence 3</a
+          >
+        </li>
+        <li>
+          <a href="competence-4.html" class="menu-link menu-comp"
+            >Compétence 4</a
+          >
+        </li>
+        <li>
+          <a href="competence-5.html" class="menu-link menu-comp"
+            >Compétence 5</a
+          >
+        </li>
+        <li>
+          <a href="competence-6.html" class="menu-link menu-comp active-comp"
+            >Compétence 6</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-grid"></div>
+      <div class="hero-content">
+        <p class="hero-tag">BUT Informatique — SAÉ Communication</p>
+        <h1>Compétence<br /><span>6</span></h1>
+        <p class="hero-desc">Collaborer.</p>
+        <div class="hero-cta">
+          <a href="#sae" class="btn btn-primary">Voir la SAÉ</a>
+          <a href="#analyse" class="btn btn-outline">Mon analyse</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAE -->
+    <section class="comp-section" id="sae">
+      <p class="section-label">SAÉ — Communication visuelle</p>
+      <h2 class="section-title">Affiche promotionnelle — Coup de Sifflet</h2>
+      <p class="comp-text">
+        Dans le cadre du projet Coup de Sifflet, une affiche promotionnelle a
+        été conçue sur Figma pour communiquer autour de l'élection de la
+        meilleure équipe de football européenne. Ce livrable illustre la
+        dimension communication et collaboration du projet, en complément du
+        développement technique.
+      </p>
+
+      <div class="comp-cards">
+        <div class="comp-card">
+          <div class="comp-card-icon">🎨</div>
+          <h3>Conception graphique</h3>
+          <ul class="comp-list">
+            <li>Outil utilisé : Figma</li>
+            <li>Thème visuel : stade de football, trophée, logos de clubs</li>
+            <li>
+              Typographie impactante et lisible (style affiche événementielle)
+            </li>
+            <li>Palette cohérente avec la charte graphique Coup de Sifflet</li>
+            <li>Intégration du logo officiel de l'application</li>
+          </ul>
+        </div>
+        <div class="comp-card">
+          <div class="comp-card-icon">📣</div>
+          <h3>Objectif de communication</h3>
+          <ul class="comp-list">
+            <li>
+              Présenter l'application à un public large (fans, journalistes,
+              professionnels)
+            </li>
+            <li>
+              Mettre en avant les 5 grandes ligues européennes représentées
+            </li>
+            <li>
+              Inciter à participer au scrutin ("Votez pour votre club favori")
+            </li>
+            <li>Renforcer l'identité visuelle du projet Coup de Sifflet</li>
+          </ul>
+        </div>
+        <div class="comp-card">
+          <div class="comp-card-icon">🤝</div>
+          <h3>Travail en équipe</h3>
+          <ul class="comp-list">
+            <li>Réalisation en binôme (Damien Rinaldis & Ethan Stasse)</li>
+            <li>
+              Coordination entre la partie graphique et le développement web
+            </li>
+            <li>
+              Respect de la charte graphique définie dans le cahier des charges
+            </li>
+            <li>Livrable intégré à la soutenance du projet</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRACE -->
+    <section class="comp-section comp-dark" id="trace">
+      <p class="section-label">Trace</p>
+      <h2 class="section-title">Affiche réalisée sur Figma</h2>
+      <p class="comp-text">
+        Affiche promotionnelle conçue pour l'élection de la meilleure équipe de
+        football européenne, mettant en scène les clubs représentés dans
+        l'application et l'identité visuelle Coup de Sifflet.
+      </p>
+      <div style="display: flex; justify-content: center; margin-top: 2rem">
+        <img
+          src="affiche.jpg"
+          alt="Affiche promotionnelle Coup de Sifflet"
+          style="
+            max-width: 420px;
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+          "
+        />
+      </div>
+    </section>
+
+    <!-- ANALYSE -->
+    <section class="comp-section" id="analyse">
+      <p class="section-label">Analyse personnelle</p>
+      <h2 class="section-title">Retour sur la SAÉ</h2>
+
+      <div class="analyse-grid">
+        <div class="analyse-card">
+          <h3>🎨 SAÉ Communication (Figma)</h3>
+          <p>
+            Cette SAÉ m'a amené à travailler sur la dimension visuelle et
+            communicationnelle d'un projet informatique. Concevoir une affiche
+            sur Figma pour Coup de Sifflet m'a permis de comprendre que la
+            qualité d'un projet ne se limite pas au code : la communication
+            autour du produit fait partie intégrante du travail d'équipe.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>📚 Ressources mobilisées</h3>
+          <p>
+            J'ai utilisé Figma pour la conception graphique, en m'appuyant sur
+            les principes de base du design (hiérarchie visuelle, typographie,
+            contrastes, cohérence chromatique). La charte graphique définie dans
+            le cahier des charges a servi de référence pour les choix visuels.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>💪 Points forts</h3>
+          <p>
+            La cohérence entre l'affiche et l'identité visuelle de l'application
+            est satisfaisante : le logo, les couleurs et le ton événementiel
+            donnent une vraie crédibilité au projet. Figma a également facilité
+            la collaboration, en permettant de partager et d'itérer rapidement
+            sur les maquettes.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>⚠️ Points à améliorer</h3>
+          <p>
+            Je maîtrise encore peu les fonctionnalités avancées de Figma
+            (composants, auto-layout, prototypage). Si c'était à refaire,
+            j'utiliserais davantage les composants réutilisables pour gagner en
+            cohérence et en efficacité sur plusieurs formats (affiche, bannière
+            web, miniature réseaux sociaux).
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>🎯 Objectifs à venir</h3>
+          <p>
+            Approfondir Figma (composants, variables de design, prototypage
+            interactif) et explorer les bases du design system pour mieux
+            structurer l'identité visuelle d'un projet web dès la phase de
+            conception.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <span>© 2026 Ethan Stasse</span>
+      <span>BUT Informatique — Compétence 6</span>
+    </footer>
+
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const menu = document.getElementById("hamburger-menu");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("open");
+        menu.classList.toggle("open");
+      });
+
+      menu.querySelectorAll(".menu-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("open");
+          menu.classList.remove("open");
+        });
+      });
+    </script>
+  </body>
 </html>
-<section class="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-content">
-    <h1>Compétence6<br /><span>A faire</span></h1>
-  </div>
-</section>
