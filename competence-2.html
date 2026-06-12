@@ -10,7 +10,11 @@
     <!-- NAV -->
     <nav>
       <a href="index.html" class="nav-logo">ACCUEIL</a>
-      <ul class="nav-links"></ul>
+      <ul class="nav-links">
+        <li><a href="#sae">SAÉ Cryptographie</a></li>
+        <li><a href="#sae-wiener">SAÉ Simplexe</a></li>
+        <li><a href="#sae-automate">SAÉ Automates</a></li>
+      </ul>
       <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span>
         <span></span>
@@ -76,8 +80,8 @@
       <p class="section-label">SAÉ — Cryptographie</p>
       <h2 class="section-title">Cryptanalyse RSA — Méthode de Wiener</h2>
       <p class="comp-text">
-        Cette SAÉ étudie une attaque théorique contre RSA lorsque l’exposant
-        privé <code>d</code> est trop petit. L’objectif est de retrouver la clé
+        Cette SAÉ étudie une attaque théorique contre RSA lorsque l'exposant
+        privé <code>d</code> est trop petit. L'objectif est de retrouver la clé
         privée à partir de la clé publique en utilisant des fractions continues,
         puis de valider le résultat par déchiffrement.
       </p>
@@ -85,10 +89,10 @@
       <div class="comp-cards">
         <div class="comp-card">
           <div class="comp-card-icon">🧠</div>
-          <h3>Principe de l’attaque</h3>
+          <h3>Principe de l'attaque</h3>
           <ul class="comp-list">
             <li>
-              Conditions de vulnérabilité : <code>d < 1/3 · n^(1/4)</code>
+              Conditions de vulnérabilité : <code>d &lt; 1/3 · n^(1/4)</code>
             </li>
             <li>Exploitation de la relation <code>c·d − k·φ(n) = 1</code></li>
             <li>
@@ -120,12 +124,11 @@
 
         <div class="comp-card">
           <div class="comp-card-icon">🔐</div>
-          <h3>Pourquoi c’est important</h3>
+          <h3>Pourquoi c'est important</h3>
           <ul class="comp-list">
             <li>
               La sécurité RSA ne dépend pas uniquement de la taille de
-              <code>n</code>
-              mais aussi du choix des paramètres
+              <code>n</code> mais aussi du choix des paramètres
             </li>
             <li>
               Un <code>d</code> mal choisi peut permettre de retrouver la clé
@@ -156,28 +159,27 @@
           <span class="code-lang">MATH</span>
           <span>Critère de validation</span>
         </div>
-        <pre>
-<code>1) Tester chaque convergent k/d
+        <pre><code>1) Tester chaque convergent k/d
 2) Calculer : φ = (c·d − 1) / k
 3) Condition : φ entier
 4) Calculer s = n − φ + 1
 5) Discriminant : Δ = s² − 4n
 6) Condition : Δ carré parfait
-7) En déduire p et q, puis d</code>
-        </pre>
+7) En déduire p et q, puis d</code></pre>
       </div>
     </section>
+
+    <!-- ANALYSE -->
     <section class="comp-section" id="analyse">
       <p class="section-label">Analyse personnelle</p>
       <h2 class="section-title">Retour sur la SAÉ</h2>
 
       <div class="analyse-grid">
-        <!-- SAÉ CRYPTOGRAPHIE -->
         <div class="analyse-card">
           <h3>🔐 SAÉ Cryptographie (RSA / Wiener)</h3>
           <p>
-            J’ai travaillé la méthode de Wiener pour retrouver la clé privée
-            lorsque l’exposant privé <code>d</code> est trop petit. La force de
+            J'ai travaillé la méthode de Wiener pour retrouver la clé privée
+            lorsque l'exposant privé <code>d</code> est trop petit. La force de
             la démarche est la validation systématique via
             <code>φ(n) = (c·d − 1)/k</code> (entier) puis via le discriminant
             <code>Δ = s² − 4n</code> (carré parfait) avant de déduire
@@ -188,9 +190,9 @@
         <div class="analyse-card">
           <h3>📌 Points forts (Wiener)</h3>
           <p>
-            Le sujet m’a obligé à être rigoureux dans l’enchaînement des calculs
-            (fractions continues → convergents → test). J’ai aussi apprécié que
-            l’attaque soit « vérifiable » : une fois <code>p</code> et
+            Le sujet m'a obligé à être rigoureux dans l'enchaînement des calculs
+            (fractions continues → convergents → test). J'ai aussi apprécié que
+            l'attaque soit « vérifiable » : une fois <code>p</code> et
             <code>q</code> trouvés, le déchiffrement valide le résultat.
           </p>
         </div>
@@ -198,8 +200,8 @@
         <div class="analyse-card">
           <h3>⚠️ À améliorer (Wiener)</h3>
           <p>
-            Le risque d’erreur est élevé sur la manipulation des convergents et
-            des conditions de validation. Si c’était à refaire, je mettrais en
+            Le risque d'erreur est élevé sur la manipulation des convergents et
+            des conditions de validation. Si c'était à refaire, je mettrais en
             place un tableau plus complet (convergents, valeur de
             <code>k</code>, <code>d</code>, calcul de <code>φ</code> et raison
             de rejet/acceptation).
@@ -213,6 +215,300 @@
             (exposant public trop faible, structure de clé, problèmes de
             génération) et mieux structurer une approche défensive pour éviter
             ces cas vulnérables dès la conception.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAE 1 : SIMPLEXE -->
+    <section class="comp-section" id="sae-wiener">
+      <p class="section-label">SAÉ R4.04 — Recherche Opérationnelle</p>
+      <h2 class="section-title">Méthode du Simplexe</h2>
+      <p class="comp-text">
+        Cette SAÉ porte sur la résolution de problèmes d'optimisation linéaire
+        par la méthode du simplexe. L'objectif est de maximiser une fonction
+        économique sous contraintes, en comparant différents critères de choix
+        des variables entrantes : Dantzig (D₁), Augmentation maximale (D₁') et
+        la règle de Bland pour éviter les cycles en cas de dégénérescence.
+      </p>
+
+      <div class="comp-cards">
+        <div class="comp-card">
+          <div class="comp-card-icon">📈</div>
+          <h3>Exercice 1 — Critère D₁ (Dantzig)</h3>
+          <ul class="comp-list">
+            <li>
+              Maximiser <code>Z = 100x₁ + 10x₂ + x₃</code> sous 3 contraintes
+            </li>
+            <li>
+              4 itérations : O(0,0,0) → A(1,0,0) → B(1,80,0) → C(1,80,8200)
+            </li>
+            <li>
+              Le critère D₁ entre d'abord x₁ (coefficient le plus grand = 100)
+            </li>
+            <li>
+              Optimum trouvé : <code>Z = 9 900</code> au point (1, 0, 9 800)
+            </li>
+          </ul>
+        </div>
+        <div class="comp-card">
+          <div class="comp-card-icon">⚡</div>
+          <h3>Exercice 1 — Critère D₁' (Augmentation Max)</h3>
+          <ul class="comp-list">
+            <li>
+              D₁' calcule le gain total <code>ck · δk</code> pour chaque
+              variable candidate
+            </li>
+            <li>
+              x₃ offre le gain maximal (1 × 10 000 = 10 000) → entre en premier
+            </li>
+            <li>1 seule itération : O(0,0,0) → D(0,0,10 000)</li>
+            <li>
+              Optimum : <code>Z = 10 000</code> — meilleur résultat en moins
+              d'étapes
+            </li>
+          </ul>
+        </div>
+        <div class="comp-card">
+          <div class="comp-card-icon">🔄</div>
+          <h3>Exercice 2 — Dégénérescence &amp; Bland</h3>
+          <ul class="comp-list">
+            <li>
+              Problème dégénéré : toutes les constantes <code>b = 0</code>
+            </li>
+            <li>
+              Les trois critères (D₁, D₁', Bland) restent bloqués au sommet
+              O(0,0,0,0)
+            </li>
+            <li>
+              La règle de Bland garantit l'absence de cycles mais ne change pas
+              le résultat ici
+            </li>
+            <li>
+              Conclusion : <code>Zmax = 0</code> au point (0,0,0,0) — problème
+              dégénéré
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRACE SIMPLEXE -->
+    <section class="comp-section comp-dark" id="trace-simplexe">
+      <p class="section-label">Trace</p>
+      <h2 class="section-title">Tableau du simplexe — Comparaison D₁ vs D₁'</h2>
+      <p class="comp-text">
+        L'exercice 1 illustre comment le choix du critère d'entrée impacte le
+        chemin suivi et le résultat final. D₁ suit le coefficient le plus élevé
+        et se retrouve contraint par x₁ = 1 tôt dans l'algorithme, tandis que
+        D₁' identifie x₃ comme le levier optimal dès la première étape.
+      </p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">SIMPLEXE</span>
+          <span>Comparaison D₁ vs D₁' — Exercice 1</span>
+        </div>
+        <pre><code>── Critère D₁ (Dantzig) — 4 étapes ────────────────────────────
+Étape 1 : x₁ entre (coeff 100, max) → e₁ sort → A(1, 0, 0)
+Étape 2 : x₂ entre (coeff 10)       → e₂ sort → B(1, 80, 0)
+Étape 3 : x₃ entre (coeff 1)        → e₃ sort → C(1, 80, 8 200)
+Étape 4 : e₂ entre (coeff 10)       → x₂ sort → Z = 9 900
+
+── Critère D₁' (Augmentation Max) — 1 étape ───────────────────
+Gain x₁ = 100 × 1    =   100
+Gain x₂ = 10  × 100  = 1 000
+Gain x₃ = 1   × 10 000 = 10 000  ← maximum
+Étape 1 : x₃ entre → e₃ sort → D(0, 0, 10 000) → Z = 10 000
+
+Conclusion : D₁' converge plus vite ET atteint un meilleur optimum.</code></pre>
+      </div>
+    </section>
+
+    <!-- SAE 2 : AUTOMATES -->
+    <section class="comp-section" id="sae-automate">
+      <p class="section-label">SAÉ — Automates et Langages</p>
+      <h2 class="section-title">Automates finis — Reconnaissance en base b</h2>
+      <p class="comp-text">
+        Cette SAÉ porte sur la construction d'automates finis reconnaissant les
+        entiers dont la valeur en base <code>b</code> est congrue à
+        <code>k</code> modulo <code>n</code>. La fonction de transition est
+        <code>δ(r, c) = (b·r + c) mod n</code>. Deux jeux de données ont été
+        traités, avec minimisation par la méthode de Nerode.
+      </p>
+
+      <div class="comp-cards">
+        <div class="comp-card">
+          <div class="comp-card-icon">🔢</div>
+          <h3>Jeu 1 — b=6, n=3, k=1</h3>
+          <ul class="comp-list">
+            <li>
+              Alphabet {0,1,2,3,4,5}, états {0,1,2}, état initial 0, état final
+              {1}
+            </li>
+            <li>
+              Simplification : <code>6r ≡ 0 (mod 3)</code> → δ(r,c) = c mod 3
+            </li>
+            <li>
+              Les 3 lignes de transitions sont identiques → automate non minimal
+            </li>
+            <li>
+              Nerode : partition {{0,2},{1}} → automate minimal à
+              <strong>2 états</strong>
+            </li>
+            <li>Langage reconnu : mots se terminant par 1 ou 4 (en base 6)</li>
+          </ul>
+        </div>
+        <div class="comp-card">
+          <div class="comp-card-icon">🔣</div>
+          <h3>Jeu 2 — b=3, n=4, k=1</h3>
+          <ul class="comp-list">
+            <li>
+              Alphabet {0,1,2}, états {0,1,2,3}, état initial 0, état final {1}
+            </li>
+            <li>
+              <code>3 ≡ 3 (mod 4) ≠ 0</code> → les transitions dépendent de
+              l'état courant
+            </li>
+            <li>
+              Automate non simplifié : chaque état a un comportement distinct
+            </li>
+            <li>
+              Nerode : partition {{0},{1},{2},{3}} → automate déjà
+              <strong>minimal à 4 états</strong>
+            </li>
+            <li>Reconnaît les mots dont la valeur en base 3 est ≡ 1 (mod 4)</li>
+          </ul>
+        </div>
+        <div class="comp-card">
+          <div class="comp-card-icon">🧪</div>
+          <h3>Méthodes appliquées</h3>
+          <ul class="comp-list">
+            <li>
+              Construction de la table de transition via
+              <code>δ(r,c) = (b·r+c) mod n</code>
+            </li>
+            <li>
+              Représentation graphique des automates (états, transitions
+              étiquetées)
+            </li>
+            <li>
+              Standardisation : vérification que l'état initial n'est pas final
+            </li>
+            <li>
+              Méthode du départ pour calculer le langage reconnu (expressions
+              régulières)
+            </li>
+            <li>
+              Méthode de Nerode pour vérifier et obtenir l'automate minimal
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRACE AUTOMATES -->
+    <section class="comp-section comp-dark" id="trace-automate">
+      <p class="section-label">Trace</p>
+      <h2 class="section-title">Table de transition — Jeu 1 &amp; Jeu 2</h2>
+      <p class="comp-text">
+        Le jeu 1 présente un cas particulier où la base b est un multiple de n,
+        ce qui simplifie radicalement les transitions. Le jeu 2, en revanche,
+        requiert un calcul complet état par état.
+      </p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">AUTOMATE</span>
+          <span>Tables de transition — Groupe 12</span>
+        </div>
+        <pre><code>── Jeu 1 : δ(r,c) = (6r + c) mod 3 = c mod 3 ──────────────────
+     0  1  2  3  4  5
+→ 0  0  1  2  0  1  2
+  1* 0  1  2  0  1  2   ← état final
+  2  0  1  2  0  1  2
+Toutes les lignes identiques → fusion états 0 et 2 → 2 états
+
+── Jeu 2 : δ(r,c) = (3r + c) mod 4 ────────────────────────────
+     0  1  2
+→ 0  0  1  2
+  1* 3  0  1   ← état final
+  2  2  3  0
+  3  1  2  3
+Lignes toutes différentes → automate déjà minimal
+
+── Automate minimal Jeu 1 (après Nerode) ───────────────────────
+A = {0,2} → initial, non final
+B = {1}   → final
+     0  1  2  3  4  5
+→ A  A  B  A  A  B  A
+  B* A  B  A  A  B  A</code></pre>
+      </div>
+    </section>
+
+    <!-- ANALYSE -->
+    <section class="comp-section" id="analyse">
+      <p class="section-label">Analyse personnelle</p>
+      <h2 class="section-title">Retour sur les SAÉ</h2>
+
+      <div class="analyse-grid">
+        <div class="analyse-card">
+          <h3>📈 SAÉ Simplexe — Ce que j'en retiens</h3>
+          <p>
+            Le point le plus instructif est la comparaison entre D₁ et D₁' :
+            deux critères qui partent du même tableau initial mais aboutissent à
+            des résultats différents. D₁ se retrouve piégé par x₁ = 1 très tôt,
+            tandis que D₁' identifie immédiatement le levier optimal. Cela
+            illustre concrètement l'importance du choix de l'heuristique.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>🔄 Dégénérescence</h3>
+          <p>
+            L'exercice 2 montre qu'un problème peut être techniquement résolu
+            (tous les coefficients de Z deviennent ≤ 0) tout en restant bloqué à
+            Z = 0 à cause de la dégénérescence. Aucun critère ne peut
+            "débloquer" un problème dont le domaine admissible ne contient que
+            le sommet O(0,0,0,0).
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>🔢 SAÉ Automates — Ce que j'en retiens</h3>
+          <p>
+            Le jeu 1 a été une belle surprise : la simplification
+            <code>6r ≡ 0 (mod 3)</code>
+            rend les transitions indépendantes de l'état, ce qui n'est pas
+            intuitif au départ. La méthode de Nerode permet ensuite de le
+            confirmer formellement en fusionnant les états 0 et 2, qui ont
+            exactement le même comportement.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>📚 Ressources mobilisées</h3>
+          <p>
+            Cours de recherche opérationnelle (méthode du simplexe, critères D₁,
+            D₁', Bland), cours d'algorithmique et langages formels (automates
+            finis, méthode de Nerode, expressions régulières). J'ai également
+            relu la preuve du théorème de Bland pour mieux comprendre pourquoi
+            il garantit la terminaison.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>💪 Points forts</h3>
+          <p>
+            La rigueur dans les tableaux du simplexe (opérations L← notées à
+            chaque étape, vérification systématique des pivots) et la démarche
+            complète sur les automates (table de transition, graphe,
+            standardisation, Nerode, langage reconnu) pour les deux jeux de
+            données.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>🎯 Objectifs à venir</h3>
+          <p>
+            Approfondir la méthode du simplexe en deux phases pour les problèmes
+            sans solution de base évidente, et explorer les automates sur des
+            alphabets plus grands. Je veux aussi implémenter ces algorithmes en
+            Python pour mieux visualiser les étapes et automatiser la
+            vérification des tableaux.
           </p>
         </div>
       </div>
