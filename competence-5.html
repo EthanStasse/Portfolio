@@ -10,7 +10,10 @@
     <!-- NAV -->
     <nav>
       <a href="index.html" class="nav-logo">ACCUEIL</a>
-      <ul class="nav-links"></ul>
+      <ul class="nav-links">
+        <li><a href="#sae">SAÉ Coup de Sifflet</a></li>
+        <li><a href="#sae-saecine">SAÉ SAECine</a></li>
+      </ul>
       <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span>
         <span></span>
@@ -62,17 +65,19 @@
         <h1>Compétence<br /><span>5</span></h1>
         <p class="hero-desc">Conduire.</p>
         <div class="hero-cta">
-          <a href="#sae" class="btn btn-primary">Voir la SAÉ</a>
-          <a href="#analyse" class="btn btn-outline">Mon analyse</a>
+          <a href="#sae" class="btn btn-primary">SAÉ Coup de Sifflet</a>
+          <a href="#sae-saecine" class="btn btn-outline">SAÉ SAECine</a>
         </div>
       </div>
     </section>
 
-    <!-- SAE -->
+    <!-- ══════════════════════════════════════════
+         SAÉ 1 — COUP DE SIFFLET
+    ══════════════════════════════════════════ -->
     <section class="comp-section" id="sae">
-      <p class="section-label">SAÉ — Conception & Gestion de projet</p>
+      <p class="section-label">SAÉ — Conception &amp; Gestion de projet</p>
       <h2 class="section-title">
-        Coup de Sifflet — Cahier des charges & Qualité
+        Coup de Sifflet — Cahier des charges &amp; Qualité
       </h2>
       <p class="comp-text">
         Au-delà du développement de l'application Coup de Sifflet (plateforme de
@@ -82,7 +87,6 @@
         mise en place d'une démarche de documentation et de gestion du
         changement.
       </p>
-
       <div class="comp-cards">
         <div class="comp-card">
           <div class="comp-card-icon">📋</div>
@@ -120,18 +124,18 @@
               suppression
             </li>
             <li>
-              Architecture MVC illustrée par les flux Admin → Affichage →
-              Contrôleur → DAO → Model
+              Architecture MVC illustrée : Admin → Affichage → Contrôleur → DAO
+              → Model
             </li>
           </ul>
         </div>
         <div class="comp-card">
           <div class="comp-card-icon">✅</div>
-          <h3>Qualité & Documentation</h3>
+          <h3>Qualité &amp; Documentation</h3>
           <ul class="comp-list">
             <li>
               Analyse ISO/IEC 25010 : adéquation fonctionnelle, performance,
-              sécurité, maintenabilité, portabilité
+              sécurité, maintenabilité
             </li>
             <li>
               Mesures de sécurité : anti-injection SQL, XSS, CSRF, sessions,
@@ -148,7 +152,7 @@
       </div>
     </section>
 
-    <!-- TRACE -->
+    <!-- TRACE COUP DE SIFFLET -->
     <section class="comp-section comp-dark" id="trace">
       <p class="section-label">Trace</p>
       <h2 class="section-title">
@@ -163,7 +167,7 @@
       <div class="code-block">
         <div class="code-header">
           <span class="code-lang">CDC</span>
-          <span>Fonctions de service & contraintes — Coup de Sifflet</span>
+          <span>Fonctions de service &amp; contraintes — Coup de Sifflet</span>
         </div>
         <pre><code>Fonctions de service
 FS1 — Authentifier l'électeur      : inscription et connexion sécurisée
@@ -183,11 +187,10 @@ FC7 — Respecter la charte graphique: thème football, couleurs sobres</code></
       </div>
     </section>
 
-    <!-- ANALYSE -->
+    <!-- ANALYSE COUP DE SIFFLET -->
     <section class="comp-section" id="analyse">
       <p class="section-label">Analyse personnelle</p>
-      <h2 class="section-title">Retour sur la SAÉ</h2>
-
+      <h2 class="section-title">Retour sur la SAÉ Coup de Sifflet</h2>
       <div class="analyse-grid">
         <div class="analyse-card">
           <h3>📋 SAÉ Conception (Coup de Sifflet)</h3>
@@ -238,6 +241,207 @@ FC7 — Respecter la charte graphique: thème football, couleurs sobres</code></
             critères d'acceptation), explorer des outils de modélisation plus
             avancés (PlantUML, Mermaid), et mettre en place des tests
             automatisés pour formaliser la démarche qualité au niveau du code.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         SAÉ 2 — SAECINE (volet Conduire)
+    ══════════════════════════════════════════ -->
+    <section class="comp-section" id="sae-saecine">
+      <p class="section-label">SAÉ4 2025/2026 — Conduite de projet en ESN</p>
+      <h2 class="section-title">
+        SAECine — CDC, Devis &amp; Pilotage de projet
+      </h2>
+      <p class="comp-text">
+        La SAÉ4 a été conduite dans un contexte simulant une prestation
+        professionnelle : notre ESN fictive DCRS Consulting mandatée par le
+        client Gantois Industries. Le volet Conduire recouvre la rédaction du
+        cahier des charges, la proposition commerciale chiffrée, le planning
+        prévisionnel et le suivi des livrables jusqu'à la présentation orale
+        finale.
+      </p>
+      <div class="comp-cards">
+        <div class="comp-card">
+          <div class="comp-card-icon">📋</div>
+          <h3>Cahier des charges</h3>
+          <ul class="comp-list">
+            <li>
+              5 objectifs principaux hiérarchisés par priorité (Critique →
+              Basse)
+            </li>
+            <li>
+              Besoins fonctionnels : gestion utilisateurs, votes, administration
+            </li>
+            <li>
+              Besoins non fonctionnels : performance, sécurité, robustesse,
+              accessibilité RGAA
+            </li>
+            <li>
+              9 critères de validation formalisés (CV1 → CV6 + secondaires)
+            </li>
+            <li>
+              Analyse des risques : probabilité, impact, mesure préventive
+            </li>
+          </ul>
+        </div>
+        <div class="comp-card">
+          <div class="comp-card-icon">💼</div>
+          <h3>Proposition commerciale</h3>
+          <ul class="comp-list">
+            <li>Devis n° DCRS-2026-042 — client : Gantois Industries</li>
+            <li>20,5 jours/homme — TJM 450 € HT (tarif junior)</li>
+            <li>Total HT : 9 225 € — Total TTC : 11 070 €</li>
+            <li>
+              Répartition par prestation et responsable (Rinaldis / Stasse)
+            </li>
+            <li>Conditions : 50 % à la commande, 50 % à la livraison</li>
+          </ul>
+        </div>
+        <div class="comp-card">
+          <div class="comp-card-icon">📅</div>
+          <h3>Planning &amp; livrables</h3>
+          <ul class="comp-list">
+            <li>Phase 1 : audit + CDC + Git — semaine 1 (22 fév. 2026)</li>
+            <li>Phase 2 : corrections sécurité + performances — mars 2026</li>
+            <li>Phase 3 : tests PHPUnit + Docker + RGAA — avril 2026</li>
+            <li>
+              Phase 4 : documentation + présentation orale — 5 &amp; 12 juin
+              2026
+            </li>
+            <li>10/10 étapes réalisées — 9/10 objectifs CDC atteints</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRACE SAECINE -->
+    <section class="comp-section comp-dark" id="trace-saecine">
+      <p class="section-label">Trace</p>
+      <h2 class="section-title">
+        Extrait — Devis &amp; critères de validation
+      </h2>
+      <p class="comp-text">
+        Deux extraits représentatifs du pilotage de projet : le chiffrage de la
+        proposition commerciale remise au client, et les critères de validation
+        définis dans le cahier des charges pour s'assurer que chaque objectif
+        est vérifiable.
+      </p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">DEVIS</span>
+          <span
+            >Proposition commerciale — DCRS Consulting / Gantois
+            Industries</span
+          >
+        </div>
+        <pre><code>Prestation                              Resp.      Jours  TJM    Total HT
+────────────────────────────────────────────────────────────────────────
+Rapport d'audit (code, BDD, sécurité)  Groupe     3,0 j  450 €  1 350 €
+Cahier des charges + proposition       R. Damien  1,5 j  450 €    675 €
+Mise en place Git / GitLab             Groupe     0,5 j  450 €    225 €
+Correction vulnérabilités sécurité     E. Stasse  4,0 j  450 €  1 800 €
+Optimisation performances &amp; BDD        D. Rinaldis 3,0 j 450 €  1 350 €
+Robustesse, tests PHPUnit              Groupe     3,0 j  450 €  1 350 €
+Conteneurisation Docker                Groupe     2,0 j  450 €    900 €
+Mise en conformité RGAA 4              R. Damien  1,5 j  450 €    675 €
+Documentation + présentation orale     Groupe     2,0 j  450 €    900 €
+────────────────────────────────────────────────────────────────────────
+TOTAL                                             20,5 j         9 225 € HT
+                                                           TVA   1 845 €
+                                                           TTC  11 070 €</code></pre>
+      </div>
+
+      <div class="code-block" style="margin-top: 2rem">
+        <div class="code-header">
+          <span class="code-lang">CDC</span>
+          <span>Critères de validation — SAECine</span>
+        </div>
+        <pre><code>CV1 — Application fonctionnelle sans erreurs bloquantes
+      → Tests manuels et automatisés
+
+CV2 — Sécurité validée (CSRF, XSS, injections SQL)
+      → Audit sécurité / OWASP
+
+CV3 — Code documenté et maintenable
+      → Revue de code
+
+CV4 — Tests unitaires passants (couverture ≥ 60 %)
+      → Rapport PHPUnit  [RÉALISÉ — 129 tests, 100 %]
+
+CV5 — Conteneur Docker fonctionnel (docker-compose up)
+      → Test en environnement neutre  [RÉALISÉ]
+
+CV6 — Rapport et livrables rendus dans les délais
+      → Vérification par l'encadrant  [RÉALISÉ]</code></pre>
+      </div>
+    </section>
+
+    <!-- ANALYSE SAECINE -->
+    <section class="comp-section" id="analyse-saecine">
+      <p class="section-label">Analyse personnelle</p>
+      <h2 class="section-title">Retour sur la SAÉ SAECine — volet Conduire</h2>
+      <div class="analyse-grid">
+        <div class="analyse-card">
+          <h3>💼 Ce que j'en retiens — Contexte ESN</h3>
+          <p>
+            Simuler une prestation en ESN — avec un client, un devis chiffré et
+            des livrables contractuels — a changé ma façon d'aborder le projet.
+            On ne code plus pour "finir le TP" mais pour répondre à des
+            engagements précis. Le devis m'a obligé à estimer le temps réel de
+            chaque tâche avant de la commencer, ce qui est un exercice difficile
+            mais essentiel.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>📋 Ce que j'en retiens — CDC</h3>
+          <p>
+            Rédiger un cahier des charges avec des critères de validation
+            mesurables (couverture ≥ 60 %, <code>docker-compose up</code>
+            fonctionnel…) m'a appris à formaliser ce que "terminé" veut dire.
+            Sans critères précis, il est impossible de savoir si un objectif est
+            atteint ou non — et impossible de le défendre devant un client.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>📅 Ce que j'en retiens — Planning</h3>
+          <p>
+            Le découpage en 4 phases avec des livrables associés à chaque
+            semaine a structuré le travail et évité de tout laisser à la
+            dernière minute. Le seul objectif non atteint (HTTPS en production)
+            était documenté et justifié dès le rapport final — ce qui est aussi
+            une compétence : savoir expliquer une limite plutôt que de la
+            cacher.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>📚 Ressources mobilisées</h3>
+          <p>
+            Cours de gestion de projet (planification, risques, livrables),
+            modèles de propositions commerciales et de cahiers des charges,
+            référentiel OWASP pour la classification des vulnérabilités,
+            référentiel RGAA 4 pour les critères d'accessibilité.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>⚠️ Points à améliorer</h3>
+          <p>
+            La répartition des tâches entre Damien et moi était claire sur le
+            papier mais certaines frontières étaient floues en pratique (qui
+            touche à quoi dans les fichiers partagés). Si c'était à refaire, je
+            formaliserais une convention de nommage des branches par développeur
+            dès le début pour éviter les conflits Git.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>🎯 Objectifs à venir</h3>
+          <p>
+            Approfondir la rédaction de user stories avec critères d'acceptation
+            (format Given / When / Then), explorer des outils de gestion de
+            projet collaboratifs (Jira, Linear) et mettre en place un pipeline
+            CI/CD GitLab pour automatiser la vérification des critères de
+            validation à chaque push.
           </p>
         </div>
       </div>
