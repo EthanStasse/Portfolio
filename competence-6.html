@@ -10,7 +10,10 @@
     <!-- NAV -->
     <nav>
       <a href="index.html" class="nav-logo">ACCUEIL</a>
-      <ul class="nav-links"></ul>
+      <ul class="nav-links">
+        <li><a href="#sae">SAÉ Coup de Sifflet</a></li>
+        <li><a href="#sae-saecine">SAÉ SAECine</a></li>
+      </ul>
       <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span>
         <span></span>
@@ -62,13 +65,15 @@
         <h1>Compétence<br /><span>6</span></h1>
         <p class="hero-desc">Collaborer.</p>
         <div class="hero-cta">
-          <a href="#sae" class="btn btn-primary">Voir la SAÉ</a>
-          <a href="#analyse" class="btn btn-outline">Mon analyse</a>
+          <a href="#sae" class="btn btn-primary">SAÉ Coup de Sifflet</a>
+          <a href="#sae-saecine" class="btn btn-outline">SAÉ SAECine</a>
         </div>
       </div>
     </section>
 
-    <!-- SAE -->
+    <!-- ══════════════════════════════════════════
+         SAÉ 1 — COUP DE SIFFLET
+    ══════════════════════════════════════════ -->
     <section class="comp-section" id="sae">
       <p class="section-label">SAÉ — Communication visuelle</p>
       <h2 class="section-title">Affiche promotionnelle — Coup de Sifflet</h2>
@@ -79,7 +84,6 @@
         dimension communication et collaboration du projet, en complément du
         développement technique.
       </p>
-
       <div class="comp-cards">
         <div class="comp-card">
           <div class="comp-card-icon">🎨</div>
@@ -115,7 +119,7 @@
           <div class="comp-card-icon">🤝</div>
           <h3>Travail en équipe</h3>
           <ul class="comp-list">
-            <li>Réalisation en binôme (Damien Rinaldis & Ethan Stasse)</li>
+            <li>Réalisation en binôme (Damien Rinaldis &amp; Ethan Stasse)</li>
             <li>
               Coordination entre la partie graphique et le développement web
             </li>
@@ -128,7 +132,7 @@
       </div>
     </section>
 
-    <!-- TRACE -->
+    <!-- TRACE COUP DE SIFFLET -->
     <section class="comp-section comp-dark" id="trace">
       <p class="section-label">Trace</p>
       <h2 class="section-title">Affiche réalisée sur Figma</h2>
@@ -151,11 +155,10 @@
       </div>
     </section>
 
-    <!-- ANALYSE -->
+    <!-- ANALYSE COUP DE SIFFLET -->
     <section class="comp-section" id="analyse">
       <p class="section-label">Analyse personnelle</p>
-      <h2 class="section-title">Retour sur la SAÉ</h2>
-
+      <h2 class="section-title">Retour sur la SAÉ Coup de Sifflet</h2>
       <div class="analyse-grid">
         <div class="analyse-card">
           <h3>🎨 SAÉ Communication (Figma)</h3>
@@ -192,8 +195,7 @@
             Je maîtrise encore peu les fonctionnalités avancées de Figma
             (composants, auto-layout, prototypage). Si c'était à refaire,
             j'utiliserais davantage les composants réutilisables pour gagner en
-            cohérence et en efficacité sur plusieurs formats (affiche, bannière
-            web, miniature réseaux sociaux).
+            cohérence et en efficacité sur plusieurs formats.
           </p>
         </div>
         <div class="analyse-card">
@@ -203,6 +205,215 @@
             interactif) et explorer les bases du design system pour mieux
             structurer l'identité visuelle d'un projet web dès la phase de
             conception.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         SAÉ 2 — SAECINE (volet Collaborer)
+    ══════════════════════════════════════════ -->
+    <section class="comp-section" id="sae-saecine">
+      <p class="section-label">SAÉ4 2025/2026 — Collaboration en ESN</p>
+      <h2 class="section-title">
+        SAECine — Travail en équipe &amp; communication client
+      </h2>
+      <p class="comp-text">
+        La SAÉ4 a placé la collaboration au centre du projet : binôme de
+        développeurs, client simulé (Gantois Industries), communication formelle
+        via devis et rapports, et présentation orale finale devant jury. Chaque
+        livrable a été co-construit et chaque décision technique discutée et
+        argumentée à deux.
+      </p>
+      <div class="comp-cards">
+        <div class="comp-card">
+          <div class="comp-card-icon">👥</div>
+          <h3>Répartition &amp; coordination</h3>
+          <ul class="comp-list">
+            <li>
+              Binôme : Ethan Stasse (sécurité, Docker, RGAA) — Damien Rinaldis
+              (BDD, tests, robustesse)
+            </li>
+            <li>Rôles définis dès la Phase 1 dans le cahier des charges</li>
+            <li>Points d'avancement réguliers pour valider chaque étape</li>
+            <li>
+              Merge Request formelle <code>develop → main</code> comme
+              validation croisée
+            </li>
+            <li>
+              110 commits répartis sur la branche <code>develop</code> par les
+              deux membres
+            </li>
+          </ul>
+        </div>
+        <div class="comp-card">
+          <div class="comp-card-icon">🌿</div>
+          <h3>Collaboration Git</h3>
+          <ul class="comp-list">
+            <li>
+              Stratégie GitFlow simplifiée : <code>main</code> stable +
+              <code>develop</code> active
+            </li>
+            <li>
+              Convention Conventional Commits : <code>feat</code> /
+              <code>fix</code> / <code>perf</code> / <code>test</code>
+            </li>
+            <li>
+              Historique lisible — chaque commit décrit une modification précise
+            </li>
+            <li>
+              Merge Request finale simulant une revue de code professionnelle
+            </li>
+            <li>
+              <code>.gitignore</code> partagé : exclusion de <code>.env</code>,
+              <code>logs/</code>, <code>vendor/</code>
+            </li>
+          </ul>
+        </div>
+        <div class="comp-card">
+          <div class="comp-card-icon">📢</div>
+          <h3>Communication client &amp; orale</h3>
+          <ul class="comp-list">
+            <li>
+              Rapport d'audit remis au client Gantois Industries (Nicolas
+              Gaillard)
+            </li>
+            <li>
+              Devis chiffré et proposition commerciale formelle (DCRS
+              Consulting)
+            </li>
+            <li>
+              Rapport de mise en œuvre final — 24 pages, 10 étapes documentées
+            </li>
+            <li>
+              Présentation orale finale devant jury (CASPARY A. — BOURJIJ A.)
+            </li>
+            <li>Démonstration live de l'application conteneurisée</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRACE SAECINE -->
+    <section class="comp-section comp-dark" id="trace-saecine">
+      <p class="section-label">Trace</p>
+      <h2 class="section-title">
+        Extrait — Répartition du travail &amp; historique Git
+      </h2>
+      <p class="comp-text">
+        Deux extraits illustrant la collaboration concrète : la répartition
+        formalisée des étapes entre les deux membres, et la convention de
+        commits sémantiques appliquée tout au long du projet.
+      </p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">PROJET</span>
+          <span>Répartition des étapes — SAECine Phase 4</span>
+        </div>
+        <pre><code>Damien Rinaldis
+  Étape 1  — Fichier .env + connexion BDD sécurisée
+  Étape 2  — Hashage bcrypt des mots de passe admin
+  Étape 3  — Protection CSRF sur tous les formulaires POST
+  Étape 4  — Gestionnaire d'erreurs global + logs structurés
+  Étape 5  — Anti brute-force (5 tentatives / 15 min par IP)
+  Étape 9  — 129 tests PHPUnit (sécurité, validation, performance)
+  Étape 10 — Migration InnoDB + utf8mb4 + clés étrangères
+
+Ethan Stasse
+  Étape 6  — Index BDD + suppression SELECT * + GZIP + cache HTTP
+  Étape 7  — Conteneurisation Docker (web, db, db_init)
+  Étape 8  — Accessibilité RGAA (focus, alt, sr-only, contrastes)</code></pre>
+      </div>
+
+      <div class="code-block" style="margin-top: 2rem">
+        <div class="code-header">
+          <span class="code-lang">GIT</span>
+          <span>Historique des commits — branche develop</span>
+        </div>
+        <pre><code>feat  Fichier .env + dbconnect sécurisé sans credentials exposés
+fix   Hashage bcrypt des mots de passe admin en clair
+feat  Protection CSRF sur tous les formulaires POST
+feat  Handler erreurs global + logs structurés + page 500
+feat  Anti brute-force — 5 tentatives par IP sur 15 min
+perf  Index BDD + suppression SELECT * + OPcache
+perf  GZIP + cache HTTP + .htaccess
+feat  Accessibilité RGAA — alt, contrastes, navigation clavier
+feat  Dockerfile + docker-compose fonctionnel
+fix   docker-compose variables d'environnement + dbconnect getenv
+test  129 tests unitaires PHPUnit — sécurité, validation, performance
+fix   Migration InnoDB + utf8mb4 + clés étrangères + bcrypt
+release  Merge develop → main — Merge Request + export BDD final
+
+110 commits au total — convention : feat / fix / perf / test / release</code></pre>
+      </div>
+    </section>
+
+    <!-- ANALYSE SAECINE -->
+    <section class="comp-section" id="analyse-saecine">
+      <p class="section-label">Analyse personnelle</p>
+      <h2 class="section-title">
+        Retour sur la SAÉ SAECine — volet Collaborer
+      </h2>
+      <div class="analyse-grid">
+        <div class="analyse-card">
+          <h3>👥 Ce que j'en retiens — Binôme</h3>
+          <p>
+            Travailler en binôme sur un vrai dépôt Git partagé est très
+            différent de travailler seul. La Merge Request finale a révélé des
+            différences de style dans le code que nous n'avions pas vues pendant
+            le développement. Se relire mutuellement avant de fusionner est un
+            réflexe que j'ai définitivement acquis.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>🌿 Ce que j'en retiens — Git collaboratif</h3>
+          <p>
+            La convention Conventional Commits a rendu l'historique Git lisible
+            pour les deux membres — et pour le jury. Voir l'historique d'un
+            projet avec des messages comme <code>fix: hashage bcrypt</code> ou
+            <code>perf: index BDD + GZIP</code> communique clairement
+            l'intention de chaque modification, sans avoir à lire le code.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>📢 Ce que j'en retiens — Communication client</h3>
+          <p>
+            Rédiger un rapport d'audit de 25 faiblesses pour un "client" fictif,
+            puis le défendre à l'oral devant jury, m'a appris à adapter mon
+            discours technique à un interlocuteur non-développeur. Expliquer
+            pourquoi un mot de passe en clair est critique sans jargon trop
+            technique — c'est une compétence à part entière.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>📚 Ressources mobilisées</h3>
+          <p>
+            Documentation Git (convention Conventional Commits, stratégie
+            GitFlow), cours de communication professionnelle (rédaction de
+            rapports, présentation orale), modèles de propositions commerciales
+            et de rapports d'audit, outils collaboratifs (GitLab, partage de
+            documents).
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>⚠️ Points à améliorer</h3>
+          <p>
+            Certains fichiers partagés (comme <code>dbconnect.php</code> ou
+            <code>header.php</code>) ont été modifiés par les deux membres en
+            parallèle, ce qui a créé des conflits Git à résoudre. Si c'était à
+            refaire, je définirais dès le départ des branches par fonctionnalité
+            (<code>feat/csrf</code>, <code>perf/docker</code>) pour isoler les
+            modifications et éviter les conflits.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>🎯 Objectifs à venir</h3>
+          <p>
+            Pratiquer les revues de code formelles (pull request avec
+            commentaires inline), explorer des outils de collaboration
+            asynchrone (Notion, Linear) et améliorer mes présentations orales en
+            structurant davantage le discours autour des besoins du jury plutôt
+            que des détails techniques.
           </p>
         </div>
       </div>
