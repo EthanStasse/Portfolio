@@ -10,7 +10,10 @@
     <!-- NAV -->
     <nav>
       <a href="index.html" class="nav-logo">ACCUEIL</a>
-      <ul class="nav-links"></ul>
+      <ul class="nav-links">
+        <li><a href="#sae">SAÉ Coup de Sifflet</a></li>
+        <li><a href="#sae-saecine">SAÉ SAECine</a></li>
+      </ul>
       <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span>
         <span></span>
@@ -62,13 +65,15 @@
         <h1>Compétence<br /><span>1</span></h1>
         <p class="hero-desc">Réaliser.</p>
         <div class="hero-cta">
-          <a href="#sae" class="btn btn-primary">Voir la SAÉ</a>
-          <a href="#analyse" class="btn btn-outline">Mon analyse</a>
+          <a href="#sae" class="btn btn-primary">SAÉ Coup de Sifflet</a>
+          <a href="#sae-saecine" class="btn btn-outline">SAÉ SAECine</a>
         </div>
       </div>
     </section>
 
-    <!-- SAE -->
+    <!-- ══════════════════════════════════════════
+         SAÉ 1 — COUP DE SIFFLET
+    ══════════════════════════════════════════ -->
     <section class="comp-section" id="sae">
       <p class="section-label">SAÉ 2025/2026 — Développement Web</p>
       <h2 class="section-title">Coup de Sifflet</h2>
@@ -120,7 +125,7 @@
       </div>
     </section>
 
-    <!-- TRACE -->
+    <!-- TRACE COUP DE SIFFLET -->
     <section class="comp-section comp-dark" id="trace">
       <p class="section-label">Trace</p>
       <h2 class="section-title">Extrait du rapport juridique</h2>
@@ -155,10 +160,10 @@ Risque : Panne du service
       </div>
     </section>
 
-    <!-- ANALYSE -->
+    <!-- ANALYSE COUP DE SIFFLET -->
     <section class="comp-section" id="analyse">
       <p class="section-label">Analyse personnelle</p>
-      <h2 class="section-title">Retour sur la SAÉ</h2>
+      <h2 class="section-title">Retour sur la SAÉ Coup de Sifflet</h2>
 
       <div class="analyse-grid">
         <div class="analyse-card">
@@ -195,6 +200,242 @@ Risque : Panne du service
             (injections SQL, XSS, CSRF), mieux maîtriser les bonnes pratiques
             RGPD dans le développement et explorer des frameworks sécurisés pour
             les applications critiques.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         SAÉ 2 — SAECINE
+    ══════════════════════════════════════════ -->
+    <section class="comp-section" id="sae-saecine">
+      <p class="section-label">
+        SAÉ4 2025/2026 — Sécurisation &amp; Développement
+      </p>
+      <h2 class="section-title">
+        SAECine — Application web de vote cinématographique
+      </h2>
+      <p class="comp-text">
+        Dans le cadre d'une mise en situation professionnelle simulée, notre ESN
+        DCRS Consulting a été mandatée par Gantois Industries pour auditer,
+        sécuriser et améliorer l'application SAECine — un site web de vote pour
+        des films développé en PHP/MySQL. La mission couvrait la sécurité, la
+        robustesse, la performance, la conteneurisation Docker et
+        l'accessibilité RGAA. J'ai pris en charge les étapes de performance,
+        conteneurisation et accessibilité.
+      </p>
+
+      <div class="comp-cards">
+        <div class="comp-card">
+          <div class="comp-card-icon">🔒</div>
+          <h3>Sécurisation réalisée</h3>
+          <ul class="comp-list">
+            <li>
+              Fichier <code>.env</code> — credentials BDD externalisés, exclus
+              de Git
+            </li>
+            <li>
+              Hashage <code>bcrypt</code> des mots de passe via
+              <code>password_hash()</code>
+            </li>
+            <li>
+              Protection CSRF sur tous les formulaires POST (token session +
+              <code>hash_equals()</code>)
+            </li>
+            <li>
+              Anti brute-force : 5 tentatives / 15 min par IP via session PHP
+            </li>
+            <li>
+              Requêtes préparées PDO avec
+              <code>ATTR_EMULATE_PREPARES = false</code>
+            </li>
+            <li>
+              Gestionnaire d'erreurs global — logs structurés, aucune info
+              technique exposée
+            </li>
+          </ul>
+        </div>
+        <div class="comp-card">
+          <div class="comp-card-icon">⚡</div>
+          <h3>Performance &amp; infrastructure</h3>
+          <ul class="comp-list">
+            <li>
+              Index B-tree sur colonnes de jointure et de filtrage (film, vote,
+              messages)
+            </li>
+            <li>
+              Suppression des <code>SELECT *</code> — colonnes sélectionnées
+              précisément
+            </li>
+            <li>
+              Compression GZIP via <code>mod_deflate</code> Apache (réduction
+              60-80 %)
+            </li>
+            <li>
+              Cache HTTP <code>mod_expires</code> — CSS 1 semaine, images 1 mois
+            </li>
+            <li>
+              Conteneurisation Docker complète : 3 services (<code>web</code>,
+              <code>db</code>, <code>db_init</code>)
+            </li>
+            <li>Démarrage en 1 commande : <code>docker compose up -d</code></li>
+          </ul>
+        </div>
+        <div class="comp-card">
+          <div class="comp-card-icon">🧪</div>
+          <h3>Robustesse &amp; qualité</h3>
+          <ul class="comp-list">
+            <li>
+              129 tests PHPUnit — 100 % de réussite (sécurité, validation,
+              performance)
+            </li>
+            <li>Migration BDD vers InnoDB + utf8mb4 + 4 clés étrangères</li>
+            <li>
+              Conformité RGAA : focus visible, attributs <code>alt</code>,
+              classe <code>.sr-only</code>, contrastes
+            </li>
+            <li>
+              110 commits sémantiques sur branche <code>develop</code> → Merge
+              Request finale
+            </li>
+            <li>
+              26 vulnérabilités corrigées — 9/10 objectifs du cahier des charges
+              réalisés
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRACE SAECINE -->
+    <section class="comp-section comp-dark" id="trace-saecine">
+      <p class="section-label">Trace</p>
+      <h2 class="section-title">Extrait — Sécurisation &amp; Docker</h2>
+      <p class="comp-text">
+        Deux extraits représentatifs des réalisations : la protection CSRF mise
+        en place sur tous les formulaires POST, et l'architecture Docker qui
+        remplace un environnement WAMP non portable par un démarrage en une
+        seule commande.
+      </p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">PHP</span>
+          <span>csrf.php — Protection CSRF</span>
+        </div>
+        <pre><code>// Génération du token (stocké en session)
+function csrf_token(): string {
+    if (empty($_SESSION['csrf_token'])) {
+        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+    }
+    return $_SESSION['csrf_token'];
+}
+
+// Champ HTML hidden à insérer dans chaque formulaire
+function csrf_field(): string {
+    return '&lt;input type="hidden" name="csrf_token"
+            value="' . csrf_token() . '"&gt;';
+}
+
+// Vérification — résistant aux attaques temporelles
+function csrf_verify(): void {
+    if (!hash_equals($_SESSION['csrf_token'],
+                     $_POST['csrf_token'] ?? '')) {
+        http_response_code(403);
+        exit('Accès refusé');
+    }
+    unset($_SESSION['csrf_token']); // usage unique
+}</code></pre>
+      </div>
+
+      <div class="code-block" style="margin-top: 2rem">
+        <div class="code-header">
+          <span class="code-lang">DOCKER</span>
+          <span>docker-compose.yml — Architecture 3 services</span>
+        </div>
+        <pre><code>Avant → Installation manuelle WAMP (~30 min par poste, Windows uniquement)
+Après → docker compose up -d  (Windows, Linux, macOS)
+
+Services mis en place :
+  web      PHP 8.1 + Apache — sert les fichiers PHP de src/
+           extensions PDO/MySQL activées — port 8080
+  db       mysql:8.0 — volume persistant — port 3307
+  db_init  mysql:8.0 (éphémère) — importe saecine.sql
+           puis procedures.sql à chaque démarrage
+
+Problème résolu : la directive DELIMITER MySQL n'est pas
+reconnue hors CLI → séparation en 2 fichiers SQL distincts.
+
+Résultat : environnement identique sur tous les postes,
+import BDD automatique, configuration versionnée dans Git.</code></pre>
+      </div>
+    </section>
+
+    <!-- ANALYSE SAECINE -->
+    <section class="comp-section" id="analyse-saecine">
+      <p class="section-label">Analyse personnelle</p>
+      <h2 class="section-title">Retour sur la SAÉ SAECine</h2>
+
+      <div class="analyse-grid">
+        <div class="analyse-card">
+          <h3>🔒 Ce que j'en retiens</h3>
+          <p>
+            Cette SAÉ m'a confronté pour la première fois à une application
+            réelle présentant des vulnérabilités critiques en production. Voir
+            des mots de passe en clair dans une base de données et des
+            credentials codés en dur dans le code source m'a définitivement
+            ancré l'idée que la sécurité doit être pensée dès la conception.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>📚 Ressources mobilisées</h3>
+          <p>
+            Cours de développement web, documentation PHP officielle
+            (<code>password_hash</code>, PDO, sessions), documentation Docker et
+            Docker Compose, référentiel RGAA 4, OWASP Top 10 pour la
+            classification des vulnérabilités. J'ai aussi consulté les
+            recommandations WCAG pour les critères de contraste et
+            d'accessibilité.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>💪 Points forts</h3>
+          <p>
+            La conteneurisation Docker a été la partie la plus intéressante à
+            résoudre : comprendre pourquoi <code>DELIMITER</code> ne fonctionne
+            pas en dehors du client MySQL interactif, créer un service éphémère
+            <code>db_init</code> pour contourner la non-réexécution du volume —
+            ces problèmes concrets m'ont appris à lire la documentation de fond
+            en comble plutôt que de copier des exemples.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>⚠️ Points à améliorer</h3>
+          <p>
+            HTTPS n'a pas pu être mis en place faute de domaine public dans
+            l'environnement local. Si c'était à refaire, j'aurais anticipé cette
+            contrainte en configurant un reverse proxy NGINX avec un certificat
+            auto-signé pour le développement, en attendant Let's Encrypt pour la
+            production.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>🤝 Travail en équipe</h3>
+          <p>
+            La répartition des tâches avec Damien Rinaldis était claire dès le
+            départ : il prenait la sécurisation des accès et les tests PHPUnit,
+            je prenais la performance, Docker et le RGAA. Les 110 commits
+            sémantiques sur <code>develop</code> et la Merge Request finale ont
+            simulé un vrai workflow professionnel en ESN.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>🎯 Objectifs à venir</h3>
+          <p>
+            Mettre en place un pipeline CI/CD GitLab qui exécute automatiquement
+            les 129 tests PHPUnit à chaque push. Ajouter des tests d'intégration
+            couvrant des scénarios utilisateur complets. Explorer PHPStan pour
+            l'analyse statique et Xdebug pour mesurer la couverture de code
+            réelle.
           </p>
         </div>
       </div>
