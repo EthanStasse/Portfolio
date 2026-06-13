@@ -13,6 +13,7 @@
       <ul class="nav-links">
         <li><a href="#sae">SAÉ Mini-Shell</a></li>
         <li><a href="#sae-securisation">SAÉ Sécurisation</a></li>
+        <li><a href="#sae-saecine">SAÉ SAECine</a></li>
       </ul>
       <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span>
@@ -65,13 +66,17 @@
         <h1>Compétence<br /><span>3</span></h1>
         <p class="hero-desc">Administrer.</p>
         <div class="hero-cta">
-          <a href="#sae" class="btn btn-primary">Voir les SAÉ</a>
-          <a href="#analyse" class="btn btn-outline">Mon analyse</a>
+          <a href="#sae" class="btn btn-primary">SAÉ Mini-Shell</a>
+          <a href="#sae-securisation" class="btn btn-outline"
+            >SAÉ Sécurisation</a
+          >
         </div>
       </div>
     </section>
 
-    <!-- SAE MINI-SHELL -->
+    <!-- ══════════════════════════════════════════
+         SAÉ 1 — MINI-SHELL
+    ══════════════════════════════════════════ -->
     <section class="comp-section" id="sae">
       <p class="section-label">SAÉ — Systèmes</p>
       <h2 class="section-title">Mini-Shell en C</h2>
@@ -81,7 +86,6 @@
         d'entrée/sortie et des pipes. Le projet s'appuie sur un parseur lexical
         fourni et une architecture de processus UNIX.
       </p>
-
       <div class="comp-cards">
         <div class="comp-card">
           <div class="comp-card-icon">⚙️</div>
@@ -184,7 +188,6 @@
     <section class="comp-section" id="analyse">
       <p class="section-label">Analyse personnelle</p>
       <h2 class="section-title">Retour sur la SAÉ Mini-Shell</h2>
-
       <div class="analyse-grid">
         <div class="analyse-card">
           <h3>🖥️ SAÉ Mini-Shell (C / UNIX)</h3>
@@ -234,7 +237,9 @@
       </div>
     </section>
 
-    <!-- SAE SÉCURISATION -->
+    <!-- ══════════════════════════════════════════
+         SAÉ 2 — SÉCURISATION APACHE
+    ══════════════════════════════════════════ -->
     <section class="comp-section" id="sae-securisation">
       <p class="section-label">SAÉ — Sécurisation</p>
       <h2 class="section-title">Déploiement et sécurisation d'un site web</h2>
@@ -244,7 +249,6 @@
         sécuriser les communications en configurant HTTPS via SSL/TLS avec des
         certificats générés manuellement à l'aide d'OpenSSL.
       </p>
-
       <div class="comp-cards">
         <div class="comp-card">
           <div class="comp-card-icon">🌐</div>
@@ -326,7 +330,6 @@
     <section class="comp-section" id="analyse-securisation">
       <p class="section-label">Analyse personnelle</p>
       <h2 class="section-title">Retour sur la SAÉ Sécurisation</h2>
-
       <div class="analyse-grid">
         <div class="analyse-card">
           <h3>🔐 SAÉ Sécurisation (Apache / HTTPS)</h3>
@@ -373,6 +376,224 @@
             sécurité, désactivation des protocoles obsolètes TLS 1.0/1.1),
             explorer Let's Encrypt pour des certificats signés, et étudier la
             mise en place d'un pare-feu applicatif (WAF).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         SAÉ 3 — SAECINE (volet Administration)
+    ══════════════════════════════════════════ -->
+    <section class="comp-section" id="sae-saecine">
+      <p class="section-label">
+        SAÉ4 2025/2026 — Infrastructure &amp; Administration
+      </p>
+      <h2 class="section-title">SAECine — Infrastructure, BDD &amp; Logs</h2>
+      <p class="comp-text">
+        Dans le cadre de la SAÉ4, j'ai pris en charge les aspects
+        d'administration système et d'infrastructure de l'application SAECine :
+        conteneurisation Docker, configuration Apache, migration de la base de
+        données et mise en place d'un système de logs. Ces tâches relèvent
+        directement de la compétence Administrer — déployer, configurer et
+        maintenir un environnement applicatif.
+      </p>
+      <div class="comp-cards">
+        <div class="comp-card">
+          <div class="comp-card-icon">🐳</div>
+          <h3>Conteneurisation Docker</h3>
+          <ul class="comp-list">
+            <li>Remplacement d'un environnement WAMP local non portable</li>
+            <li>
+              3 services : <code>web</code> (PHP 8.1 + Apache),
+              <code>db</code> (MySQL 8.0), <code>db_init</code> (éphémère)
+            </li>
+            <li>
+              Import automatique du schéma SQL à chaque
+              <code>docker compose up</code>
+            </li>
+            <li>
+              <code>.dockerignore</code> — exclusion de <code>vendor/</code>,
+              <code>logs/</code>, <code>.env</code>
+            </li>
+            <li>Démarrage complet en 1 commande sur Windows, Linux, macOS</li>
+          </ul>
+        </div>
+        <div class="comp-card">
+          <div class="comp-card-icon">⚙️</div>
+          <h3>Configuration Apache &amp; performance</h3>
+          <ul class="comp-list">
+            <li>
+              Fichier <code>.htaccess</code> — compression GZIP via
+              <code>mod_deflate</code>
+            </li>
+            <li>
+              Cache HTTP <code>mod_expires</code> — CSS 1 semaine, images 1 mois
+            </li>
+            <li>Index B-tree sur colonnes de jointure et de filtrage</li>
+            <li>
+              Suppression des <code>SELECT *</code> — colonnes sélectionnées
+              précisément
+            </li>
+            <li>
+              Variable <code>APP_ENV</code> — comportement distinct dev /
+              production
+            </li>
+          </ul>
+        </div>
+        <div class="comp-card">
+          <div class="comp-card-icon">🗄️</div>
+          <h3>Migration BDD &amp; logs</h3>
+          <ul class="comp-list">
+            <li>
+              Migration MyISAM → InnoDB : transactions ACID + clés étrangères
+            </li>
+            <li>Encodage utf8mb3 → utf8mb4 (support Unicode complet)</li>
+            <li>
+              4 contraintes de clés étrangères (film, vote, jetons,
+              utilisateurs)
+            </li>
+            <li>
+              Gestionnaire d'erreurs global — logs structurés dans
+              <code>logs/app.log</code>
+            </li>
+            <li>Pages d'erreur personnalisées 500 + directive Apache 404</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRACE SAECINE -->
+    <section class="comp-section comp-dark" id="trace-saecine">
+      <p class="section-label">Trace</p>
+      <h2 class="section-title">Extrait — Docker &amp; configuration Apache</h2>
+      <p class="comp-text">
+        Deux extraits représentatifs du volet administration : l'architecture
+        Docker mise en place et la configuration <code>.htaccess</code> activant
+        la compression et le cache HTTP.
+      </p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">DOCKER</span>
+          <span>docker-compose.yml — Architecture 3 services</span>
+        </div>
+        <pre><code>services:
+  web:                          # PHP 8.1 + Apache — port 8080
+    build: .
+    volumes: [./src:/var/www/html]
+    depends_on: [db]
+
+  db:                           # MySQL 8.0 — volume persistant
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: saecine
+      MYSQL_ROOT_PASSWORD: ${DB_PASS}
+    ports: ["3307:3306"]
+    volumes: [db_data:/var/lib/mysql]
+
+  db_init:                      # Service éphémère — import SQL
+    image: mysql:8.0            # s'exécute à chaque compose up
+    depends_on: [db]
+    command: >
+      sh -c "mysql -h db saecine &lt; /sql/saecine.sql
+             && mysql -h db saecine &lt; /sql/procedures.sql"
+
+# Problème résolu : DELIMITER MySQL non reconnu hors CLI
+# → séparation en 2 fichiers SQL distincts</code></pre>
+      </div>
+
+      <div class="code-block" style="margin-top: 2rem">
+        <div class="code-header">
+          <span class="code-lang">APACHE</span>
+          <span>.htaccess — Compression GZIP &amp; cache HTTP</span>
+        </div>
+        <pre><code># Compression GZIP — réduction 60-80 % des réponses textuelles
+&lt;IfModule mod_deflate.c&gt;
+  AddOutputFilterByType DEFLATE text/html text/css
+  AddOutputFilterByType DEFLATE text/javascript application/javascript
+&lt;/IfModule&gt;
+
+# Cache HTTP — évite les requêtes inutiles côté navigateur
+&lt;IfModule mod_expires.c&gt;
+  ExpiresActive On
+  ExpiresByType text/css        "access plus 1 week"
+  ExpiresByType image/jpeg      "access plus 1 month"
+  ExpiresByType image/png       "access plus 1 month"
+&lt;/IfModule&gt;
+
+# Masquage des erreurs en production
+php_flag display_errors Off
+ErrorDocument 404 /error_404.php</code></pre>
+      </div>
+    </section>
+
+    <!-- ANALYSE SAECINE -->
+    <section class="comp-section" id="analyse-saecine">
+      <p class="section-label">Analyse personnelle</p>
+      <h2 class="section-title">
+        Retour sur la SAÉ SAECine — volet Administration
+      </h2>
+      <div class="analyse-grid">
+        <div class="analyse-card">
+          <h3>🐳 Ce que j'en retiens — Docker</h3>
+          <p>
+            Conteneuriser une application PHP/MySQL pour la première fois m'a
+            confronté à des problèmes concrets d'administration système : la
+            directive <code>DELIMITER</code>
+            non reconnue hors du client MySQL interactif, la non-réexécution du
+            volume Docker après initialisation, l'injection des variables
+            d'environnement depuis
+            <code>docker-compose.yml</code>. Chaque obstacle a nécessité de lire
+            la documentation de fond en comble.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>🗄️ Ce que j'en retiens — BDD</h3>
+          <p>
+            La migration de MyISAM vers InnoDB illustre concrètement pourquoi le
+            choix du moteur de stockage a des conséquences réelles : sans
+            InnoDB, impossible d'avoir des transactions ou des clés étrangères.
+            Passer de utf8mb3 à utf8mb4 m'a aussi appris que l'encodage n'est
+            pas qu'un détail technique — c'est une décision d'architecture qui
+            impacte toute la chaîne de traitement des données.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>📚 Ressources mobilisées</h3>
+          <p>
+            Documentation officielle Docker et Docker Compose, documentation
+            MySQL 8.0 (moteurs de stockage, clés étrangères, encodage),
+            documentation Apache (<code>mod_deflate</code>,
+            <code>mod_expires</code>), cours de systèmes et réseaux pour la
+            compréhension des mécanismes de cache HTTP et de compression.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>💪 Points forts</h3>
+          <p>
+            L'environnement Docker livré permet de démarrer l'application
+            complète en une seule commande sur n'importe quel système. La
+            configuration <code>.htaccess</code> est propre et documentée. La
+            migration BDD est versionnée dans Git et reproductible à chaque
+            <code>docker compose up</code>.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>⚠️ Points à améliorer</h3>
+          <p>
+            HTTPS n'a pas pu être configuré dans l'environnement local Docker,
+            faute de domaine public. Si c'était à refaire, j'aurais ajouté un
+            reverse proxy NGINX avec un certificat auto-signé pour le
+            développement — en cohérence directe avec ce que j'ai appris lors de
+            la SAÉ Sécurisation Apache.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>🎯 Objectifs à venir</h3>
+          <p>
+            Mettre en place un reverse proxy NGINX avec Let's Encrypt pour la
+            gestion des certificats SSL en production. Explorer GitLab CI pour
+            automatiser le build et le déploiement des conteneurs Docker à
+            chaque push, et ajouter un outil de monitoring des logs applicatifs.
           </p>
         </div>
       </div>
