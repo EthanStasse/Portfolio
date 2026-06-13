@@ -63,19 +63,18 @@
       <div class="hero-grid"></div>
       <div class="hero-content">
         <p class="hero-tag">BUT Informatique</p>
-        <h1>
-          Compétence<br />
-          <span>2</span>
-        </h1>
+        <h1>Compétence<br /><span>2</span></h1>
         <p class="hero-desc">Optimiser.</p>
         <div class="hero-cta">
-          <a href="#sae" class="btn btn-primary">Voir la SAÉ</a>
+          <a href="#sae" class="btn btn-primary">Voir les SAÉ</a>
           <a href="#analyse" class="btn btn-outline">Mon analyse</a>
         </div>
       </div>
     </section>
 
-    <!-- SAE -->
+    <!-- ══════════════════════════════════════════
+         SAÉ 1 — CRYPTOGRAPHIE
+    ══════════════════════════════════════════ -->
     <section class="comp-section" id="sae">
       <p class="section-label">SAÉ — Cryptographie</p>
       <h2 class="section-title">Cryptanalyse RSA — Méthode de Wiener</h2>
@@ -85,7 +84,6 @@
         privée à partir de la clé publique en utilisant des fractions continues,
         puis de valider le résultat par déchiffrement.
       </p>
-
       <div class="comp-cards">
         <div class="comp-card">
           <div class="comp-card-icon">🧠</div>
@@ -109,7 +107,6 @@
             </li>
           </ul>
         </div>
-
         <div class="comp-card">
           <div class="comp-card-icon">📐</div>
           <h3>Étapes réalisées</h3>
@@ -121,7 +118,6 @@
             <li>Vérification <code>p·q = n</code> et déchiffrement RSA</li>
           </ul>
         </div>
-
         <div class="comp-card">
           <div class="comp-card-icon">🔐</div>
           <h3>Pourquoi c'est important</h3>
@@ -144,7 +140,7 @@
       </div>
     </section>
 
-    <!-- TRACE -->
+    <!-- TRACE CRYPTOGRAPHIE -->
     <section class="comp-section comp-dark" id="trace">
       <p class="section-label">Trace</p>
       <h2 class="section-title">Extrait : test de Wiener</h2>
@@ -169,11 +165,10 @@
       </div>
     </section>
 
-    <!-- ANALYSE -->
+    <!-- ANALYSE CRYPTOGRAPHIE -->
     <section class="comp-section" id="analyse">
       <p class="section-label">Analyse personnelle</p>
-      <h2 class="section-title">Retour sur la SAÉ</h2>
-
+      <h2 class="section-title">Retour sur la SAÉ Cryptographie</h2>
       <div class="analyse-grid">
         <div class="analyse-card">
           <h3>🔐 SAÉ Cryptographie (RSA / Wiener)</h3>
@@ -186,7 +181,6 @@
             <code>p</code> et <code>q</code>.
           </p>
         </div>
-
         <div class="analyse-card">
           <h3>📌 Points forts (Wiener)</h3>
           <p>
@@ -196,7 +190,6 @@
             <code>q</code> trouvés, le déchiffrement valide le résultat.
           </p>
         </div>
-
         <div class="analyse-card">
           <h3>⚠️ À améliorer (Wiener)</h3>
           <p>
@@ -207,7 +200,6 @@
             de rejet/acceptation).
           </p>
         </div>
-
         <div class="analyse-card">
           <h3>🎯 Objectifs (Wiener)</h3>
           <p>
@@ -220,7 +212,9 @@
       </div>
     </section>
 
-    <!-- SAE 1 : SIMPLEXE -->
+    <!-- ══════════════════════════════════════════
+         SAÉ 2 — SIMPLEXE
+    ══════════════════════════════════════════ -->
     <section class="comp-section" id="sae-wiener">
       <p class="section-label">SAÉ R4.04 — Recherche Opérationnelle</p>
       <h2 class="section-title">Méthode du Simplexe</h2>
@@ -231,7 +225,6 @@
         des variables entrantes : Dantzig (D₁), Augmentation maximale (D₁') et
         la règle de Bland pour éviter les cycles en cas de dégénérescence.
       </p>
-
       <div class="comp-cards">
         <div class="comp-card">
           <div class="comp-card-icon">📈</div>
@@ -324,7 +317,63 @@ Conclusion : D₁' converge plus vite ET atteint un meilleur optimum.</code></pr
       </div>
     </section>
 
-    <!-- SAE 2 : AUTOMATES -->
+    <!-- ANALYSE SIMPLEXE -->
+    <section class="comp-section" id="analyse-simplexe">
+      <p class="section-label">Analyse personnelle</p>
+      <h2 class="section-title">Retour sur la SAÉ Simplexe</h2>
+      <div class="analyse-grid">
+        <div class="analyse-card">
+          <h3>📈 SAÉ Simplexe (D₁ vs D₁')</h3>
+          <p>
+            Le point le plus instructif est la comparaison entre D₁ et D₁' :
+            deux critères qui partent du même tableau initial mais aboutissent à
+            des résultats différents. D₁ se retrouve piégé par x₁ = 1 très tôt,
+            tandis que D₁' identifie immédiatement le levier optimal. Cela
+            illustre concrètement l'importance du choix de l'heuristique.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>📚 Ressources mobilisées</h3>
+          <p>
+            Cours de recherche opérationnelle (méthode du simplexe, critères D₁,
+            D₁', Bland). J'ai également relu la preuve du théorème de Bland pour
+            mieux comprendre pourquoi il garantit la terminaison en cas de
+            dégénérescence.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>💪 Points forts</h3>
+          <p>
+            La rigueur dans les tableaux du simplexe : opérations L← notées à
+            chaque étape, vérification systématique des pivots et des conditions
+            D₂. La démarche comparative entre les trois critères est claire et
+            argumentée.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>⚠️ Points à améliorer</h3>
+          <p>
+            L'exercice 2 montre qu'un problème peut rester bloqué à Z = 0 à
+            cause de la dégénérescence. Si c'était à refaire, j'analyserais
+            d'abord le domaine admissible avant de lancer l'algorithme pour
+            détecter ce cas plus tôt.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>🎯 Objectifs à venir</h3>
+          <p>
+            Approfondir la méthode du simplexe en deux phases pour les problèmes
+            sans solution de base évidente, et implémenter l'algorithme en
+            Python pour automatiser la vérification des tableaux et visualiser
+            le cheminement dans l'espace.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         SAÉ 3 — AUTOMATES
+    ══════════════════════════════════════════ -->
     <section class="comp-section" id="sae-automate">
       <p class="section-label">SAÉ — Automates et Langages</p>
       <h2 class="section-title">Automates finis — Reconnaissance en base b</h2>
@@ -335,7 +384,6 @@ Conclusion : D₁' converge plus vite ET atteint un meilleur optimum.</code></pr
         <code>δ(r, c) = (b·r + c) mod n</code>. Deux jeux de données ont été
         traités, avec minimisation par la méthode de Nerode.
       </p>
-
       <div class="comp-cards">
         <div class="comp-card">
           <div class="comp-card-icon">🔢</div>
@@ -444,34 +492,13 @@ B = {1}   → final
       </div>
     </section>
 
-    <!-- ANALYSE -->
-    <section class="comp-section" id="analyse">
+    <!-- ANALYSE AUTOMATES -->
+    <section class="comp-section" id="analyse-automate">
       <p class="section-label">Analyse personnelle</p>
-      <h2 class="section-title">Retour sur les SAÉ</h2>
-
+      <h2 class="section-title">Retour sur la SAÉ Automates</h2>
       <div class="analyse-grid">
         <div class="analyse-card">
-          <h3>📈 SAÉ Simplexe — Ce que j'en retiens</h3>
-          <p>
-            Le point le plus instructif est la comparaison entre D₁ et D₁' :
-            deux critères qui partent du même tableau initial mais aboutissent à
-            des résultats différents. D₁ se retrouve piégé par x₁ = 1 très tôt,
-            tandis que D₁' identifie immédiatement le levier optimal. Cela
-            illustre concrètement l'importance du choix de l'heuristique.
-          </p>
-        </div>
-        <div class="analyse-card">
-          <h3>🔄 Dégénérescence</h3>
-          <p>
-            L'exercice 2 montre qu'un problème peut être techniquement résolu
-            (tous les coefficients de Z deviennent ≤ 0) tout en restant bloqué à
-            Z = 0 à cause de la dégénérescence. Aucun critère ne peut
-            "débloquer" un problème dont le domaine admissible ne contient que
-            le sommet O(0,0,0,0).
-          </p>
-        </div>
-        <div class="analyse-card">
-          <h3>🔢 SAÉ Automates — Ce que j'en retiens</h3>
+          <h3>🔢 SAÉ Automates (Nerode)</h3>
           <p>
             Le jeu 1 a été une belle surprise : la simplification
             <code>6r ≡ 0 (mod 3)</code>
@@ -484,31 +511,38 @@ B = {1}   → final
         <div class="analyse-card">
           <h3>📚 Ressources mobilisées</h3>
           <p>
-            Cours de recherche opérationnelle (méthode du simplexe, critères D₁,
-            D₁', Bland), cours d'algorithmique et langages formels (automates
-            finis, méthode de Nerode, expressions régulières). J'ai également
-            relu la preuve du théorème de Bland pour mieux comprendre pourquoi
-            il garantit la terminaison.
+            Cours d'algorithmique et langages formels (automates finis, méthode
+            de Nerode, expressions régulières, méthode du départ). J'ai consulté
+            les définitions formelles de la minimisation pour bien comprendre la
+            distinction entre les deux jeux.
           </p>
         </div>
         <div class="analyse-card">
           <h3>💪 Points forts</h3>
           <p>
-            La rigueur dans les tableaux du simplexe (opérations L← notées à
-            chaque étape, vérification systématique des pivots) et la démarche
-            complète sur les automates (table de transition, graphe,
-            standardisation, Nerode, langage reconnu) pour les deux jeux de
-            données.
+            La démarche complète sur les deux jeux : table de transition,
+            représentation graphique, standardisation, calcul du langage reconnu
+            par la méthode du départ, puis vérification de la minimalité par
+            Nerode. Le contraste entre les deux jeux illustre bien l'impact du
+            choix des paramètres b, n et k.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>⚠️ Points à améliorer</h3>
+          <p>
+            La méthode du départ pour exprimer le langage sous forme
+            d'expression régulière est complexe à formaliser. Si c'était à
+            refaire, je détaillerais davantage chaque étape de résolution du
+            système d'équations, notamment la substitution de DB dans DA.
           </p>
         </div>
         <div class="analyse-card">
           <h3>🎯 Objectifs à venir</h3>
           <p>
-            Approfondir la méthode du simplexe en deux phases pour les problèmes
-            sans solution de base évidente, et explorer les automates sur des
-            alphabets plus grands. Je veux aussi implémenter ces algorithmes en
-            Python pour mieux visualiser les étapes et automatiser la
-            vérification des tableaux.
+            Explorer les automates sur des alphabets plus grands et les
+            automates non déterministes (AFN → AFD). Je veux aussi implémenter
+            la construction de la table de transition et l'algorithme de Nerode
+            en Python pour automatiser la vérification de minimalité.
           </p>
         </div>
       </div>
