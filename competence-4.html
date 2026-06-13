@@ -10,7 +10,11 @@
     <!-- NAV -->
     <nav>
       <a href="index.html" class="nav-logo">ACCUEIL</a>
-      <ul class="nav-links"></ul>
+      <ul class="nav-links">
+        <li><a href="#sae-web">SAÉ Coup de Sifflet</a></li>
+        <li><a href="#sae-probabilites">SAÉ Probabilités</a></li>
+        <li><a href="#sae-saecine">SAÉ SAECine</a></li>
+      </ul>
       <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span>
         <span></span>
@@ -62,13 +66,15 @@
         <h1>Compétence<br /><span>4</span></h1>
         <p class="hero-desc">Gérer.</p>
         <div class="hero-cta">
-          <a href="#sae-web" class="btn btn-primary">Voir les SAÉ</a>
-          <a href="#analyse-web" class="btn btn-outline">Mon analyse</a>
+          <a href="#sae-web" class="btn btn-primary">SAÉ Coup de Sifflet</a>
+          <a href="#sae-saecine" class="btn btn-outline">SAÉ SAECine</a>
         </div>
       </div>
     </section>
 
-    <!-- SAE WEB — COUP DE SIFFLET -->
+    <!-- ══════════════════════════════════════════
+         SAÉ 1 — COUP DE SIFFLET
+    ══════════════════════════════════════════ -->
     <section class="comp-section" id="sae-web">
       <p class="section-label">SAÉ — Application Web</p>
       <h2 class="section-title">
@@ -81,7 +87,6 @@
         par jeton, et des accès différenciés selon les rôles (visiteur,
         électeur, administrateur).
       </p>
-
       <div class="comp-cards">
         <div class="comp-card">
           <div class="comp-card-icon">🗳️</div>
@@ -110,7 +115,7 @@
         </div>
         <div class="comp-card">
           <div class="comp-card-icon">🔐</div>
-          <h3>Sécurité & conception</h3>
+          <h3>Sécurité &amp; conception</h3>
           <ul class="comp-list">
             <li>Jeton unique par électeur et par scrutin</li>
             <li>Anonymat : identité dissociée du vote</li>
@@ -122,11 +127,11 @@
       </div>
     </section>
 
-    <!-- TRACE WEB -->
+    <!-- TRACE COUP DE SIFFLET -->
     <section class="comp-section comp-dark" id="trace-web">
       <p class="section-label">Trace</p>
       <h2 class="section-title">
-        Extrait — Architecture DAO & sécurité du vote
+        Extrait — Architecture DAO &amp; sécurité du vote
       </h2>
       <p class="comp-text">
         L'application repose sur une séparation stricte entre contrôleurs et
@@ -155,11 +160,10 @@ getParticipationByToken(token): ?array</code></pre>
       </div>
     </section>
 
-    <!-- ANALYSE WEB -->
+    <!-- ANALYSE COUP DE SIFFLET -->
     <section class="comp-section" id="analyse-web">
       <p class="section-label">Analyse personnelle</p>
       <h2 class="section-title">Retour sur la SAÉ Coup de Sifflet</h2>
-
       <div class="analyse-grid">
         <div class="analyse-card">
           <h3>🗳️ SAÉ Web (Coup de Sifflet)</h3>
@@ -212,7 +216,9 @@ getParticipationByToken(token): ?array</code></pre>
       </div>
     </section>
 
-    <!-- SAE PROBABILITÉS -->
+    <!-- ══════════════════════════════════════════
+         SAÉ 2 — PROBABILITÉS
+    ══════════════════════════════════════════ -->
     <section class="comp-section" id="sae-probabilites">
       <p class="section-label">SAÉ — Probabilités</p>
       <h2 class="section-title">Étude du surbooking (probabilités)</h2>
@@ -222,24 +228,21 @@ getParticipationByToken(token): ?array</code></pre>
         d'évaluer le compromis entre recettes (accepter plus de réservations) et
         coûts (dédommager en cas de client en trop).
       </p>
-
       <div class="comp-cards">
         <div class="comp-card">
           <div class="comp-card-icon">🎲</div>
           <h3>Modélisation</h3>
           <ul class="comp-list">
             <li>
-              Une variable aléatoire <code>X</code> représente le nombre de
-              clients qui se présentent.
+              Variable aléatoire <code>X</code> — nombre de clients présents
             </li>
             <li>
-              <code>X</code> suit une loi binomiale avec <code>p</code> =
-              probabilité de présence et <code>n</code> = nombre de
-              réservations.
+              <code>X</code> suit une loi binomiale : <code>p</code> =
+              probabilité de présence, <code>n</code> = réservations
             </li>
-            <li><code>m</code> correspond au nombre de bateaux disponibles.</li>
-            <li>Le risque de sous-utilisation : <code>P(X ≤ m-1)</code></li>
-            <li>Le risque de surbooking : <code>P(X ≥ m+1)</code></li>
+            <li><code>m</code> = nombre de bateaux disponibles</li>
+            <li>Risque de sous-utilisation : <code>P(X ≤ m-1)</code></li>
+            <li>Risque de surbooking : <code>P(X ≥ m+1)</code></li>
           </ul>
         </div>
         <div class="comp-card">
@@ -247,36 +250,29 @@ getParticipationByToken(token): ?array</code></pre>
           <h3>Recette attendue</h3>
           <ul class="comp-list">
             <li>
-              Sans surbooking : la recette dépend du nombre de bateaux loués,
-              avec <code>E(X)</code> et <code>R</code> estimés.
+              Sans surbooking : recette estimée via <code>E(X)</code> et
+              <code>R</code>
             </li>
             <li>
-              Avec surbooking : la recette moyenne intègre les remboursements
-              (si des bateaux restent vides) et les dédommagements (si
-              <code>X > m</code>).
+              Avec surbooking : recette intègre remboursements et dédommagements
+              si <code>X > m</code>
             </li>
             <li>
-              Objectif : trouver <code>n₀</code> (nombre de réservations
-              optimal) qui maximise l'espérance de la recette <code>E(R)</code>.
+              Objectif : trouver <code>n₀</code> optimal qui maximise
+              <code>E(R)</code>
             </li>
-            <li>
-              Les résultats sont obtenus par loi binomiale puis comparés à
-              l'approximation normale.
-            </li>
+            <li>Résultats comparés : loi binomiale vs approximation normale</li>
           </ul>
         </div>
         <div class="comp-card">
           <div class="comp-card-icon">📈</div>
           <h3>Résultats / intérêt</h3>
           <ul class="comp-list">
-            <li>Montrer que surbooker un peu peut augmenter les bénéfices.</li>
+            <li>Surbooker légèrement augmente les bénéfices</li>
             <li>
-              Mettre en évidence qu'un surbooking excessif devient
-              contre-productif à cause des coûts de dédommagement.
+              Surbooking excessif devient contre-productif (dédommagements)
             </li>
-            <li>
-              Vérifier la cohérence des approximations (binomiale vs normale).
-            </li>
+            <li>Vérification de la cohérence binomiale vs normale</li>
           </ul>
         </div>
       </div>
@@ -286,7 +282,6 @@ getParticipationByToken(token): ?array</code></pre>
     <section class="comp-section comp-dark" id="analyse-probabilites">
       <p class="section-label">Analyse personnelle</p>
       <h2 class="section-title">Retour sur la SAÉ Probabilités</h2>
-
       <div class="analyse-grid">
         <div class="analyse-card">
           <h3>🎲 SAÉ Probabilités (surbooking)</h3>
@@ -320,9 +315,220 @@ getParticipationByToken(token): ?array</code></pre>
         <div class="analyse-card">
           <h3>🎯 Objectifs (surbooking)</h3>
           <p>
-            Prochaines étapes : rendre l'analyse plus décisionnelle (choix du
-            seuil optimal selon le coût réel du dédommagement) et automatiser
-            les calculs et graphes pour tester rapidement plusieurs scénarios.
+            Rendre l'analyse plus décisionnelle (choix du seuil optimal selon le
+            coût réel du dédommagement) et automatiser les calculs et graphes
+            pour tester rapidement plusieurs scénarios.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         SAÉ 3 — SAECINE (volet Gestion)
+    ══════════════════════════════════════════ -->
+    <section class="comp-section" id="sae-saecine">
+      <p class="section-label">
+        SAÉ4 2025/2026 — Audit &amp; Gestion de données
+      </p>
+      <h2 class="section-title">SAECine — Audit, BDD &amp; Versionnement</h2>
+      <p class="comp-text">
+        Dans la SAÉ4, le volet Gérer recouvre l'audit de l'application
+        existante, la modélisation et la migration de la base de données, ainsi
+        que la gestion du projet via Git avec une stratégie de branchement et
+        des commits sémantiques. Ces activités — analyser, structurer les
+        données, tracer et coordonner — sont au cœur de la compétence 4.
+      </p>
+      <div class="comp-cards">
+        <div class="comp-card">
+          <div class="comp-card-icon">🔍</div>
+          <h3>Audit de l'existant</h3>
+          <ul class="comp-list">
+            <li>
+              Analyse du code source PHP — architecture, robustesse, sécurité
+            </li>
+            <li>
+              25 faiblesses identifiées : mots de passe en clair, injections
+              SQL, absence CSRF
+            </li>
+            <li>Classement par gravité : Critique / Haute / Moyenne / Basse</li>
+            <li>
+              Rapport d'audit structuré en 3 axes : sécurité, robustesse,
+              performance
+            </li>
+            <li>
+              Rédaction du cahier des charges et de la proposition commerciale
+              (devis)
+            </li>
+          </ul>
+        </div>
+        <div class="comp-card">
+          <div class="comp-card-icon">🗄️</div>
+          <h3>Gestion de la base de données</h3>
+          <ul class="comp-list">
+            <li>Migration MyISAM → InnoDB : transactions ACID activées</li>
+            <li>Encodage utf8mb3 → utf8mb4 (support Unicode complet)</li>
+            <li>
+              Ajout de 4 clés étrangères avec comportements
+              <code>CASCADE</code> / <code>SET NULL</code>
+            </li>
+            <li>
+              Ajout d'index B-tree sur colonnes de jointure et de filtrage
+            </li>
+            <li>
+              Réorganisation des <code>DROP TABLE</code> pour respecter les
+              contraintes FK
+            </li>
+          </ul>
+        </div>
+        <div class="comp-card">
+          <div class="comp-card-icon">🌿</div>
+          <h3>Gestion de version Git</h3>
+          <ul class="comp-list">
+            <li>110 commits sémantiques sur branche <code>develop</code></li>
+            <li>
+              Convention Conventional Commits : <code>feat</code> /
+              <code>fix</code> / <code>perf</code> / <code>test</code> /
+              <code>release</code>
+            </li>
+            <li>
+              Merge Request formelle <code>develop → main</code> en fin de
+              projet
+            </li>
+            <li>Stratégie de branchement GitFlow simplifiée</li>
+            <li>
+              26 vulnérabilités corrigées — 9/10 objectifs du CDC réalisés
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRACE SAECINE -->
+    <section class="comp-section comp-dark" id="trace-saecine">
+      <p class="section-label">Trace</p>
+      <h2 class="section-title">Extrait — Audit &amp; migration BDD</h2>
+      <p class="comp-text">
+        Deux extraits représentatifs du volet gestion : le tableau de
+        classification des faiblesses issu de l'audit, et les clés étrangères
+        ajoutées lors de la migration de la base de données vers InnoDB.
+      </p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">AUDIT</span>
+          <span>Faiblesses identifiées — SAECine (extrait)</span>
+        </div>
+        <pre><code>── Sécurité ─────────────────────────────────────── Gravité ──
+Mots de passe admin stockés en clair (admin123)     Critique
+Credentials BDD codés en dur dans dbconnect.php     Critique
+Aucune protection CSRF sur les formulaires POST     Critique
+Aucune limite de tentatives de connexion            Haute
+Erreurs PHP affichées directement en production     Haute
+
+── Base de données ──────────────────────────────── Gravité ──
+Moteur MyISAM — pas de transactions ni FK           Haute
+Encodage utf8mb3 — caractères Unicode incomplets    Moyenne
+Requêtes SELECT * sur toutes les colonnes           Moyenne
+
+── Infrastructure ───────────────────────────────── Gravité ──
+Aucune conteneurisation — WAMP local uniquement     Moyenne
+Aucun test unitaire                                 Haute</code></pre>
+      </div>
+
+      <div class="code-block" style="margin-top: 2rem">
+        <div class="code-header">
+          <span class="code-lang">SQL</span>
+          <span>saecine.sql — Migration InnoDB &amp; clés étrangères</span>
+        </div>
+        <pre><code>-- Migration vers InnoDB + utf8mb4
+ALTER TABLE film    ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+ALTER TABLE vote    ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+ALTER TABLE jetons  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Clés étrangères ajoutées
+ALTER TABLE film
+  ADD CONSTRAINT fk_film_realisateur
+  FOREIGN KEY (id_realisateur)
+  REFERENCES realisateur(id_realisateur)
+  ON DELETE SET NULL;
+
+ALTER TABLE vote
+  ADD CONSTRAINT fk_vote_utilisateur
+  FOREIGN KEY (id_utilisateur)
+  REFERENCES utilisateur(ID) ON DELETE CASCADE,
+  ADD CONSTRAINT fk_vote_film
+  FOREIGN KEY (id_film)
+  REFERENCES film(id_film) ON DELETE CASCADE;
+
+-- Index B-tree sur colonnes de jointure
+ALTER TABLE film  ADD INDEX idx_id_realisateur (id_realisateur);
+ALTER TABLE vote  ADD UNIQUE KEY unique_user_vote (id_utilisateur);
+ALTER TABLE film  ADD INDEX idx_titre (titre);</code></pre>
+      </div>
+    </section>
+
+    <!-- ANALYSE SAECINE -->
+    <section class="comp-section" id="analyse-saecine">
+      <p class="section-label">Analyse personnelle</p>
+      <h2 class="section-title">Retour sur la SAÉ SAECine — volet Gestion</h2>
+      <div class="analyse-grid">
+        <div class="analyse-card">
+          <h3>🔍 Ce que j'en retiens — Audit</h3>
+          <p>
+            Auditer une application existante m'a appris à lire du code que je
+            n'ai pas écrit et à identifier des failles que l'auteur n'a pas
+            vues. Classifier chaque faiblesse par gravité et la documenter dans
+            un rapport structuré — comme on le ferait en ESN — est un exercice
+            très différent du développement : il faut être factuel, exhaustif et
+            proposer des solutions concrètes.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>🗄️ Ce que j'en retiens — BDD</h3>
+          <p>
+            La migration BDD a montré concrètement pourquoi le choix du moteur
+            de stockage et de l'encodage a des conséquences réelles sur
+            l'intégrité des données. Sans InnoDB, impossible d'avoir des
+            transactions ou des clés étrangères — et donc impossible de garantir
+            la cohérence entre les tables vote, film et utilisateur.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>🌿 Ce que j'en retiens — Git</h3>
+          <p>
+            Travailler avec la convention Conventional Commits et une branche
+            <code>develop</code> distincte de <code>main</code> a rendu
+            l'historique Git lisible et professionnel. La Merge Request finale a
+            simulé un vrai processus de revue de code en contexte d'ESN, avec
+            une validation formelle avant fusion en production.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>📚 Ressources mobilisées</h3>
+          <p>
+            Documentation MySQL 8.0 (moteurs, encodage, clés étrangères), OWASP
+            Top 10 pour la classification des vulnérabilités, cours de bases de
+            données (modélisation, normalisation, index), documentation Git pour
+            la stratégie de branchement et les conventions de commits.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>⚠️ Points à améliorer</h3>
+          <p>
+            Le cahier des charges a été rédigé après le début des corrections,
+            ce qui n'est pas l'ordre idéal. Si c'était à refaire, je
+            formaliserais d'abord toutes les exigences et les critères de
+            validation avant de toucher au code, pour pouvoir vérifier chaque
+            objectif de manière indépendante.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>🎯 Objectifs à venir</h3>
+          <p>
+            Mettre en place un pipeline CI/CD GitLab qui exécute automatiquement
+            les tests à chaque push et bloque les Merge Requests si des tests
+            échouent. Explorer les outils d'analyse de la qualité de code
+            (PHPStan, SonarQube) pour automatiser la détection des faiblesses
+            lors de futurs audits.
           </p>
         </div>
       </div>
