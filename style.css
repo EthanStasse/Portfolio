@@ -16,6 +16,15 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+img,
+svg,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -26,6 +35,15 @@ body {
   font-family: "Syne", sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
+}
+
+/* ── ACCESSIBILITÉ — FOCUS ── */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible {
+  outline: 2px solid var(--accent2);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 /* ── NAV ── */
@@ -75,11 +93,15 @@ nav {
 .hamburger {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
   background: none;
   border: none;
   cursor: pointer;
   padding: 4px;
+  min-width: 44px;
+  min-height: 44px;
 }
 
 .hamburger span {
@@ -106,10 +128,14 @@ nav {
   top: 65px;
   right: 0;
   width: 280px;
+  max-height: calc(100vh - 65px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   background: rgba(10, 10, 15, 0.97);
   border-left: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   padding: 1.5rem;
+  padding-right: calc(1.5rem + env(safe-area-inset-right));
   z-index: 99;
   transform: translateX(100%);
   transition: transform 0.3s ease;
@@ -306,6 +332,7 @@ section {
   color: var(--text-muted);
   margin-bottom: 1.25rem;
   line-height: 1.9;
+  overflow-wrap: break-word;
 }
 .about-stats {
   display: grid;
@@ -429,6 +456,7 @@ section {
   line-height: 1.7;
   flex: 1;
   margin-bottom: 1.5rem;
+  overflow-wrap: break-word;
 }
 
 .project-stack {
@@ -486,6 +514,7 @@ footer {
   max-width: 700px;
   line-height: 1.9;
   margin-bottom: 3rem;
+  overflow-wrap: break-word;
 }
 
 .comp-text code,
@@ -512,6 +541,7 @@ footer {
   transition:
     border-color 0.2s,
     transform 0.2s;
+  min-width: 0;
 }
 
 .comp-card:hover {
@@ -541,6 +571,7 @@ footer {
   font-size: 0.9rem;
   padding-left: 1rem;
   position: relative;
+  overflow-wrap: break-word;
 }
 
 .comp-list li::before {
@@ -580,6 +611,22 @@ footer {
 .code-block pre {
   padding: 1.5rem;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
+}
+
+.code-block pre::-webkit-scrollbar {
+  height: 6px;
+}
+
+.code-block pre::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.code-block pre::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 3px;
 }
 
 .code-block code {
@@ -602,6 +649,7 @@ footer {
   border-radius: 8px;
   padding: 2rem;
   transition: border-color 0.2s;
+  min-width: 0;
 }
 
 .analyse-card:hover {
@@ -617,6 +665,7 @@ footer {
   color: var(--text-muted);
   font-size: 0.9rem;
   line-height: 1.8;
+  overflow-wrap: break-word;
 }
 
 .analyse-card code {
@@ -627,6 +676,42 @@ footer {
   padding: 0.15em 0.4em;
   border-radius: 3px;
 }
+
+/* ══════════════════════════════════════════
+   RESPONSIVE — TABLETTE / PETIT DESKTOP
+   ══════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  nav {
+    padding: 1rem 2.5rem;
+  }
+
+  .hero,
+  section,
+  .comp-section,
+  footer {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.6rem, 6.5vw, 4.5rem);
+  }
+
+  .about-grid {
+    gap: 2.5rem;
+  }
+
+  .comp-cards,
+  .analyse-grid,
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 /* ══════════════════════════════════════════
    RESPONSIVE MOBILE
    ══════════════════════════════════════════ */
@@ -649,12 +734,22 @@ footer {
     display: none;
   }
 
+  /* ── HAMBURGER MENU ── */
+  .hamburger-menu {
+    width: 100%;
+    border-left: none;
+  }
+
   /* ── HERO ── */
   .hero {
     padding: 0 1.25rem;
     padding-top: 4.5rem;
     min-height: 100svh;
     align-items: center;
+  }
+
+  .hero-grid {
+    background-size: 40px 40px;
   }
 
   .hero-tag {
@@ -847,12 +942,6 @@ footer {
     font-size: 0.85rem;
     line-height: 1.7;
   }
-
-  /* ── HAMBURGER MENU ── */
-  .hamburger-menu {
-    width: 100%;
-    border-left: none;
-  }
 }
 
 @media (max-width: 480px) {
@@ -923,5 +1012,79 @@ footer {
 
   .code-block code {
     font-size: 0.62rem;
+  }
+
+  .hamburger-menu {
+    padding: 1rem;
+    padding-right: calc(1rem + env(safe-area-inset-right));
+  }
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE — TRÈS PETITS ÉCRANS
+   ══════════════════════════════════════════ */
+@media (max-width: 360px) {
+  html {
+    font-size: 13px;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.7rem, 14vw, 2.4rem);
+  }
+
+  .comp-card,
+  .analyse-card,
+  .project-card {
+    padding: 1rem;
+  }
+
+  .code-block code {
+    font-size: 0.58rem;
+  }
+
+  .code-block pre {
+    padding: 0.65rem;
+  }
+
+  .stat-number {
+    font-size: 1.25rem;
+  }
+
+  .about-stats,
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE — MOBILE EN PAYSAGE
+   ══════════════════════════════════════════ */
+@media (max-width: 900px) and (orientation: landscape) {
+  .hero {
+    min-height: auto;
+    padding-top: 5.5rem;
+    padding-bottom: 3rem;
+    align-items: flex-start;
+  }
+
+  .hamburger-menu {
+    max-height: calc(100vh - 56px);
+  }
+}
+
+/* ══════════════════════════════════════════
+   ACCESSIBILITÉ — MOUVEMENT RÉDUIT
+   ══════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }
