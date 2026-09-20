@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ethan Stasse — Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <a href="#" class="nav-logo">ACCUEIL</a>
+      <ul class="nav-links" id="nav-links"></ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+
+    <!-- MENU HAMBURGER -->
+    <div class="hamburger-menu" id="hamburger-menu">
+      <ul>
+        <li>
+          <a href="competence-1.html" class="menu-link menu-comp"
+            >Compétence 1</a
+          >
+        </li>
+        <li>
+          <a href="competence-2.html" class="menu-link menu-comp"
+            >Compétence 2</a
+          >
+        </li>
+        <li>
+          <a href="competence-3.html" class="menu-link menu-comp"
+            >Compétence 3</a
+          >
+        </li>
+        <li>
+          <a href="competence-4.html" class="menu-link menu-comp"
+            >Compétence 4</a
+          >
+        </li>
+        <li>
+          <a href="competence-5.html" class="menu-link menu-comp"
+            >Compétence 5</a
+          >
+        </li>
+        <li>
+          <a href="competence-6.html" class="menu-link menu-comp"
+            >Compétence 6</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-grid"></div>
+      <div class="hero-content">
+        <p class="hero-tag">BUT Informatique</p>
+        <h1>Ethan<br /><span>Stasse</span></h1>
+        <p class="hero-desc">
+          Stage de 10 semaines au Club Robot de l'IUT de Saint-Dié. Conception
+          et développement d'un système de supervision d'une serre connectée,
+          accessible via une interface web.
+        </p>
+      </div>
+    </section>
+
+    <!-- MISSION -->
+    <section class="comp-section" id="mission">
+      <p class="section-label">Stage — 23 février au 24 avril 2026</p>
+      <h2 class="section-title">Serre Connectée — Club Robot</h2>
+      <p class="comp-text">
+        Le Club Robot de l'IUT de Saint-Dié-des-Vosges disposait d'une serre
+        instrumentalisée mais sans interface unifiée pour en superviser l'état
+        ni en piloter les actionneurs à distance. L'objectif du stage était de
+        concevoir et développer de A à Z une application web complète reliant
+        une interface moderne, une API Django REST, un Raspberry Pi et un
+        Arduino contrôlant le matériel physique.
+      </p>
+
+      <div class="comp-cards">
+        <div class="comp-card">
+          <div class="comp-card-icon"></div>
+          <h3>Fonctionnalités réalisées</h3>
+          <ul class="comp-list">
+            <li>
+              Visualisation temps réel des capteurs (température, humidité
+              air/sol, luminosité, niveau d'eau)
+            </li>
+            <li>
+              Contrôle des actionneurs : toit (servomoteur), LEDs horticoles,
+              pompe à eau
+            </li>
+            <li>
+              Mode autonome (Arduino seul) et mode manuel (contrôle utilisateur)
+            </li>
+            <li>
+              Représentation 3D interactive et synchronisée de la serre avec
+              Three.js
+            </li>
+            <li>
+              Galerie de photos webcam associées aux données capteurs horodatées
+            </li>
+            <li>
+              Système d'authentification sécurisé avec expiration de session
+            </li>
+            <li>Page de journalisation (logs) réservée à l'administrateur</li>
+          </ul>
+        </div>
+        <div class="comp-card">
+          <div class="comp-card-icon"></div>
+          <h3>Architecture technique</h3>
+          <ul class="comp-list">
+            <li>
+              Client web JavaScript — polling HTTP toutes les secondes sur
+              <code>/api/last/</code>
+            </li>
+            <li>
+              API Django REST Framework — 14 routes HTTP (rendu HTML + endpoints
+              JSON)
+            </li>
+            <li>
+              Base de données SQLite — 4 modèles : Serre, Usr, Logs, Photo
+            </li>
+            <li>Raspberry Pi — intermédiaire entre le serveur et l'Arduino</li>
+            <li>
+              Arduino — contrôle direct des capteurs et actionneurs physiques
+            </li>
+            <li>
+              IPC par fichier texte partagé <code>/tmp/serre_cmds.txt</code>
+            </li>
+          </ul>
+        </div>
+        <div class="comp-card">
+          <div class="comp-card-icon"></div>
+          <h3>Stack &amp; outils</h3>
+          <ul class="comp-list">
+            <li>Django REST Framework (back-end Python)</li>
+            <li>Three.js ES6 (rendu 3D WebGL)</li>
+            <li>HTML / CSS / JavaScript natif (front-end)</li>
+            <li>Raspberry Pi + Arduino (embarqué)</li>
+            <li>Git / GitHub (contrôle de version)</li>
+            <li>VS Code (éditeur)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARCHITECTURE DETAIL -->
+    <section class="comp-section comp-dark" id="architecture">
+      <p class="section-label">Détail technique</p>
+      <h2 class="section-title">Flux de données &amp; chaîne de commande</h2>
+      <p class="comp-text">
+        Le système repose sur deux types de flux complémentaires. Le flux
+        montant remonte les données des capteurs jusqu'à l'interface, tandis que
+        le flux descendant transmet les commandes de l'utilisateur jusqu'aux
+        actionneurs physiques.
+      </p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">ARCHITECTURE</span>
+          <span>Flux de données — Serre Connectée</span>
+        </div>
+        <pre><code>── Flux montant (capteurs → interface) ──────────────────────────
+Arduino       collecte les données (temp, hum, lux, eau…)
+   ↓          envoi JSON sur port série
+Raspberry Pi  reçoit et transmet à l'API
+   ↓
+Django API    enregistre en base de données (modèle Serre)
+   ↓
+Client web    polling /api/last/ toutes les secondes → mise à jour DOM
+
+── Flux descendant (utilisateur → actionneur) ───────────────────
+Clic bouton   → fetch POST JS vers /api/toit/ | /api/led/ | /api/pompe/
+   ↓          (protection CSRF via cookie csrftoken)
+Django vue    → écrit la commande dans /tmp/serre_cmds.txt
+              → crée une entrée dans le modèle Logs
+   ↓
+Processus série (manage.py) lit le fichier toutes les 100 ms
+   ↓
+Arduino       reçoit l'instruction → active l'actionneur physique
+   ↓
+Retour d'état dans le prochain cycle de polling (1–2 secondes)</code></pre>
+      </div>
+    </section>
+
+    <!-- THREE.JS -->
+    <section class="comp-section" id="threejs">
+      <p class="section-label">Réalisation principale</p>
+      <h2 class="section-title">Visualisation 3D avec Three.js</h2>
+      <p class="comp-text">
+        La représentation 3D est la partie la plus stimulante du stage. La scène
+        est entièrement construite de manière procédurale à partir de primitives
+        Three.js, et se synchronise en temps réel avec l'état physique de la
+        serre via des fonctions globales appelées à chaque cycle de
+        rafraîchissement.
+      </p>
+
+      <div class="comp-cards">
+        <div class="comp-card">
+          <div class="comp-card-icon"></div>
+          <h3>Modélisation procédurale</h3>
+          <ul class="comp-list">
+            <li>
+              Table texturée, sol, mur de fond et groupe <code>serreGroup</code>
+            </li>
+            <li>
+              Murs en verre transparent (<code>opacity: 0.1, DoubleSide</code>)
+            </li>
+            <li>Toit mobile en <code>BufferGeometry</code> personnalisée</li>
+            <li>
+              Plante : tige, fleur sphérique, pétales en
+              <code>ShapeGeometry</code> Bézier
+            </li>
+            <li>
+              Tuyaux de pompe en <code>TubeGeometry</code> sur
+              <code>CatmullRomCurve3</code>
+            </li>
+            <li>
+              Réservoir d'eau transparent + écran LCD simulé en
+              <code>CanvasTexture</code>
+            </li>
+          </ul>
+        </div>
+        <div class="comp-card">
+          <div class="comp-card-icon"></div>
+          <h3>Synchronisation temps réel</h3>
+          <ul class="comp-list">
+            <li>
+              <code>setToitAngle()</code> — rotation du toit par interpolation
+              linéaire (<code>* 0.05</code> par frame)
+            </li>
+            <li>
+              <code>setLedIntensity()</code> — deux SpotLight rouges à intensité
+              250 000 ou 0
+            </li>
+            <li>
+              <code>setPompeState()</code> — opacité des tuyaux intérieurs (eau
+              visible ou non)
+            </li>
+            <li>
+              <code>setEauStock()</code> — scale.y du waterMesh proportionnel au
+              volume réel
+            </li>
+            <li>
+              <code>setLCDText()</code> — redessine le canvas 2D + force
+              <code>needsUpdate = true</code>
+            </li>
+          </ul>
+        </div>
+        <div class="comp-card">
+          <div class="comp-card-icon"></div>
+          <h3>Boucle d'animation</h3>
+          <ul class="comp-list">
+            <li>
+              Pilotée par <code>requestAnimationFrame</code> +
+              <code>THREE.Clock</code>
+            </li>
+            <li>
+              30 gouttes d'eau en <code>InstancedMesh</code> (évite la
+              création/destruction répétée)
+            </li>
+            <li>
+              Physique simple : gravité à −0,15, détection de collision avec le
+              pot
+            </li>
+            <li>Particules d'éclaboussure à l'impact</li>
+            <li>Interpolation fluide de la rotation du toit à chaque frame</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIFFICULTÉS -->
+    <section class="comp-section comp-dark" id="difficultes">
+      <p class="section-label">Trace</p>
+      <h2 class="section-title">Difficultés rencontrées &amp; solutions</h2>
+      <p class="comp-text">
+        Trois défis techniques majeurs ont été identifiés et résolus au cours du
+        stage.
+      </p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">PROBLÈMES / SOLUTIONS</span>
+          <span>Serre Connectée — Ethan STASSE</span>
+        </div>
+        <pre><code>1. Synchronisation inter-processus (Django web ↔ processus série)
+   Problème  : deux processus Django indépendants sans canal de communication
+   Solution  : fichier texte partagé /tmp/serre_cmds.txt comme IPC
+               → vidé en une seule opération avant lecture pour éviter les doublons
+               → risque de condition de course atténué par open(CMD_FILE,"w").close()
+
+2. Fuites mémoire GPU dans la galerie photo Three.js
+   Problème  : chaque TextureLoader().load() alloue de la mémoire GPU non libérée
+   Solution  : geometry.dispose() sur les anciennes géométries TextGeometry
+               → référence à la texture courante (screenTexture) pour old.dispose()
+               → paramètre ?t=Date.now() pour invalider le cache navigateur
+
+3. Expiration de session — cohérence client / serveur
+   Problème  : l'utilisateur restait sur le dashboard après expiration Django,
+               les commandes échouaient silencieusement (redirection au lieu de JSON)
+   Solution  : setTimeout côté client (3 600 s) pour redirection automatique
+               → détection HTTP 401 + redirected dans refreshData()
+               → double mécanisme : expiration client ET vérification serveur</code></pre>
+      </div>
+    </section>
+
+    <!-- ANALYSE -->
+    <section class="comp-section" id="analyse">
+      <p class="section-label">Analyse personnelle</p>
+      <h2 class="section-title">Retour sur le stage</h2>
+
+      <div class="analyse-grid">
+        <div class="analyse-card">
+          <h3>Ressources mobilisées</h3>
+          <p>
+            J'ai mobilisé les cours de développement web, de bases de données et
+            de programmation orientée objet. Three.js avait été abordé en cours,
+            ce qui m'a permis de gagner du temps sur la prise en main. J'ai
+            consulté la documentation officielle Django, Django REST Framework
+            et Three.js, ainsi que des ressources complémentaires pour la
+            communication série Python et la gestion mémoire GPU.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>Implication &amp; autonomie</h3>
+          <p>
+            Le travail a été organisé de manière très autonome, avec des points
+            hebdomadaires avec M. PIERRE pour valider les réalisations et
+            orienter la semaine suivante. J'ai géré seul l'ensemble du cycle :
+            analyse des besoins, conception de l'architecture, développement,
+            tests et correction de bugs.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>Points forts</h3>
+          <p>
+            La représentation 3D synchronisée en temps réel est la réalisation
+            dont je suis le plus fier — voir la serre prendre vie dans le
+            navigateur et refléter l'état physique réel a été particulièrement
+            stimulant. La gestion complète du projet en autonomie m'a aussi
+            appris à structurer mon travail sur la durée.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>Points à améliorer</h3>
+          <p>
+            Certaines documentations Three.js se sont révélées obsolètes ou
+            incomplètes, ce qui m'a contraint à tâtonner et chercher par
+            moi-même. Si c'était à refaire, j'anticiperais davantage les
+            problèmes de mémoire GPU dès la conception et j'envisagerais Redis
+            plutôt qu'un fichier texte pour l'IPC entre processus Django.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>Objectifs à venir</h3>
+          <p>
+            Déployer l'application en HTTPS, implémenter des alertes
+            automatiques en cas de dépassement de seuils critiques, ajouter des
+            graphiques historiques des relevés. À plus long terme : remplacer le
+            canal IPC par un bus Redis plus robuste et explorer le développement
+            d'une application mobile complémentaire.
+          </p>
+        </div>
+        <div class="analyse-card">
+          <h3>Compétences acquises</h3>
+          <p>
+            Maîtrise de Django REST Framework pour la conception d'une API
+            robuste, communication série entre Raspberry Pi et Arduino,
+            intégration de rendu 3D temps réel avec Three.js, conception d'une
+            architecture multi-couches reliant matériel embarqué, back-end
+            Python et front-end JavaScript. Gestion d'un projet technique
+            complet en totale autonomie.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <span>© 2026 Ethan Stasse</span>
+      <span>BUT Informatique 2A — Stage</span>
+    </footer>
+
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const menu = document.getElementById("hamburger-menu");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("open");
+        menu.classList.toggle("open");
+      });
+
+      menu.querySelectorAll(".menu-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("open");
+          menu.classList.remove("open");
+        });
+      });
+    </script>
+  </body>
+</html>
