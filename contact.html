@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio — Ethan Stasse</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   </head>
   <body>
     <header>
@@ -17,7 +16,7 @@
     <main class="contact-main">
       <h1>Contact</h1>
       <form
-        action="verify.php"
+        action="https://formspree.io/f/xwlpwdwz"
         method="POST"
         class="contact-form"
         id="contact-form"
@@ -31,10 +30,14 @@
         <label for="message">Message</label>
         <textarea id="message" name="message" rows="6" required></textarea>
 
-        <div
-          class="g-recaptcha"
-          data-sitekey="6LdvhtMtAAAAADu4C-uQkac27B-eRGXY-VKt0NkW"
-        ></div>
+        <!-- champ piège anti-spam : invisible pour les humains -->
+        <input
+          type="text"
+          name="_gotcha"
+          style="display: none"
+          tabindex="-1"
+          autocomplete="off"
+        />
 
         <button type="submit">Envoyer</button>
         <p id="form-status" role="status"></p>
@@ -46,33 +49,24 @@
 
         form.addEventListener("submit", async (e) => {
           e.preventDefault();
-
-          if (!grecaptcha.getResponse()) {
-            statusEl.textContent = "Coche la case « Je ne suis pas un robot ».";
-            return;
-          }
-
           statusEl.textContent = "Envoi en cours...";
 
           try {
             const response = await fetch(form.action, {
               method: "POST",
               body: new FormData(form),
+              headers: { Accept: "application/json" },
             });
 
             if (response.ok) {
               statusEl.textContent = "Message envoyé, merci !";
               form.reset();
-            } else if (response.status === 403) {
-              statusEl.textContent = "Captcha invalide, réessaie.";
             } else {
               statusEl.textContent = "Erreur, réessaie plus tard.";
             }
           } catch {
             statusEl.textContent = "Problème de connexion, réessaie plus tard.";
           }
-
-          grecaptcha.reset();
         });
       </script>
     </main>
