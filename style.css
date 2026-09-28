@@ -1,6 +1,22 @@
-body {
-  background-color: rgb(18, 18, 18);
+:root {
+  --accent: #6ee7b7;
+  --bg: rgb(18, 18, 18);
+  --surface: rgb(30, 30, 30);
+  --border: rgb(60, 60, 60);
 }
+
+html,
+body {
+  background-color: var(--bg);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 temp {
   color: rgb(255, 255, 255);
   display: flex;
@@ -11,6 +27,7 @@ temp {
   font-size: 3rem;
 }
 
+/* ---------- Header ---------- */
 header {
   position: sticky;
   top: 0;
@@ -31,47 +48,21 @@ header nav {
   display: flex;
   gap: 1rem;
   flex-wrap: nowrap;
-  white-space: nowrap;
-}
-
-header p {
-  margin: 0;
 }
 
 .head-btn {
   font-family: "Space Mono", monospace;
-  font-size: 1rem;
+  font-size: 1.3rem;
   color: var(--accent);
   text-decoration: none;
   letter-spacing: 0.05em;
 }
 
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  width: min(100%, 32rem);
-  color: rgb(255, 255, 255);
+.head-btn:hover {
+  text-decoration: underline;
 }
 
-.contact-form input,
-.contact-form textarea {
-  padding: 0.75rem;
-  border: 1px solid rgb(60, 60, 60);
-  border-radius: 0.375rem;
-  background-color: rgb(30, 30, 30);
-  color: inherit;
-  font: inherit;
-}
-
-.contact-form button {
-  padding: 0.75rem;
-  border: none;
-  border-radius: 0.375rem;
-  cursor: pointer;
-  font: inherit;
-}
-
+/* ---------- Page contact ---------- */
 .contact-main {
   flex: 1;
   display: flex;
@@ -79,11 +70,139 @@ header p {
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
-  padding: 1rem;
+  padding: 2rem 1rem;
   color: rgb(255, 255, 255);
 }
 
-.contact-main h1 {
+.contact-main h1,
+.contact-main p {
   margin: 0;
   text-align: center;
+}
+
+.contact-intro {
+  opacity: 0.75;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  width: min(100%, 64rem);
+}
+
+.contact-form,
+.contact-infos {
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background-color: var(--surface);
+}
+
+.contact-form h2,
+.contact-infos h2 {
+  margin: 0 0 0.5rem;
+  text-align: left;
+}
+
+/* Formulaire */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contact-form label {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.contact-form :is(input, textarea, button) {
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  font: inherit;
+}
+
+.contact-form :is(input, textarea) {
+  border: 1px solid var(--border);
+  background-color: var(--bg);
+  color: inherit;
+}
+
+.contact-form :is(input, textarea):focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 8rem;
+  max-height: 20rem;
+}
+
+.contact-form button {
+  border: none;
+  background-color: var(--accent);
+  color: var(--bg);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  filter: brightness(1.1);
+}
+
+/* Coordonnées */
+.contact-infos p {
+  text-align: left;
+  opacity: 0.75;
+}
+
+.contact-infos dl {
+  margin: 0;
+}
+
+.contact-infos dt {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.contact-infos dd {
+  margin: 0.25rem 0 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.contact-infos dd:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.contact-infos a {
+  color: inherit;
+}
+
+/* Mobile : une seule colonne */
+@media (max-width: 768px) {
+  temp {
+    flex: 1;
+    min-height: 0;
+    padding: 1.5rem;
+    box-sizing: border-box;
+  }
+
+  temp h1 {
+    margin: 0;
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+    text-align: center;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
 }
