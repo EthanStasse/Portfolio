@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>À propos — Ethan Stasse</title>
+    <meta
+      name="description"
+      content="À propos d'Ethan Stasse : formation, expérience et compétences techniques."
+    />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="components.js" defer></script>
+  </head>
+  <body>
+    <site-header></site-header>
+
+    <main class="about-main">
+      <h1>À propos</h1>
+      <p class="about-intro">
+        Développeur junior, curieux d'architecture logicielle et de création de
+        jeux vidéo.
+      </p>
+
+      <!-- ---------- Formation ---------- -->
+      <section class="about-section">
+        <h2>Formation</h2>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">
+              <span class="years">2024 – 2027</span>
+              <span class="status status-cours">En cours</span>
+            </div>
+            <div class="timeline-content">
+              <h3>BUT Informatique</h3>
+              <p class="timeline-place">IUT Saint-Dié-des-Vosges, France</p>
+              <p class="timeline-desc">
+                Développement logiciel, bases de données, architectures web et
+                gestion de projet.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">
+              <span class="years">2024</span>
+              <span class="status status-obtenu">Obtenu</span>
+            </div>
+            <div class="timeline-content">
+              <h3>Baccalauréat Général — STI2D</h3>
+              <p class="timeline-place">
+                Lycée Jean-Baptiste Vuillaume, Mirecourt, France
+              </p>
+              <p class="timeline-desc">
+                Sciences et Techniques de l'Industrie et du Développement
+                Durable.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- Expérience ---------- -->
+      <section class="about-section">
+        <h2>Expérience professionnelle</h2>
+
+        <div class="exp-card">
+          <div class="exp-header">
+            <span class="exp-tag">Stage · Développement</span>
+            <span class="exp-date">2026</span>
+          </div>
+          <h3>Stagiaire en développement</h3>
+          <p class="exp-place">IUT Saint-Dié-des-Vosges</p>
+          <ul>
+            <li>
+              Réalisation d'une page web pour superviser une serre, via une
+              Raspberry Pi et une Arduino.
+            </li>
+            <li>
+              Liaison des capteurs et des actionneurs avec la page web pour
+              consulter et contrôler la serre à distance.
+            </li>
+          </ul>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-header">
+            <span class="exp-tag">Bénévolat</span>
+            <span class="exp-date">2023 – Présent</span>
+          </div>
+          <h3>Association « Les amis de l'école »</h3>
+          <ul>
+            <li>Participation à la construction d'une Chavande.</li>
+            <li>
+              Service aux clients et gestion du réapprovisionnement des stands
+              de restauration lors d'événements.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ---------- Compétences ---------- -->
+      <section class="about-section">
+        <h2>Compétences techniques</h2>
+
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h3>Langages de programmation</h3>
+            <div class="badges">
+              <span class="badge-skill">C#</span>
+              <span class="badge-skill badge-alt">Java</span>
+              <span class="badge-skill badge-alt">Python</span>
+              <span class="badge-skill">C</span>
+              <span class="badge-skill">JavaScript</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h3>Développement web &amp; backend</h3>
+            <div class="badges">
+              <span class="badge-skill badge-alt">HTML5 / CSS3</span>
+              <span class="badge-skill">PHP</span>
+              <span class="badge-skill">MySQL</span>
+              <span class="badge-skill">SQL / PostgreSQL</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h3>Moteurs &amp; outils</h3>
+            <div class="badges">
+              <span class="badge-skill">Unity (2D/3D)</span>
+              <span class="badge-skill badge-alt">Git &amp; GitHub</span>
+              <span class="badge-skill">Three.js / WebGL</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- Projets ---------- -->
+      <!-- ÉTHAN : garde seulement les .project-card que tu veux montrer,
+           supprime les autres. Tu peux aussi renommer cette section
+           "Projets" en page à part si tu préfères. -->
+      <section class="about-section">
+        <h2>Projets</h2>
+
+        <div class="projects-grid">
+          <div class="project-card">
+            <h3>Jeu textuel en C</h3>
+            <span class="project-year">2024</span>
+            <ul>
+              <li>
+                Gestion des interactions utilisateur avec un moteur de
+                commandes.
+              </li>
+              <li>Navigation entre les différentes zones du jeu.</li>
+              <li>Structures de données pour stocker l'état du jeu.</li>
+            </ul>
+          </div>
+
+          <div class="project-card">
+            <h3>Algorithme du voyageur de commerce en C</h3>
+            <span class="project-year">2024</span>
+            <ul>
+              <li>Algorithme glouton, amélioré par heuristiques.</li>
+              <li>
+                Manipulation avancée de tableaux et structures de données.
+              </li>
+              <li>
+                Affichage dynamique des résultats avec mesures de performances.
+              </li>
+            </ul>
+          </div>
+
+          <div class="project-card">
+            <h3>Reproduction du site Tesla en HTML/CSS</h3>
+            <span class="project-year">2024</span>
+            <ul>
+              <li>Site statique respectant une charte graphique donnée.</li>
+              <li>Responsive design et bonnes pratiques d'accessibilité.</li>
+            </ul>
+          </div>
+
+          <div class="project-card">
+            <h3>Gestion des emplois du temps universitaires</h3>
+            <span class="project-year">Java</span>
+            <ul>
+              <li>
+                Gestion des données avec une base de données relationnelle.
+              </li>
+              <li>Détection et résolution des conflits d'emploi du temps.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- Profil & mobilité ---------- -->
+      <section class="about-section">
+        <h2>Profil &amp; mobilité</h2>
+
+        <div class="profile-grid">
+          <div class="profile-card">
+            <h3>Français</h3>
+            <span class="badge-skill">Langue maternelle</span>
+          </div>
+          <div class="profile-card">
+            <h3>Anglais</h3>
+            <span class="badge-skill badge-accent">À préciser</span>
+          </div>
+          <div class="profile-card">
+            <h3>Localisation</h3>
+            <p>Saint-Dié-des-Vosges, Grand Est</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <site-footer></site-footer>
+  </body>
+</html>

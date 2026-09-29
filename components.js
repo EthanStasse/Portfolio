@@ -4,6 +4,7 @@ class SiteHeader extends HTMLElement {
       <header>
         <a href="index.html" class="head-btn">Ethan Stasse</a>
         <nav>
+          <a href="about.html" class="head-btn">A propos</a>
           <a href="contact.html" class="head-btn">contact</a>
         </nav>
       </header>
@@ -27,6 +28,7 @@ class SiteFooter extends HTMLElement {
         <nav class="footer-nav">
           <h2>Navigation</h2>
           <a href="index.html">Accueil</a>
+          <a href="about.html">A propos</a>
           <a href="contact.html">Contact</a>
         </nav>
 
