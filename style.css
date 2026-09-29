@@ -27,6 +27,11 @@ temp {
   font-size: 3rem;
 }
 
+site-header,
+site-footer {
+  display: contents;
+}
+
 /* ---------- Header ---------- */
 header {
   position: sticky;
