@@ -1,5 +1,5 @@
 :root {
-  --accent: #6ee7b7;
+  --accent: #e39944;
   --bg: rgb(18, 18, 18);
   --surface: rgb(30, 30, 30);
   --border: rgb(60, 60, 60);
@@ -60,6 +60,88 @@ header nav {
 
 .head-btn:hover {
   text-decoration: underline;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  z-index: 100;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 2rem;
+  padding: 3rem 1.5rem 1.5rem;
+  color: rgb(255, 255, 255);
+  background-color: rgba(30, 30, 30, 0.6);
+}
+
+.footer-name {
+  margin: 0;
+  font-family: "Space Mono", monospace;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+}
+
+.footer-tagline {
+  margin: 0.5rem 0 1rem;
+  opacity: 0.75;
+}
+
+.footer-badges {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.badge {
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: inherit;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.badge:hover {
+  border-color: var(--accent);
+}
+
+footer h2 {
+  margin: 0 0 0.75rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.55;
+}
+
+.footer-nav,
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-nav a,
+.footer-contact a {
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.85;
+}
+
+.footer-nav a:hover,
+.footer-contact a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-family: "Space Mono", monospace;
+  font-size: 0.8rem;
+  opacity: 0.6;
 }
 
 /* ---------- Page contact ---------- */
@@ -200,6 +282,14 @@ header nav {
     margin: 0;
     font-size: clamp(1.75rem, 8vw, 2.5rem);
     text-align: center;
+  }
+
+  footer {
+    grid-template-columns: 1fr;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
   .contact-grid {
