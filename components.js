@@ -3,12 +3,38 @@ class SiteHeader extends HTMLElement {
     this.innerHTML = `
       <header>
         <a href="index.html" class="head-btn">Ethan Stasse</a>
+
+        <button type="button" class="burger-btn" aria-label="Ouvrir le menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
         <nav>
-          <a href="about.html" class="head-btn">A propos</a>
-          <a href="contact.html" class="head-btn">contact</a>
+          <a href="about.html" class="head-btn burger">A propos</a>
+          <a href="Project.html" class="head-btn burger">Projets</a>
+          <a href="contact.html" class="head-btn burger">contact</a>
         </nav>
       </header>
     `;
+
+    const burgerBtn = this.querySelector(".burger-btn");
+    const nav = this.querySelector("nav");
+
+    burgerBtn.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("nav-open");
+      burgerBtn.classList.toggle("burger-open", isOpen);
+      burgerBtn.setAttribute("aria-expanded", isOpen);
+    });
+
+    // Ferme le menu si on clique sur un lien
+    nav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("nav-open");
+        burgerBtn.classList.remove("burger-open");
+        burgerBtn.setAttribute("aria-expanded", "false");
+      });
+    });
   }
 }
 
