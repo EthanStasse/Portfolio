@@ -558,6 +558,49 @@ footer h2 {
   margin: 0 0 1.5rem;
 }
 
+.projects-intro {
+  margin: 0 0 2rem;
+  opacity: 0.75;
+  max-width: 42rem;
+}
+
+/* ---- Filtres ---- */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.filter-btn {
+  padding: 0.5rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.filter-btn:hover {
+  border-color: var(--accent);
+}
+
+.filter-btn.active {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+  font-weight: 600;
+}
+
+.projects-count {
+  margin: 0 0 1.5rem;
+  font-family: "Space Mono", monospace;
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
@@ -592,6 +635,69 @@ footer h2 {
 
 .project-card li {
   margin-bottom: 0.3rem;
+}
+
+/* ---- Cartes projet (filtres) ---- */
+.project-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.project-category {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.project-status {
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.3rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status-termine {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: rgb(200, 200, 200);
+}
+
+.status-encours {
+  background-color: rgba(227, 153, 68, 0.15);
+  color: var(--accent);
+}
+
+.project-image {
+  height: 9rem;
+  margin-bottom: 0.75rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(135deg, rgb(45, 45, 45), rgb(25, 25, 25));
+}
+
+.project-card p {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 0.35rem;
+  font-family: "Space Mono", monospace;
+  font-size: 0.75rem;
+  opacity: 0.85;
 }
 
 /* Mobile */
