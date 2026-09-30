@@ -55,6 +55,7 @@ class SiteFooter extends HTMLElement {
           <h2>Navigation</h2>
           <a href="index.html">Accueil</a>
           <a href="about.html">A propos</a>
+          <a href="Project.html">Projets</a>
           <a href="contact.html">Contact</a>
         </nav>
 
