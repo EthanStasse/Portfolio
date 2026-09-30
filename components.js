@@ -61,7 +61,7 @@ class SiteFooter extends HTMLElement {
 
         <div class="footer-contact">
           <h2>Contact</h2>
-          <a href="mailto:ethan.stasse88@gmail.com">ethan.stasse88@gmail.com</a>
+          <a href="mailto:ethan.stasse@proton.me">ethan.stasse@proton.me</a>
           <p>Saint-Dié-des-Vosges</p>
         </div>
 
