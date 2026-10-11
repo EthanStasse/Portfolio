@@ -17,16 +17,6 @@ body {
   flex-direction: column;
 }
 
-temp {
-  color: rgb(255, 255, 255);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  margin: 0;
-  font-size: 3rem;
-}
-
 /* ---------- Bouton hamburger ---------- */
 .burger-btn {
   display: none;
@@ -712,19 +702,6 @@ footer h2 {
 
 /* Mobile */
 @media (max-width: 768px) {
-  temp {
-    flex: 1;
-    min-height: 0;
-    padding: 1.5rem;
-    box-sizing: border-box;
-  }
-
-  temp h1 {
-    margin: 0;
-    font-size: clamp(1.75rem, 8vw, 2.5rem);
-    text-align: center;
-  }
-
   footer {
     grid-template-columns: 1fr;
   }
