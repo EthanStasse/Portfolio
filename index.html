@@ -3,16 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ethan Stasse Developpeur web Vosges</title>
+    <title>Ethan Stasse — Développeur web en formation</title>
     <meta
       name="description"
-      content="Portfolio d'Ethan Stasse : projets, compétences et contact."
+      content="Je suis Ethan Stasse, étudiant en BUT Informatique à Saint-Dié-des-Vosges. Découvrez mes projets en développement web, logiciel et jeux vidéo."
     />
     <link rel="icon" href="favicon.ico" />
-    <meta property="og:title" content="Ethan Stasse Developpeur web  Vosges" />
+    <meta
+      property="og:title"
+      content="Ethan Stasse — Développeur web en formation"
+    />
     <meta
       property="og:description"
-      content="Portfolio d'Ethan Stasse : projets, compétences et contact."
+      content="Étudiant en BUT Informatique à Saint-Dié-des-Vosges, je conçois des applications web, des logiciels et des expériences interactives."
     />
     <meta
       property="og:image"
@@ -32,10 +35,13 @@
       name="twitter:image"
       content="https://portfolio-stasse.infinityfreeapp.com/images/og.png"
     />
-    <meta name="twitter:title" content="Ethan Stasse Developpeur web  Vosges" />
+    <meta
+      name="twitter:title"
+      content="Ethan Stasse — Développeur web en formation"
+    />
     <meta
       name="twitter:description"
-      content="Portfolio d'Ethan Stasse : projets, compétences et contact."
+      content="Étudiant en BUT Informatique à Saint-Dié-des-Vosges, je conçois des applications web, des logiciels et des expériences interactives."
     />
     <link rel="stylesheet" href="style.css" />
     <script src="components.js" defer></script>
@@ -44,12 +50,156 @@
     <link rel="apple-touch-icon" href="/images/logo-192.png" />
     <meta name="theme-color" content="#121212" />
   </head>
-  <body>
+  <body class="home">
     <site-header></site-header>
 
-    <temp>
-      <h1>Site en construction</h1>
-    </temp>
+    <main class="home-main">
+      <section
+        class="home-hero home-hero--without-photo"
+        aria-labelledby="home-title"
+      >
+        <div class="home-intro">
+          <p class="home-eyebrow">Étudiant en BUT Informatique · Vosges</p>
+          <h1 id="home-title">
+            Je construis des projets
+            <span>qui donnent envie d'explorer.</span>
+          </h1>
+          <p class="home-lead">
+            Moi, c'est Ethan. Je conçois des applications web, des logiciels et
+            des expériences interactives, en donnant autant d'importance aux
+            idées qu'aux détails.
+          </p>
+          <div class="home-actions">
+            <a class="home-button" href="Project.html">
+              Découvrir mes projets <span aria-hidden="true">↗</span>
+            </a>
+            <a class="home-text-link" href="contact.html"
+              >Parlons de votre projet</a
+            >
+          </div>
+        </div>
+
+        <div
+          class="home-art"
+          hidden
+          aria-label="Carte graphique Ethan Stasse, développeur en formation"
+        >
+          <div class="home-art-orbit home-art-orbit-one"></div>
+          <div class="home-art-orbit home-art-orbit-two"></div>
+          <div class="home-art-card">
+            <span class="home-art-caption"
+              >Curieux de nature<br />orienté solutions</span
+            >
+            <span class="home-art-monogram" aria-hidden="true"
+              ><img src="" -- /><!--Faire une photo pro-->
+              /></span
+            >
+            <span class="home-art-name">Ethan Stasse</span>
+            <span class="home-art-role">Développement · Création · Idées</span>
+          </div>
+          <span class="home-art-note">Saint-Dié-des-Vosges<br /> </span>
+        </div>
+      </section>
+
+      <section class="home-focus" aria-label="Mes domaines d'intérêt">
+        <article>
+          <h2>Développement web</h2>
+          <p>
+            Des interfaces utiles et accessibles, reliées à des services et des
+            données.
+          </p>
+        </article>
+        <article>
+          <h2>Logiciels &amp; données</h2>
+          <p>
+            Des solutions structurées, pensées pour répondre à un besoin
+            concret.
+          </p>
+        </article>
+        <article>
+          <h2>Jeux &amp; expériences</h2>
+          <p>
+            J'aime aussi explorer les mécaniques de jeu et les univers
+            interactifs.
+          </p>
+        </article>
+      </section>
+
+      <section class="home-showcase" aria-labelledby="showcase-title">
+        <div class="home-showcase-image">
+          <img
+            src="images/projets/site_serre.png"
+            alt="Capture de l'interface de supervision de la serre connectée"
+            loading="lazy"
+          />
+        </div>
+        <div class="home-showcase-copy">
+          <p class="home-eyebrow">
+            Projet à la une · Web &amp; objets connectés
+          </p>
+          <h2 id="showcase-title">
+            Une serre connectée, du capteur à l'interface.
+          </h2>
+          <p>
+            Une application web pour suivre les capteurs et piloter une serre à
+            distance, avec une représentation 3D synchronisée.
+          </p>
+          <p class="home-tags">
+            Django REST <span>·</span> Three.js <span>·</span> Raspberry Pi
+          </p>
+          <a class="home-showcase-link" href="Project.html">
+            Voir le projet et les autres réalisations
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="home-more-projects" aria-labelledby="more-projects-title">
+        <div class="home-section-heading">
+          <div>
+            <p class="home-eyebrow">Quelques réalisations</p>
+            <h2 id="more-projects-title">Des idées mises en pratique.</h2>
+          </div>
+          <a class="home-text-link" href="Project.html">Tous les projets ↗</a>
+        </div>
+        <div class="home-project-grid">
+          <a class="home-project-card" href="Project.html">
+            <img
+              src="images/projets/coup_sifflet.jpg"
+              alt="Visuel du projet Coup de Sifflet, une application de vote sportif"
+              loading="lazy"
+            />
+            <span class="home-project-category">Application web · Vote</span>
+            <h3>Coup de Sifflet</h3>
+            <p>
+              Une plateforme de vote sportif avec gestion des électeurs et des
+              résultats.
+            </p>
+          </a>
+          <a class="home-project-card" href="Project.html">
+            <img
+              src="images/projets/saecine.png"
+              alt="Capture d'écran de l'application de vote cinématographique"
+              loading="lazy"
+            />
+            <span class="home-project-category">PHP · Qualité logicielle</span>
+            <h3>Audit d'une application de vote</h3>
+            <p>
+              Amélioration d'une application PHP/MySQL, avec conteneurisation et
+              tests.
+            </p>
+          </a>
+        </div>
+      </section>
+
+      <section class="home-contact" aria-labelledby="home-contact-title">
+        <p class="home-eyebrow">Une idée, une question ?</p>
+        <h2 id="home-contact-title">On en discute&nbsp;?</h2>
+        <a href="mailto:ethan.stasse@proton.me"
+          >ethan.stasse@proton.me <span aria-hidden="true">↗</span></a
+        >
+      </section>
+    </main>
 
     <site-footer></site-footer>
   </body>
