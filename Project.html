@@ -3,38 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projets Ethan Stasse</title>
+    <title>Projets — Ethan Stasse</title>
     <meta
       name="description"
-      content="Découvrir les projets de Ethan Stasse : applications web, logiciels et bases de données."
+      content="Découvrez les projets d'Ethan Stasse : applications web, logiciels et bases de données."
     />
-    <meta property="og:title" content="Projets  Ethan Stasse" />
+    <meta property="og:title" content="Projets — Ethan Stasse" />
     <meta
       property="og:description"
-      content="Découvrir les projets de Ethan Stasse : applications web, logiciels et bases de données."
+      content="Découvrez les projets d'Ethan Stasse : applications web, logiciels et bases de données."
     />
     <meta
       property="og:image"
-      content="https://portfolio-stasse.infinityfreeapp.com/images/og.png"
+      content="https://portfolio.ethanstasse.dev/images/og.png"
     />
     <meta
       property="og:url"
-      content="https://portfolio-stasse.infinityfreeapp.com/Project.html"
+      content="https://portfolio.ethanstasse.dev/Project.html"
     />
     <meta property="og:type" content="website" />
     <meta
       property="og:site_name"
-      content="Ethan Stasse Developpeur web  Vosges"
+      content="Ethan Stasse — Développeur web, Vosges"
+    />
+    <link
+      rel="canonical"
+      href="https://portfolio.ethanstasse.dev/Project.html"
     />
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:image"
-      content="https://portfolio-stasse.infinityfreeapp.com/images/og.png"
+      content="https://portfolio.ethanstasse.dev/images/og.png"
     />
-    <meta name="twitter:title" content="Projets  Ethan Stasse" />
+    <meta name="twitter:title" content="Projets — Ethan Stasse" />
     <meta
       name="twitter:description"
-      content="Découvrir les projets de Ethan Stasse : applications web, logiciels et bases de données."
+      content="Découvrez les projets d'Ethan Stasse : applications web, logiciels et bases de données."
     />
     <link rel="stylesheet" href="style.css" />
     <script src="components.js" defer></script>
@@ -61,6 +65,9 @@
           Tous
         </button>
         <button type="button" class="filter-btn" data-filter="web">Web</button>
+        <button type="button" class="filter-btn" data-filter="audit">
+          Audit
+        </button>
         <button type="button" class="filter-btn" data-filter="logiciel">
           Logiciel
         </button>
@@ -73,7 +80,9 @@
         </button>
       --></div>
 
-      <p class="projects-count"><span id="count">8</span> projets</p>
+      <p class="projects-count">
+        <span id="count">0</span> <span id="count-label">projets</span>
+      </p>
 
       <!-- ---------- Grille de projets ---------- -->
 
@@ -109,10 +118,7 @@
             <span class="project-category">Web</span>
             <span class="project-status status-termine">Terminé</span>
           </div>
-          <h3>
-            Coup de Sifflet‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎
-            Vote sportif en ligne
-          </h3>
+          <h3>Coup de Sifflet — Vote sportif en ligne</h3>
           <div class="project-image">
             <img
               src="images/projets/coup_sifflet.jpg"
@@ -126,22 +132,24 @@
             après validation.
           </p>
           <div class="project-tags">
-            <span class="tag">HTML / CSS / JavaScript</span>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
             <span class="tag">SQL</span>
             <span class="tag">Sécurité web</span>
           </div>
         </article>
 
-        <article class="project-card" data-category="web">
+        <article class="project-card" data-category="audit">
           <div class="project-top">
-            <span class="project-category">Web</span>
+            <span class="project-category">Audit</span>
             <span class="project-status status-termine">Terminé</span>
           </div>
-          <h3>Audit et amélioration d'une application de vote</h3>
+          <h3>Audit de SAECine, application de vote cinématographique</h3>
           <div class="project-image">
             <img
-              src="images/projets/saecine.png"
-              alt="Capture d'écran de l'application de vote"
+              src="images/projets/audit-vote-cinema.png"
+              alt="Capture de SAECine, application de vote cinématographique auditée"
             />
           </div>
           <p>
@@ -151,7 +159,8 @@
             renforcement de la robustesse avec 129 tests PHPUnit.
           </p>
           <div class="project-tags">
-            <span class="tag">PHP / MySQL</span>
+            <span class="tag">PHP</span>
+            <span class="tag">MySQL</span>
             <span class="tag">Docker</span>
             <span class="tag">PHPUnit</span>
           </div>
@@ -347,10 +356,7 @@
             <span class="project-category">Base de données</span>
             <span class="project-status status-termine">Terminé</span>
           </div>
-          <h3>
-            Base de données ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ Gestion de
-            supermarché
-          </h3>
+          <h3>Base de données — Gestion de supermarché</h3>
           <div class="project-image"></div>
           <p>
             Modèle relationnel complet (produits, clients, factures, employés,
@@ -371,6 +377,13 @@
       const filterBtns = document.querySelectorAll(".filter-btn");
       const cards = document.querySelectorAll(".project-card");
       const countEl = document.getElementById("count");
+      const countLabelEl = document.getElementById("count-label");
+      const updateCount = (count) => {
+        countEl.textContent = count;
+        countLabelEl.textContent = count === 1 ? "projet" : "projets";
+      };
+
+      updateCount(cards.length);
 
       filterBtns.forEach((btn) => {
         btn.addEventListener("click", () => {
@@ -386,7 +399,7 @@
             if (match) visibleCount++;
           });
 
-          countEl.textContent = visibleCount;
+          updateCount(visibleCount);
         });
       });
     </script>
