@@ -920,7 +920,9 @@ body.home {
   font-size: 0.88rem;
   font-weight: 700;
   text-decoration: none;
-  transition: transform 160ms ease, background-color 160ms ease;
+  transition:
+    transform 160ms ease,
+    background-color 160ms ease;
 }
 
 .home-button:hover {
