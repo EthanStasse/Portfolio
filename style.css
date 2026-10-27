@@ -361,6 +361,10 @@ footer h2 {
   color: rgb(255, 255, 255);
 }
 
+.home-main .internship-banner {
+  width: 100%;
+}
+
 .internship-message,
 .cv-message {
   margin: 0;
